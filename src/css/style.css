@@ -1,0 +1,15 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.upload-box {
+  border: .1rem dashed var(--bs-secondary-bg);
+  border-radius: 5px;
+  padding: 6rem;
+  text-align: center;
+  color: var(--bs-primary);
+  font-weight: bold;
+  cursor: pointer;
+}
