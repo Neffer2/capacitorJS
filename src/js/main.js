@@ -75,41 +75,45 @@ async function vibrate(){
 
 const writeSecretFile = async () => {    
 
-    let data = [
-        {photo: 'PRIMER LINK', desc: "PRIMERA DESCRIPCION"}        
-    ]
-    // await Filesystem.appendFile({
-    //     path: 'secrets/myArray.json',
-    //     data: {photo3: 'LINK', desc3: "DESCRIPCION"},
+    let photos = [];
+
+    // await Filesystem.deleteFile({
+    //     path: 'secrets/text.txt',
+    //   directory: Directory.Documents,
+    // });
+
+    // Verifico si hay algo en el FileSystem. 
+
+    const fileReader = new FileReader();
+    fileReader.readAsText('secrets/text.txt');
+    fileReader.onload = () => {
+        if (fileReader.result) {
+            alert("The file exists");
+        } else {
+            alert("The file does not exist");
+        }
+    };
+
+    // console.log(aux);
+
+    // con const { } me salto un paso y tomo los valores que están dentro del key "data"
+    // const { data } = await Filesystem.readFile({
+    //     path: 'secrets/text.txt',
     //     directory: Directory.Documents,
     //     encoding: Encoding.UTF8,
     // });
 
-    let auxData = await Filesystem.readFile({
-        path: 'secrets/myArray.json',
-        directory: Directory.Documents,
-        encoding: Encoding.UTF8,
-    });
-    
-    if (auxData.data){ 
-        console.log(auxData.data)       
-        auxData.push({photo: 'OTRO LINK', desc: "OTRA DESCRIPCION"});
-        data  = auxData;
-    }
+    // photos = JSON.parse(data);
+    // photos.push({photo: 'NUEVO', desc: "REGISTRO"});
 
-    await Filesystem.writeFile({
-        path: 'secrets/myArray.json',
-        data: [data],
-        directory: Directory.Documents,
-        encoding: Encoding.UTF8,
-    });
+    // await Filesystem.writeFile({
+    //     path: 'secrets/text.txt',
+    //     data: JSON.stringify(photos),
+    //     directory: Directory.Documents,
+    //     encoding: Encoding.UTF8,
+    // });
 
-    await Filesystem.writeFile({
-        path: 'secrets/myArray.json',
-        data: [data],
-        directory: Directory.Documents,
-        encoding: Encoding.UTF8,
-    });
+    // console.log(photos);
 };
 
 
