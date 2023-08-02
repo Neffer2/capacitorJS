@@ -1,7 +1,6 @@
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { Preferences } from '@capacitor/preferences';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
-
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 export const STORAGE_KEY = "my-images";
@@ -12,13 +11,13 @@ let imageElement = document.getElementById('captured-image');
 let description = document.getElementById('description');
 let uploadSection = document.getElementById('upload-section');
 let storeAction =  document.getElementById('store-action');
-
+ 
 const takePicture = async () => {
     const image = await Camera.getPhoto({
         quality: 90,
-        allowEditing: true,
+        allowEditing: false,
         resultType: CameraResultType.base64
-    });
+    }); 
 
     // image.webPath will contain a path that can be set as an image src.
     // You can access the original file using image.path, which can be
@@ -27,38 +26,59 @@ const takePicture = async () => {
     var image64 = image.base64String;
 
     // Can be set to the src of an image now
-    imageElement.src = `data:image/png;base64,${image64}`;
+    imageElement.src = `data:image\png;base64,${image64}`;
     uploadSection.style.display = "none";
+    imageElement.style.display = "block";
 };
 
-// Store
-const storeData = async () => {
+// STORE FILESYSTEM
+const writeSecretFile = async () => {    
     let image = imageElement.src;
     let desc = description.value;
 
-    // Load any stored previous data
+    let photos = [{id: 0, photo: image, desc: desc}];
+
+    // await Filesystem.deleteFile({
+    //     path: 'secrets/photos.txt',
+    //     directory: Directory.Documents,
+    // });
+
+    /* Verifico si existe el nombre del archivo dentro de la base de datos
+        ( Lo que significaría que ya existe un documento en FileSystem).
+    */
     const { value } = await Preferences.get({ key: STORAGE_KEY });
 
-    // Add the new image/description to the array
-    // or create a new array
-    // Then store the JSON.stringified() version to Preferences
-    if (value) {
-        const arr = JSON.parse(value);
-        arr.push({ image, desc });
-        await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify(arr) });
-    } else {
-        const arr = [
-            {
-                image,
-                desc,
-            },
-        ];
-        await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify(arr) });
+    if (value){
+        const { data } = await Filesystem.readFile({
+            path: 'secrets/photos.txt',
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+        });
+    
+        photos = JSON.parse(data);
+        photos.push({id: photos.length, photo: image, desc: desc});
+    }else {
+        await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: 'secrets/photos.txt'}) });
     }
 
+    appendData('secrets/photos.txt', photos);
     resetElems();
     vibrate();
+    // console.log(photos);
 };
+
+async function appendData(src, data){
+    await Filesystem.writeFile({
+        path: src,
+        data: JSON.stringify(data),
+        directory: Directory.Documents,
+        encoding: Encoding.UTF8,
+    });
+
+    // Evento para recargar
+    const bodyElem = document.querySelector("body");
+    bodyElem.dispatchEvent(new CustomEvent("reload-list"));
+}
 
 function resetElems(){
     uploadSection.style.display = "block";
@@ -68,55 +88,8 @@ function resetElems(){
 
 async function vibrate(){
     await Haptics.vibrate();
-    // checkName();
 }
 
-// FILESYSTEM
-
-const writeSecretFile = async () => {    
-
-    let photos = [];
-
-    // await Filesystem.deleteFile({
-    //     path: 'secrets/text.txt',
-    //   directory: Directory.Documents,
-    // });
-
-    // Verifico si hay algo en el FileSystem. 
-
-    const fileReader = new FileReader();
-    fileReader.readAsText('secrets/text.txt');
-    fileReader.onload = () => {
-        if (fileReader.result) {
-            alert("The file exists");
-        } else {
-            alert("The file does not exist");
-        }
-    };
-
-    // console.log(aux);
-
-    // con const { } me salto un paso y tomo los valores que están dentro del key "data"
-    // const { data } = await Filesystem.readFile({
-    //     path: 'secrets/text.txt',
-    //     directory: Directory.Documents,
-    //     encoding: Encoding.UTF8,
-    // });
-
-    // photos = JSON.parse(data);
-    // photos.push({photo: 'NUEVO', desc: "REGISTRO"});
-
-    // await Filesystem.writeFile({
-    //     path: 'secrets/text.txt',
-    //     data: JSON.stringify(photos),
-    //     directory: Directory.Documents,
-    //     encoding: Encoding.UTF8,
-    // });
-
-    // console.log(photos);
-};
-
-
-  // Events
+// Events
 uploadSection.addEventListener('click', takePicture);
 storeAction.addEventListener('click', writeSecretFile);

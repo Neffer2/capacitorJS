@@ -9,7 +9,6 @@ window.customElements.define(
                 nav { 
                     background-color: #0d6efd;
                     border: 1px solid #0d6efd;
-                    margin: 1px;
                 }
                 
                 nav a {
@@ -32,8 +31,7 @@ window.customElements.define(
                 <ul class="nav-menu">
                     <li><a class="nav-title" href="#">Phillip Morris</a></li>
                 </ul>
-            </nav>
-            
+            </nav>            
             `;
         }
     }

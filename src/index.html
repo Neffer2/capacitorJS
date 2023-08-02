@@ -20,20 +20,16 @@
     <meta name="theme-color" content="#31d53d" />
   </head>
   <body>
-    <custom-navbar>
-      <slot title="btn-text">
-        Soy un botón 😎
-      </slot>
-    </custom-navbar>
+    <custom-navbar></custom-navbar>
 
-    <div class="container mt-3">
+    <div class="container my-1">
       <div class="row gy-2">
         <div class="col-md-12">
-          <img id="captured-image" class="card-img-top">
+          <img id="captured-image" class="card-img-top" style="display: none;">
         </div>
         <div id="upload-section" class="col-md-12">
           <div class="upload-box">
-            <span>Capturar imagen</span>
+            <span>Capturar imagenn</span>
           </div>
         </div>
         <div class="col-md-12">
@@ -48,13 +44,16 @@
           </button>
         </div>
       </div>
+      
+      <div class="row">
+        <show-photos></show-photos>
+      </div>
     </div>
-    
     <!-- <capacitor-welcome></capacitor-welcome> -->
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="./js/capacitor-welcome.js" type="module"></script>
     <script src="./js/nabvar.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
+    <script src="./js/showPhotos.js" type="module"></script>
   </body>
 </html>
