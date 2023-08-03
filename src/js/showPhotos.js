@@ -1,4 +1,4 @@
-import { STORAGE_KEY } from './main';
+import { STORAGE_KEY, STORAGE_PATH } from './main';
 import { Preferences } from '@capacitor/preferences';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
@@ -79,7 +79,7 @@ window.customElements.define(
             const { value } = await Preferences.get({ key: STORAGE_KEY });
             if (value){
                 const { data } = await Filesystem.readFile({
-                    path: 'secrets/photos.txt',
+                    path: STORAGE_PATH,
                     directory: Directory.Documents,
                     encoding: Encoding.UTF8,
                 });            
@@ -98,7 +98,7 @@ window.customElements.define(
                         <textarea rows="2" cols="28" disabled>${ item.desc}</textarea>
                     </td>
                     <td style="text-align: center;">
-                        <button class="btn-delete">X</button>
+                        <button id="1" class="btn-delete">X</button>
                     </td>
                 </tr>
                 `

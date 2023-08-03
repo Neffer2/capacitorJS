@@ -20,24 +20,34 @@
     <meta name="theme-color" content="#31d53d" />
   </head>
   <body>
-    <div class="main-menu-top">
-        <a class="card" href="modulo1.html">
-            Modulo 1
-        </a>
-        <a class="card">
-            Modulo 2
-        </a>
-        <a class="card">
-            Modulo 3
-        </a>
-        <a class="card">
-            Modulo 4
-        </a>
-    </div>
-    <div class="main-menu-bottom">
-        <div class="card">
-            Modulo 5
+    <custom-navbar></custom-navbar>
+
+    <div class="container my-1">
+      <div class="row gy-2">
+        <div class="col-md-12">
+          <img id="captured-image" class="card-img-top" style="display: none;">
         </div>
+        <div id="upload-section" class="col-md-12">
+          <div class="upload-box">
+            <span>Capturar imagenn</span>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea id="description" cols="2" rows="2" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button id="store-action" class="btn btn-primary">
+            Guardar imagen
+          </button>
+        </div>
+      </div>
+      
+      <div class="row">
+        <show-photos></show-photos>
+      </div>
     </div>
     <!-- <capacitor-welcome></capacitor-welcome> -->
     
