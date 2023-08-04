@@ -13,18 +13,53 @@ export const STORAGE_PATHM3 = "PM3.txt"
 export const STORAGE_KEYM4 = "modulo4";
 export const STORAGE_PATHM4 = "PM4.txt"
 
+export const API_LINK = "http://localhost:8000/api/"
+
+
 // Buttons
 let sync = document.getElementById('sync-action');
 
 function mount(){
-    // syncM1();
+    syncM1();
     syncM2();
     syncM3();
     syncM4();
 }
 
 async function syncM1 (){
+    try {
+        const { data } = await Filesystem.readFile({
+            path: STORAGE_PATHM1,
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+        });
 
+        let dataModulo = JSON.parse(data);
+        
+        if (dataModulo.length){
+            const options = {
+                url: `${API_LINK}insertM1`,
+                headers: { 
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                 },
+                data: dataModulo,
+            };
+            
+            const response = await CapacitorHttp.post(options);
+            if (response.status == 200){
+                deleteData(STORAGE_PATHM1);
+                alert("Módulo 1 sincronizado con éxito.");    
+            }else {
+                alert("Opps! hubo un problema en el Módulo 1.");    
+            }
+        }else {
+            alert("Nada que sincronizar en el Módulo 1.");    
+        }
+    }catch(error){
+        console.log(error)
+        alert("No existe el módulo 1");
+    }
 }
 
 async function syncM2 (){
@@ -39,7 +74,7 @@ async function syncM2 (){
         
         if (dataModulo.length){
             const options = {
-                url: 'http://localhost:8000/api/insertM2',
+                url: `${API_LINK}insertM2`,
                 headers: { 
                   'Accept': 'application/json',
                   'Content-Type': 'application/json'
@@ -75,7 +110,7 @@ async function syncM3 (){
         
         if (dataModulo.length){
             const options = {
-                url: 'http://localhost:8000/api/insertM3',
+                url: `${API_LINK}insertM3`,
                 headers: { 
                   'Accept': 'application/json',
                   'Content-Type': 'application/json'
@@ -111,7 +146,7 @@ async function syncM4 (){
         
         if (dataModulo.length){
             const options = {
-                url: 'http://localhost:8000/api/insertM4',
+                url: `${API_LINK}insertM4`,
                 headers: { 
                   'Accept': 'application/json',
                   'Content-Type': 'application/json'
