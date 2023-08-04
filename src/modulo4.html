@@ -25,8 +25,18 @@
         <div class="row gy-2">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="marca">Marca: </label>
-                    <select name="marca" id="marca" class="form-control" required>
+                    <label for="presente">¿La marca esta presente en el punto de venta?: </label>
+                    <select name="presente" id="presente" class="form-control" required>
+                        <option value="">Seleccionar</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="inv_marca">Inventario por marca: </label>
+                    <select name="inv_marca" id="inv_marca" class="form-control" required>
                         <option value="">Seleccionar</option>
                         <option value="Opcion 1">Opcion 1</option>
                     </select>
@@ -34,59 +44,11 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="ciudad">Ciudad: </label>
-                    <select name="ciudad" id="ciudad" class="form-control" required>
+                    <label for="agotados_marca">Indique si hay agotados por marca: </label>
+                    <select name="agotados_marca" id="agotados_marca" class="form-control" required>
                         <option value="">Seleccionar</option>
                         <option value="Opcion 1">Opcion 1</option>
                     </select>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="pdv">Punto de venta: </label>
-                    <select name="pdv" id="pdv" class="form-control" required>
-                        <option value="">Seleccionar</option>
-                        <option value="Opcion 1">Opcion 1</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="mes">Mes: </label>
-                    <select name="mes" id="mes" class="form-control" required>
-                        <option value="">Seleccionar</option>
-                        <option value="Opcion 1">Opcion 1</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="semana">Semana: </label>
-                    <select name="semana" id="semana" class="form-control" required>
-                        <option value="">Seleccionar</option>
-                        <option value="Opcion 1">Opcion 1</option>
-                    </select>
-                </div>
-            </div> 
-
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <img id="selfiePDV" class="card-img-top" style="display: none;">
-                </div>
-                <div id="selfiePDVBox" class="col-md-12">
-                    <div class="upload-box">
-                        <span>Selfie PDV</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <img id="fotoFachada" class="card-img-top" style="display: none;">
-                </div>
-                <div id="fotoFachadaBox" class="col-md-12">
-                    <div class="upload-box">
-                        <span>Foto Fachada</span>
-                    </div>
                 </div>
             </div>
             
@@ -105,7 +67,7 @@
     <!-- <capacitor-welcome></capacitor-welcome> -->
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>    
-    <script src="./js/modulos/modulo1.js" type="module"></script>
+    <script src="./js/modulos/modulo4.js" type="module"></script>
     <script src="./js/nabvar.js" type="module"></script>
   </body>
 </html>

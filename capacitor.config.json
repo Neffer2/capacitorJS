@@ -1,14 +1,17 @@
 {
   "appId": "com.bullmarketing.myapp",
-  "appName": "my-app",
+  "appName": "PMDCA",
   "bundledWebRuntime": false,
   "webDir": "dist",
+  "server": {
+    "allowNavigation": []
+  },
   "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 0
-    },
     "CapacitorHttp": {
       "enabled": true
+    },
+    "SplashScreen": {
+      "launchShowDuration": 0
     }
   }
 }
