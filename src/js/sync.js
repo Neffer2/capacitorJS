@@ -19,103 +19,134 @@ let sync = document.getElementById('sync-action');
 function mount(){
     // syncM1();
     syncM2();
-    // syncM3();
-    // syncM4();
+    syncM3();
+    syncM4();
 }
 
 async function syncM1 (){
-    const { data } = await Filesystem.readFile({
-        path: STORAGE_PATHM1,
-        directory: Directory.Documents,
-        encoding: Encoding.UTF8,
-    });
 
-    let dataModulo = JSON.parse(data);
-    console.log("M1");
-    console.log(dataModulo);
 }
 
 async function syncM2 (){
-    const { data } = await Filesystem.readFile({
-        path: STORAGE_PATHM2,
-        directory: Directory.Documents,
-        encoding: Encoding.UTF8,
-    });
- 
-    let dataModulo = JSON.parse(data);
-    console.log("M2");
-    // console.log(dataModulo);
+    try {
+        const { data } = await Filesystem.readFile({
+            path: STORAGE_PATHM2,
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+        });
 
-    // Example of a POST request. Note: data
-    // can be passed as a raw JS Object (must be JSON serializable)
-    // const options = {
-    //     url: 'https://pokeapi.co/api/v2/pokemon/ditto',
-    //     headers: { 'X-Fake-Header': 'Fake-Value' },
-    //     params: { size: 'XL' },
-    // };
-
-    // const response = await CapacitorHttp.request({ options, method: 'GET' });
-    // console.log(response);
-    // doGet();
-    doPost();
+        let dataModulo = JSON.parse(data);
+        
+        if (dataModulo.length){
+            const options = {
+                url: 'http://localhost:8000/api/insertM2',
+                headers: { 
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                 },
+                data: dataModulo,
+            };
+            
+            const response = await CapacitorHttp.post(options);
+            if (response.status == 200){
+                deleteData(STORAGE_PATHM2);
+                alert("Módulo Ventas abordaje sincronizado con éxito.");    
+            }else {
+                alert("Opps! hubo un problema en el Módulo Ventas abordaje.");    
+            }
+        }else {
+            alert("Nada que sincronizar en módulo Ventas abordaje.");    
+        }
+    }catch(error){
+        console.log(error)
+        alert("No existe el módulo Ventas abordaje");
+    }
 }
-
-async function doGet (){
-    const options = {
-      url: 'https://desarrolloiglu.com/api/users',
-      headers: { 
-        'Content-Type': 'application/json',
-      },
-      params: { },
-    };
   
-    // or...
-    
-    const response = await CapacitorHttp.get(options);
-    console.log(response);
-};
-
-
-async function doPost (){
-    const options = {
-      url: 'http://localhost:8000/api/login',
-      headers: { 
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-       },
-      data: {email: "n3f73r@asdas.com", password: "asdasd"},
-    };
-  
-    // or...
-    const response = await CapacitorHttp.post(options);
-    console.log(response);
-};
-  
-
 async function syncM3 (){
-    const { data } = await Filesystem.readFile({
-        path: STORAGE_PATHM3,
-        directory: Directory.Documents,
-        encoding: Encoding.UTF8,
-    });
+    try {
+        const { data } = await Filesystem.readFile({
+            path: STORAGE_PATHM3,
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+        });
 
-    let dataModulo = JSON.parse(data);
-    console.log("M3");
-    console.log(dataModulo);
+        let dataModulo = JSON.parse(data);
+        
+        if (dataModulo.length){
+            const options = {
+                url: 'http://localhost:8000/api/insertM3',
+                headers: { 
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                 },
+                data: dataModulo,
+            };
+            
+            const response = await CapacitorHttp.post(options);
+            if (response.status == 200){
+                deleteData(STORAGE_PATHM3);
+                alert("Módulo Competencia de producto sincronizado con éxito.");    
+            }else {
+                alert("Opps! hubo un problema en el Módulo Competencia");
+            }
+        }else {
+            alert("Nada que sincronizar en el módulo Competencia.");    
+        }
+    }catch(error){
+        console.log(error)
+        alert("No existe el módulo Competencia");
+    }
 }
 
 async function syncM4 (){
-    const { data } = await Filesystem.readFile({
-        path: STORAGE_PATHM4,
-        directory: Directory.Documents,
-        encoding: Encoding.UTF8,
-    });
+    try {
+        const { data } = await Filesystem.readFile({
+            path: STORAGE_PATHM4,
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+        });
 
-    let dataModulo = JSON.parse(data);
-    console.log("M4");
-    console.log(dataModulo);
+        let dataModulo = JSON.parse(data);
+        
+        if (dataModulo.length){
+            const options = {
+                url: 'http://localhost:8000/api/insertM4',
+                headers: { 
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                 },
+                data: dataModulo,
+            };
+            
+            const response = await CapacitorHttp.post(options);
+            if (response.status == 200){
+                deleteData(STORAGE_PATHM4);
+                alert("Módulo Disponibilidad de producto sincronizado con éxito.");    
+            }else {
+                alert("Opps! hubo un problema en el Módulo Disponibilidad de producto");
+            }
+        }else {
+            alert("Nada que sincronizar en el módulo Disponibilidad de producto.");    
+        }
+    }catch(error){
+        console.log(error)
+        alert("No existe el módulo Disponibilidad de producto");
+    }
 }
 
+async function deleteData(src){
+    try {
+        await Filesystem.writeFile({
+            path: src,
+            data: JSON.stringify([]),
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+        });    
+    }catch(error){
+        alert("Opps! tenemos un problema.");
+    }
+}
 
 // Events
 sync.addEventListener('click', mount);

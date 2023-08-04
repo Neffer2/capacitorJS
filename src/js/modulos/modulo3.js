@@ -34,7 +34,7 @@ async function store (){
             tipo_visibilidad: tipo_visibilidad.value,
             visibilidad_competencia: visibilidad_competencia.value,
             tipo_visibilidad_competencia: tipo_visibilidad_competencia.value,
-            foto_visibilidad_marca: foto_visibilidad_marca.value,
+            foto_visibilidad_marca: foto_visibilidad_marca.src,
             foto_visibilidad_competencia: foto_visibilidad_competencia.src,
         }]; 
 
@@ -63,7 +63,7 @@ async function store (){
                 tipo_visibilidad: tipo_visibilidad.value,
                 visibilidad_competencia: visibilidad_competencia.value,
                 tipo_visibilidad_competencia: tipo_visibilidad_competencia.value,
-                foto_visibilidad_marca: foto_visibilidad_marca.value,
+                foto_visibilidad_marca: foto_visibilidad_marca.src,
                 foto_visibilidad_competencia: foto_visibilidad_competencia.src,
             });
         }else {

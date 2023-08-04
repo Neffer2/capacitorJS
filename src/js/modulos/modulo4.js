@@ -20,9 +20,9 @@ async function store (){
     if (validation()){
         let dataModulo = [{
             id: 0,
-            marca: presente.value,
-            num_abordadas: inv_marca.value,
-            num_ventas: agotados_marca.value
+            presente: presente.value,
+            inv_marca: inv_marca.value,
+            agotados_marca: agotados_marca.value
         }]; 
 
         // await Filesystem.deleteFile({
@@ -45,9 +45,9 @@ async function store (){
             dataModulo = JSON.parse(data);
             dataModulo.push({
                 id: dataModulo.length,
-                marca: presente.value,
-                num_abordadas: inv_marca.value,
-                num_ventas: agotados_marca.value
+                presente: presente.value,
+                inv_marca: inv_marca.value,
+                agotados_marca: agotados_marca.value
             });
         }else {
             await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
