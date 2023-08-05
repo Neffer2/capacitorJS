@@ -8,11 +8,14 @@ export const STORAGE_PATH = "PM1.txt";
 const QUALITY = 30;
 
 // Elems
-let marca = document.getElementById('marca');
+let marca = document.getElementById('marca'); 
 let ciudad = document.getElementById('ciudad');
 let pdv = document.getElementById('pdv');
+let fechaVisita = document.getElementById('fechaVisita');
 let mes = document.getElementById('mes');
 let semana = document.getElementById('semana');
+let estrato = document.getElementById('estrato');
+let barrio = document.getElementById('barrio');
 let selfiePDV = document.getElementById('selfiePDV');
 let fotoFachada = document.getElementById('fotoFachada');
 
@@ -23,7 +26,7 @@ let fotoFachadaBox = document.getElementById('fotoFachadaBox');
 let btnStore = document.getElementById('store');
 let btnReset = document.getElementById('reset');
 
-let elems = [marca, ciudad, pdv, mes, semana];
+let elems = [marca, ciudad, pdv, fechaVisita, mes, semana, estrato, barrio];
 let photos = [selfiePDV, fotoFachada];
 
 async function store (){
@@ -33,8 +36,11 @@ async function store (){
             marca: marca.value,
             ciudad: ciudad.value,
             pdv: pdv.value,
+            fechaVisita: fechaVisita.value,
             mes: mes.value,
             semana: semana.value,
+            estrato: estrato.value,
+            barrio: barrio.value.toUpperCase(),
             selfiePDV: selfiePDV.src,
             fotoFachada: fotoFachada.src,
         }]; 
@@ -63,8 +69,11 @@ async function store (){
                 marca: marca.value,
                 ciudad: ciudad.value,
                 pdv: pdv.value,
+                fechaVisita: fechaVisita.value,
                 mes: mes.value,
                 semana: semana.value,
+                estrato: estrato.value,
+                barrio: barrio.value.toUpperCase(),
                 selfiePDV: selfiePDV.src,
                 fotoFachada: fotoFachada.src,
             });

@@ -4,20 +4,25 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 export const STORAGE_KEY = "modulo2";
 export const STORAGE_PATH = "PM2.txt";
-
+ 
 // Elems
 let marca = document.getElementById('marca');
 let num_abordadas = document.getElementById('num_abordadas');
-let num_ventas = document.getElementById('num_ventas');
 let tipo_producto = document.getElementById('tipo_producto');
-let num_ventas_competencia = document.getElementById('num_ventas_competencia');
 let presentacion = document.getElementById('presentacion');
+let num_ventas = document.getElementById('num_ventas');
+
+let gifus = document.getElementById('gifus');
+let genero = document.getElementById('genero');
+let edad = document.getElementById('edad');
+
+let num_ventas_competencia = document.getElementById('num_ventas_competencia');
 
 // BUTTONS
 let btnStore = document.getElementById('store');
 let btnReset = document.getElementById('reset');
  
-let elems = [marca, num_abordadas, num_ventas, tipo_producto, num_ventas_competencia, presentacion];
+let elems = [marca, num_abordadas, num_ventas, tipo_producto, num_ventas_competencia, presentacion, gifus, genero, edad];
  
 async function store (){
     if (validation()){
@@ -29,6 +34,9 @@ async function store (){
             tipo_producto: tipo_producto.value,
             num_ventas_competencia: num_ventas_competencia.value,
             presentacion: presentacion.value,
+            gifus: gifus.value,
+            genero: genero.value,
+            edad: edad.value
         }]; 
 
         // await Filesystem.deleteFile({
@@ -57,6 +65,9 @@ async function store (){
                 tipo_producto: tipo_producto.value,
                 num_ventas_competencia: num_ventas_competencia.value,
                 presentacion: presentacion.value,
+                gifus: gifus.value,
+                genero: genero.value,
+                edad: edad.value
             });
         }else {
             await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
@@ -100,7 +111,7 @@ function validation (){
     });
 
     return validator;
-}
+} 
 
 function reset(){
     elems.forEach((elem) => {
@@ -108,6 +119,17 @@ function reset(){
     });
 }
 
+function list500(elem){
+    elem.innerHTML += `<option value="">Seleccionar</option>`;
+
+    let cont = 1;
+    while(cont <= 500){
+        elem.innerHTML += `<option value="${cont}">${cont}</option>`;
+        cont++;
+    }
+}
+
 // Events
 btnStore.addEventListener('click', store);
 btnReset.addEventListener('click', reset);
+window.onload = list500(num_abordadas), list500(num_ventas), list500(gifus), list500(num_ventas_competencia);

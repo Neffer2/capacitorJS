@@ -49,20 +49,20 @@ async function syncM1 (){
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
                 deleteData(STORAGE_PATHM1);
-                alert("Módulo 1 sincronizado con éxito.");    
+                alert("Módulo Ejecución de la actividad sincronizado con éxito.");    
             }else {
-                alert("Opps! hubo un problema en el Módulo 1.");    
+                alert("Opps! hubo un problema en el Módulo Ejecución de la actividad.");    
             }
         }else {
-            alert("Nada que sincronizar en el Módulo 1.");    
+            alert("Nada que sincronizar en el Módulo Ejecución de la actividad.");    
         }
     }catch(error){
         console.log(error)
-        alert("No existe el módulo 1");
+        alert("No existe el módulo Ejecución de la actividad");
     }
 }
 
-async function syncM2 (){
+async function syncM2 (){ 
     try {
         const { data } = await Filesystem.readFile({
             path: STORAGE_PATHM2,

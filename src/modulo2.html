@@ -28,55 +28,125 @@
                     <label for="marca">Marca: </label>
                     <select name="marca" id="marca" class="form-control" required>
                         <option value="">Seleccionar</option>
-                        <option value="Opcion 1">Opcion 1</option>
+                        <option value="IQOS">IQOS</option>
+                        <option value="BONDS">BONDS</option>
+                        <option value="MALBORO">MALBORO</option>
+                        <option value="CHESTERFIELD">CHESTERFIELD</option>
+                        <option value="L&M">L&M</option>
                     </select>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="num_abordadas">N&uacute;mero de personas abordadas: </label>
-                    <select name="num_abordadas" id="num_abordadas" class="form-control" required>
+                    <select name="num_abordadas" id="num_abordadas" class="form-control" required></select>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="tipo_producto">Tipo de producto ofrecido: </label>
+                    <select name="tipo_producto" id="tipo_producto" class="form-control" required>
                         <option value="">Seleccionar</option>
-                        <option value="Opcion 1">Opcion 1</option>
+                        <optgroup label="L&M">
+                            <option value="L&M BLUE">L&M BLUE</option>
+                            <option value="L&M PURPLE">L&M PURPLE</option>
+                            <option value="L&M RED">L&M RED</option>
+                            <option value="L&M SILVER">L&M SILVER</option>
+                            <option value="L&M WARREGO">L&M WARREGO</option>
+                            <option value="L&M BLUE">L&M BLUE</option>
+                        </optgroup>
+                        <optgroup label="CHESTERFIELD">
+                            <option value="CHESTERFIELD PURPLE 10">CHESTERFIELD PURPLE 10</option>
+                            <option value="CHESTERFIELD PURPLE 20">CHESTERFIELD PURPLE 20</option>
+                            <option value="CHESTERFIELD GREEN 10">CHESTERFIELD GREEN 10</option>
+                            <option value="CHESTERFIELD GREEN 20">CHESTERFIELD GREEN 20</option>
+                            <option value="CHESTERFIELD BLUE 10">CHESTERFIELD BLUE 10</option>
+                            <option value="CHESTERFIELD BLUE 20">CHESTERFIELD BLUE 20</option>
+                        </optgroup>
+                        <optgroup label="MALBORO">
+                            <option value="MALBORO ROJO">MALBORO ROJO</option>
+                            <option value="MALBORO VERDE">MALBORO VERDE</option>
+                            <option value="MALBORO AZUL">MALBORO AZUL</option>
+                        </optgroup>
+                        <optgroup label="IQOS">
+                            <option value="LUCKY STRIKE BLUE 10">LUCKY STRIKE BLUE 10</option>
+                            <option value="LUCKY STRIKE BLUE 20">LUCKY STRIKE BLUE 20</option>
+                            <option value="LUCKY STRIKE FEST 10">LUCKY STRIKE FEST 10</option>
+                            <option value="LUCKY STRIKE FEST 20">LUCKY STRIKE FEST 20</option>
+                            <option value="LUCKY STRIKE GIN 10">LUCKY STRIKE GIN 10</option>
+                            <option value="LUCKY STRIKE GIN 20">LUCKY STRIKE MOJITO 10</option>
+                            <option value="LUCKY STRIKE MOJITO 20">LUCKY STRIKE MOJITO 20</option>
+                        </optgroup>
+                        <optgroup label="BONDS">
+                            <option value="ROTHMANS AZUL 10">ROTHMANS AZUL 10</option>
+                            <option value="ROTHMANS AZUL 20">ROTHMANS AZUL 20</option>
+                            <option value="ROTHMANS VERDE 10">ROTHMANS VERDE 10</option>
+                            <option value="ROTHMANS VERDE 20">ROTHMANS VERDE 20</option>
+                            <option value="ROTHMANS BLANCO 10">ROTHMANS BLANCO 10</option>
+                            <option value="ROTHMANS BLANCO 20">ROTHMANS BLANCO 20</option>
+                            <option value="ROTHMANS PURPLE 10">ROTHMANS PURPLE 10</option>
+                            <option value="ROTHMANS PURPLE 20">ROTHMANS PURPLE 20</option>
+                            <option value="STARLITE 10">STARLITE 10</option>
+                            <option value="STARLITE 20">STARLITE 20</option>
+                        </optgroup>
                     </select>
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="presentacion">Presentaci&oacute;n vendida: </label>
+                    <select name="presentacion" id="presentacion" class="form-control" required>
+                        <option value="">Seleccionar</option>
+                        <option value="Stick 10s">Stick 10s</option>
+                        <option value="Stick 20s">Stick 20s</option>
+                    </select>
+                </div>
+            </div>  
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="num_ventas">N&uacute;mero de ventas: </label>
-                    <select name="num_ventas" id="num_ventas" class="form-control" required>
-                        <option value="">Seleccionar</option>
-                        <option value="Opcion 1">Opcion 1</option>
-                    </select>
+                    <select name="num_ventas" id="num_ventas" class="form-control" required></select>
+                </div>
+            </div>                  
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="gifus">Gifus ofrecidos: </label>
+                    <select name="gifus" id="gifus" class="form-control" required></select>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="tipo_producto">Tipo de producto: </label>
-                    <select name="tipo_producto" id="tipo_producto" class="form-control" required>
+                    <label for="genero">G&eacute;nero: </label>
+                    <select name="genero" id="genero" class="form-control" required>
                         <option value="">Seleccionar</option>
-                        <option value="Opcion 1">Opcion 1</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="num_ventas_competencia">N&uacute;mero de ventas competencia: </label>
-                    <select name="num_ventas_competencia" id="num_ventas_competencia" class="form-control" required>
-                        <option value="">Seleccionar</option>
-                        <option value="Opcion 1">Opcion 1</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
                     </select>
                 </div>
             </div> 
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="presentacion">Presentaci&oacute;n: </label>
-                    <select name="presentacion" id="presentacion" class="form-control" required>
+                    <label for="edad">Rango de edad: </label>
+                    <select name="edad" id="edad" class="form-control" required>
                         <option value="">Seleccionar</option>
-                        <option value="Opcion 1">Opcion 1</option>
+                        <option value="18-22">18-22</option>
+                        <option value="23-27">23-27</option>
+                        <option value="28-32">28-32</option>
+                        <option value="33-37">33-37</option>
+                        <option value="38-42">38-42</option>
+                        <option value="43-47">43-47</option>
+                        <option value="48-52">48-52</option>
+                        <option value="53">Mas de 52</option>
                     </select>
                 </div>
             </div> 
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="num_ventas_competencia">N&uacute;mero de ventas de la competencia: </label>
+                    <select name="num_ventas_competencia" id="num_ventas_competencia" class="form-control" required></select>
+                </div>
+            </div> 
+            
             
             <div class="d-grid gap-2">
                 <button id="store" class="btn btn-primary">
