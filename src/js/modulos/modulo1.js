@@ -43,6 +43,7 @@ async function store (){
             barrio: barrio.value.toUpperCase(),
             selfiePDV: selfiePDV.src,
             fotoFachada: fotoFachada.src,
+            novedades: null
         }]; 
 
         // await Filesystem.deleteFile({
@@ -76,6 +77,7 @@ async function store (){
                 barrio: barrio.value.toUpperCase(),
                 selfiePDV: selfiePDV.src,
                 fotoFachada: fotoFachada.src,
+                novedades: null
             });
         }else {
             await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });

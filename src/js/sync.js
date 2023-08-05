@@ -20,9 +20,9 @@ export const API_LINK = "http://localhost:8000/api/"
 let sync = document.getElementById('sync-action');
 
 function mount(){
-    syncM1();
-    syncM2();
-    syncM3();
+    // syncM1();
+    // syncM2();
+    // syncM3();
     syncM4();
 }
 
