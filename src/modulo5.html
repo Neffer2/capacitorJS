@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Awesome Capacitor App</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script type="module" src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js" ></script>
+    <script nomodule src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <meta name="theme-color" content="#31d53d" />
+  </head>
+  <body>
+    <custom-navbar></custom-navbar>
+    <div class="container my-2">
+      <div class="row gy-2">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="tipo_producto">Tipo de producto ofrecido: </label>
+                <select name="tipo_producto" id="tipo_producto" class="form-control" required>
+                    <option value="">Seleccionar</option>
+                    <optgroup label="L&M">
+                        <option value="L&M BLUE">L&M BLUE</option>
+                        <option value="L&M PURPLE">L&M PURPLE</option>
+                        <option value="L&M RED">L&M RED</option>
+                        <option value="L&M SILVER">L&M SILVER</option>
+                        <option value="L&M WARREGO">L&M WARREGO</option>
+                        <option value="L&M BLUE">L&M BLUE</option>
+                    </optgroup>
+                    <optgroup label="CHESTERFIELD">
+                        <option value="CHESTERFIELD PURPLE 10">CHESTERFIELD PURPLE 10</option>
+                        <option value="CHESTERFIELD PURPLE 20">CHESTERFIELD PURPLE 20</option>
+                        <option value="CHESTERFIELD GREEN 10">CHESTERFIELD GREEN 10</option>
+                        <option value="CHESTERFIELD GREEN 20">CHESTERFIELD GREEN 20</option>
+                        <option value="CHESTERFIELD BLUE 10">CHESTERFIELD BLUE 10</option>
+                        <option value="CHESTERFIELD BLUE 20">CHESTERFIELD BLUE 20</option>
+                    </optgroup>
+                    <optgroup label="MALBORO">
+                        <option value="MALBORO ROJO">MALBORO ROJO</option>
+                        <option value="MALBORO VERDE">MALBORO VERDE</option>
+                        <option value="MALBORO AZUL">MALBORO AZUL</option>
+                    </optgroup>
+                    <optgroup label="IQOS">
+                        <option value="LUCKY STRIKE BLUE 10">LUCKY STRIKE BLUE 10</option>
+                        <option value="LUCKY STRIKE BLUE 20">LUCKY STRIKE BLUE 20</option>
+                        <option value="LUCKY STRIKE FEST 10">LUCKY STRIKE FEST 10</option>
+                        <option value="LUCKY STRIKE FEST 20">LUCKY STRIKE FEST 20</option>
+                        <option value="LUCKY STRIKE GIN 10">LUCKY STRIKE GIN 10</option>
+                        <option value="LUCKY STRIKE GIN 20">LUCKY STRIKE MOJITO 10</option>
+                        <option value="LUCKY STRIKE MOJITO 20">LUCKY STRIKE MOJITO 20</option>
+                    </optgroup>
+                    <optgroup label="BONDS">
+                        <option value="ROTHMANS AZUL 10">ROTHMANS AZUL 10</option>
+                        <option value="ROTHMANS AZUL 20">ROTHMANS AZUL 20</option>
+                        <option value="ROTHMANS VERDE 10">ROTHMANS VERDE 10</option>
+                        <option value="ROTHMANS VERDE 20">ROTHMANS VERDE 20</option>
+                        <option value="ROTHMANS BLANCO 10">ROTHMANS BLANCO 10</option>
+                        <option value="ROTHMANS BLANCO 20">ROTHMANS BLANCO 20</option>
+                        <option value="ROTHMANS PURPLE 10">ROTHMANS PURPLE 10</option>
+                        <option value="ROTHMANS PURPLE 20">ROTHMANS PURPLE 20</option>
+                        <option value="STARLITE 10">STARLITE 10</option>
+                        <option value="STARLITE 20">STARLITE 20</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="precio">Precio</label>
+            <input type="number" name="precio" id="precio" class="form-control">
+          </div>
+        </div>
+            
+        <div class="d-grid gap-2">
+            <button id="store" class="btn btn-primary">
+              Enviar
+            </button>
+        </div>
+        <div class="d-grid gap-2">
+          <button id="reset" class="btn btn-danger">
+            Limpiar
+          </button>
+        </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>    
+    <script src="./js/modulos/modulo5.js" type="module"></script>
+    <script src="./js/nabvar.js" type="module"></script>
+  </body>
+</html>

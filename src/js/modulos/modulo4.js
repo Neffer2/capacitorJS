@@ -39,7 +39,7 @@ let CHESTERFIELDPURPLE20 = document.getElementById('CHESTERFIELDPURPLE20');
 let CHESTERFIELDGREEN10 = document.getElementById('CHESTERFIELDGREEN10');
 let CHESTERFIELDGREEN20 = document.getElementById('CHESTERFIELDGREEN20');
 let CHESTERFIELDBLUE10 = document.getElementById('CHESTERFIELDBLUE10');
-let CHESTERFIELDBLUE20 = document.getElementById('CHESTERFIELDBLUE10');
+let CHESTERFIELDBLUE20 = document.getElementById('CHESTERFIELDBLUE20');
 
 
 // BUTTONS
@@ -116,7 +116,8 @@ async function store (){
             CHESTERFIELDGREEN10: CHESTERFIELDGREEN10.value,
             CHESTERFIELDGREEN20: CHESTERFIELDGREEN20.value,
             CHESTERFIELDBLUE10: CHESTERFIELDBLUE10.value,
-            CHESTERFIELDBLUE20: CHESTERFIELDBLUE20.value              
+            CHESTERFIELDBLUE20: CHESTERFIELDBLUE20.value,
+            CHESTERFIELDBLUE20:CHESTERFIELDBLUE20.value            
         }]; 
 
         // await Filesystem.deleteFile({
@@ -171,7 +172,8 @@ async function store (){
                 CHESTERFIELDGREEN10: CHESTERFIELDGREEN10.value,
                 CHESTERFIELDGREEN20: CHESTERFIELDGREEN20.value,
                 CHESTERFIELDBLUE10: CHESTERFIELDBLUE10.value,
-                CHESTERFIELDBLUE20: CHESTERFIELDBLUE20.value              
+                CHESTERFIELDBLUE20: CHESTERFIELDBLUE20.value,
+                CHESTERFIELDBLUE20:CHESTERFIELDBLUE20.value              
             });
         }else {
             await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
@@ -219,6 +221,12 @@ function validation (){
 
 function reset(){
     elems.forEach((elem) => {
+        elem.value = "";
+    }); 
+}
+
+function mount(){
+    elems.forEach((elem) => {
         elem.value = "0";
     });
 }
@@ -226,3 +234,5 @@ function reset(){
 // Events
 btnStore.addEventListener('click', store);
 btnReset.addEventListener('click', reset);
+
+window.onload = mount();

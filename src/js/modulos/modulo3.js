@@ -6,7 +6,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 export const STORAGE_KEY = "modulo3";
 export const STORAGE_PATH = "PM3.txt";
 const QUALITY = 30;
-
+ 
 // Elems 
 let visibilidad = document.getElementById('visibilidad');
 let tipo_visibilidad = document.getElementById('tipo_visibilidad');
@@ -135,7 +135,7 @@ function validation (){
     photos.forEach((elem) => {
         if (elem.src === ""){
             validator = false;
-        }
+        } 
     });
 
     return validator;
