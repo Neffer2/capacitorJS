@@ -14,6 +14,8 @@ export default defineConfig({
         module2: resolve(__dirname, 'src/modulo2.html'),
         module3: resolve(__dirname, 'src/modulo3.html'),
         module4: resolve(__dirname, 'src/modulo4.html'),
+        module5: resolve(__dirname, 'src/modulo5.html'),
+        sync: resolve(__dirname, 'src/sync.html'),
         moduleNovedades: resolve(__dirname, 'src/modulo-novedades.html'),
       },
     },

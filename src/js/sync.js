@@ -17,8 +17,8 @@ export const STORAGE_PATHM4 = "PM4.txt";
 export const STORAGE_KEYM5 = "modulo5";
 export const STORAGE_PATHM5 = "PM5.txt";
 
-export const API_LINK = "http://localhost:8000/api/"
-export const API_AUTH = "http://localhost:8000/api/login"
+export const API_LINK = "https://desarrolloiglu.com/api/"
+export const API_AUTH = "https://desarrolloiglu.com/api/login";
 
  // Elems
 let email = document.getElementById('email'); 
@@ -50,11 +50,11 @@ async function mount(){
                 
                 const response = await CapacitorHttp.post(options);
                 if (response.data.status){
-                    syncM1();
-                    syncM2();
-                    syncM3();
-                    syncM4();
-                    syncM5();
+                    syncM1(response.data.id);
+                    syncM2(response.data.id);
+                    syncM3(response.data.id);
+                    syncM4(response.data.id);
+                    syncM5(response.data.id);
                 }else {
                     alert("Usuario no encontrado");
                 }
@@ -67,7 +67,7 @@ async function mount(){
     }
 }
 
-async function syncM1 (){
+async function syncM1 (id){
     try {
         const { data } = await Filesystem.readFile({
             path: STORAGE_PATHM1,
@@ -76,6 +76,10 @@ async function syncM1 (){
         });
 
         let dataModulo = JSON.parse(data);
+
+        dataModulo.forEach((item) => {
+            item.id = id;
+        });
         
         if (dataModulo.length){
             const options = {
@@ -102,7 +106,7 @@ async function syncM1 (){
     }
 }
 
-async function syncM2 (){ 
+async function syncM2 (id){ 
     try {
         const { data } = await Filesystem.readFile({
             path: STORAGE_PATHM2,
@@ -111,6 +115,10 @@ async function syncM2 (){
         });
 
         let dataModulo = JSON.parse(data);
+
+        dataModulo.forEach((item) => {
+            item.id = id;
+        });
         
         if (dataModulo.length){
             const options = {
@@ -137,7 +145,7 @@ async function syncM2 (){
     }
 }
   
-async function syncM3 (){
+async function syncM3 (id){
     try {
         const { data } = await Filesystem.readFile({
             path: STORAGE_PATHM3,
@@ -146,6 +154,10 @@ async function syncM3 (){
         });
 
         let dataModulo = JSON.parse(data);
+
+        dataModulo.forEach((item) => {
+            item.id = id;
+        });
         
         if (dataModulo.length){
             const options = {
@@ -172,7 +184,7 @@ async function syncM3 (){
     }
 }
 
-async function syncM4 (){
+async function syncM4 (id){
     try {
         const { data } = await Filesystem.readFile({
             path: STORAGE_PATHM4,
@@ -181,6 +193,10 @@ async function syncM4 (){
         });
 
         let dataModulo = JSON.parse(data);
+
+        dataModulo.forEach((item) => {
+            item.id = id;
+        });
         
         if (dataModulo.length){
             const options = {
@@ -205,9 +221,9 @@ async function syncM4 (){
     }catch(error){
         alert("No existe el módulo Disponibilidad de producto");
     }
-}
+} 
 
-async function syncM5 (){ 
+async function syncM5 (id){ 
     try {
         const { data } = await Filesystem.readFile({
             path: STORAGE_PATHM5,
@@ -217,6 +233,10 @@ async function syncM5 (){
 
         let dataModulo = JSON.parse(data);
         
+        dataModulo.forEach((item) => {
+            item.id = id;
+        });
+
         if (dataModulo.length){
             const options = {
                 url: `${API_LINK}insertM5`,
@@ -238,7 +258,6 @@ async function syncM5 (){
             alert("Nada que sincronizar en módulo Shpoping de precios.");    
         }
     }catch(error){
-        console.log(error);
         alert("No existe el módulo Shpoping de precios.");
     }
 }
@@ -276,6 +295,4 @@ function reset(){
 
 // Events
 sync.addEventListener('click', mount);
-
-// Events
 btnReset.addEventListener('click', reset);

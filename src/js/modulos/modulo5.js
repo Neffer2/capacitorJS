@@ -4,7 +4,6 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 export const STORAGE_KEY = "modulo5";
 export const STORAGE_PATH = "PM5.txt";
-const QUALITY = 30;
 
 // Elems 
 let precio = document.getElementById('precio');
