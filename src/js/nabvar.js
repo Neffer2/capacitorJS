@@ -43,7 +43,10 @@ window.customElements.define(
                         </svg>
                         </a>
                     </li>
-                    <li><a class="nav-title" href="#">Phillip Morris</a></li>
+                    <li>
+                        <slot></slot>
+                    </li>
+                    <li><a class="nav-title" href="#">Philip Morris</a></li>
                 </ul>
             </nav>            
             `;

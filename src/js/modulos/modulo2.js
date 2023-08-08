@@ -7,13 +7,16 @@ export const STORAGE_PATH = "PM2.txt";
  
 // Elems
 let marca = document.getElementById('marca');
+let pdv = document.getElementById('pdv');
 let num_abordadas = document.getElementById('num_abordadas');
 let tipo_producto = document.getElementById('tipo_producto');
 let presentacion = document.getElementById('presentacion');
-let num_ventas = document.getElementById('num_ventas');
+let num_ventas_1 = document.getElementById('num_ventas_1');
+let num_ventas_2 = document.getElementById('num_ventas_2');
+let genero1 = document.getElementById('genero1'); 
+let genero2 = document.getElementById('genero2'); 
 
 let gifus = document.getElementById('gifus');
-let genero = document.getElementById('genero');
 let edad = document.getElementById('edad');
 
 let num_ventas_competencia = document.getElementById('num_ventas_competencia');

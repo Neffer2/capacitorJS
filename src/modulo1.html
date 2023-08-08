@@ -20,7 +20,9 @@
     <meta name="theme-color" content="#31d53d" />
   </head>
   <body>
-    <custom-navbar></custom-navbar>
+    <custom-navbar>
+        <slot>Ejecuci&oacute;n de la actividad</slot> 
+    </custom-navbar>
     <div class="container my-2">
         <div class="row gy-2">
             <div class="col-md-12">
@@ -30,7 +32,7 @@
                         <option value="">Seleccionar</option>
                         <option value="IQOS">IQOS</option>
                         <option value="BONDS">BONDS</option>
-                        <option value="MALBORO">MALBORO</option>
+                        <option value="MALBORO">MARLBORO</option>
                         <option value="CHESTERFIELD">CHESTERFIELD</option>
                         <option value="L&M">L&M</option>
                     </select>
@@ -42,14 +44,13 @@
                     <select name="ciudad" id="ciudad" class="form-control" required>
                         <option value="">Seleccionar</option>
                         <option value="BOGOTA">BOGOTA</option>
-                        <option value="CHIA">CHIA</option>
-                        <option value="CALI">CALI</option>
-                        <option value="TULUA">TULUA</option>
-                        <option value="ARMENIA">ARMENIA</option>
-                        <option value="MANIZALES">MANIZALES</option>
                         <option value="MEDELLIN">MEDELLIN</option>
+                        <option value="BARRANQUILLA">BARRANQUILLA</option>
+                        <option value="CALI">CALI</option>
+                        <option value="PEREIRA">PEREIRA</option>
+                        <option value="CHIA">CHIA</option>
                     </select>
-                </div>
+                </div> 
             </div> 
             <div class="col-md-12">
                 <div class="form-group">
@@ -61,32 +62,34 @@
                             <option value="Magdalena Bog - Cra.13 N. 36-01	">Magdalena Bog - Cra.13 N. 36-01</option>
                             <option value="556 Exito Niza - Cra 53 No 119 - 04">556 Exito Niza - Cra 53 No 119 - 04</option>
                         </optgroup>
-                        <optgroup label="CHIA">
-                            <option value="Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
-                            <option value="Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
-                        </optgroup>
-                        <optgroup label="CALI">
-                            <option value="Sto 408 Contador Bgt - Trv 30 # 137-38">Sto 408 Contador Bgt - Trv 30 # 137-38</option>
-                            <option value="Carulla Cedro Bolivar - Carrera 17 # 151-44">Carulla Cedro Bolivar - Carrera 17 # 151-44</option>            
-                        </optgroup>
-                        <optgroup label="TULUA">
-                            <option value="Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65">Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65</option>            
-                            <option value="Sto 404 Santa Ana Bgt - Cra 7A # 108-44">Sto 404 Santa Ana Bgt - Cra 7A # 108-44</option>            
-                        </optgroup>
-                        <optgroup label="ARMENIA">
-                            <option value="Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)">Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)</option>                        
-                            <option value="Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11">Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11</option>
-                        </optgroup>
-                        <optgroup label="MANIZALES">
-                            <option value="091 Exito Occidente - Cll 54F Sur # 93C-18 Lc">091 Exito Occidente - Cll 54F Sur # 93C-18 Lc</option>            
-                            <option value="097 Exito Usme - Carrera 114A # 78B - 85">097 Exito Usme - Carrera 114A # 78B - 85</option>
-                            <option value="1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58">1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58</option>                
-                        </optgroup>
                         <optgroup label="MEDELLIN">
                             <option value="Carulla Centro Chia - Cra 13 #20-19 Sur">Carulla Centro Chia - Cra 13 #20-19 Sur</option>        
                             <option value="Jumbo Hayuelos - Carrera 9 # 70 A - 41">Jumbo Hayuelos - Carrera 9 # 70 A - 41</option>
                             <option value="Carrera 9Qc Bog - Av Calle 31 No. 88 A 19">Carrera 9Qc Bog - Av Calle 31 No. 88 A 19</option>                                        
                         </optgroup>
+                        <optgroup label="BARRANQUILLA"></optgroup>
+                        <optgroup label="CALI">
+                            <option value="Sto 408 Contador Bgt - Trv 30 # 137-38">Sto 408 Contador Bgt - Trv 30 # 137-38</option>
+                            <option value="Carulla Cedro Bolivar - Carrera 17 # 151-44">Carulla Cedro Bolivar - Carrera 17 # 151-44</option>            
+                        </optgroup>
+                        <optgroup label="PEREIRA"></optgroup>
+                        <optgroup label="CHIA">
+                            <option value="Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
+                            <option value="Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
+                        </optgroup>
+                        <!-- <optgroup label="TULUA">
+                            <option value="Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65">Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65</option>            
+                            <option value="Sto 404 Santa Ana Bgt - Cra 7A # 108-44">Sto 404 Santa Ana Bgt - Cra 7A # 108-44</option>            
+                        </optgroup> -->
+                        <!-- <optgroup label="ARMENIA">
+                            <option value="Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)">Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)</option>                        
+                            <option value="Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11">Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11</option>
+                        </optgroup> -->
+                        <!-- <optgroup label="MANIZALES">
+                            <option value="091 Exito Occidente - Cll 54F Sur # 93C-18 Lc">091 Exito Occidente - Cll 54F Sur # 93C-18 Lc</option>            
+                            <option value="097 Exito Usme - Carrera 114A # 78B - 85">097 Exito Usme - Carrera 114A # 78B - 85</option>
+                            <option value="1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58">1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58</option>                
+                        </optgroup> -->
                     </select>
                 </div>
             </div>

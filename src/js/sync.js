@@ -1,6 +1,8 @@
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { CapacitorHttp } from '@capacitor/core';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Alert } from 'bootstrap';
+import { Geolocation } from '@capacitor/geolocation';
 
 export const STORAGE_KEYM1 = "modulo1";
 export const STORAGE_PATHM1 = "PM1.txt"
@@ -10,28 +12,37 @@ export const STORAGE_PATHM2 = "PM2.txt"
 
 export const STORAGE_KEYM3 = "modulo3";
 export const STORAGE_PATHM3 = "PM3.txt"
-
+ 
 export const STORAGE_KEYM4 = "modulo4";
 export const STORAGE_PATHM4 = "PM4.txt";
 
 export const STORAGE_KEYM5 = "modulo5";
 export const STORAGE_PATHM5 = "PM5.txt";
 
-export const API_LINK = "https://desarrolloiglu.com/api/"
-export const API_AUTH = "https://desarrolloiglu.com/api/login";
+const QUALITY = 30;
+
+// 
+// export const API_LINK = "https://desarrolloiglu.com/api/"
+// export const API_AUTH = "https://desarrolloiglu.com/api/login";
+
+export const API_LINK = "http://localhost:8000/api/"
+export const API_AUTH = "http://localhost:8000/api/login";
 
  // Elems
 let email = document.getElementById('email'); 
 let password = document.getElementById('password');
 
+let selfiePDV = document.getElementById('selfiePDV');
+let selfiePDVBox = document.getElementById('selfiePDVBox');
+
 let elems = [email, password];
+let photos = [selfiePDV]; 
 
 // BUTTONS
 let sync = document.getElementById('sync-action');
 let btnReset = document.getElementById('reset');
 
-async function mount(){
-    
+async function mount(){             
     if (validation()){
         let dataModulo = {
             email: email.value,
@@ -50,11 +61,16 @@ async function mount(){
                 
                 const response = await CapacitorHttp.post(options);
                 if (response.data.status){
-                    syncM1(response.data.id);
-                    syncM2(response.data.id);
-                    syncM3(response.data.id);
-                    syncM4(response.data.id);
-                    syncM5(response.data.id);
+                    const coordinates = await Geolocation.getCurrentPosition();
+                    if (coordinates.coords.latitude && coordinates.coords.longitude){
+                        syncM1(response.data.id, coordinates.coords.latitude, coordinates.coords.longitude);
+                        // syncM2(response.data.id);
+                        // syncM3(response.data.id);
+                        // syncM4(response.data.id);
+                        // syncM5(response.data.id);
+                    }else{ 
+                        alert("!Opps, hubo un problema con tu ubicación. Iténtalo de nuevo.");
+                    }
                 }else {
                     alert("Usuario no encontrado");
                 }
@@ -63,11 +79,26 @@ async function mount(){
             return false;
         }
     }else{
-        alert("Usuario no encotrado");
+        alert("Debes rellenar todos los campos");
     }
 }
 
-async function syncM1 (id){
+const picture = async () => {
+    const image = await Camera.getPhoto({
+        quality: QUALITY,
+        allowEditing: false,
+        source: CameraSource.Camera,
+        resultType: CameraResultType.Base64
+    }); 
+
+    var image64 = image.base64String;
+
+    selfiePDV.src = `data:image/png;base64,${image64}`;
+    selfiePDV.style.display = "block";
+    selfiePDVBox.style.display = "none";
+};
+
+async function syncM1 (id, latitude, longitude){
     try {
         const { data } = await Filesystem.readFile({
             path: STORAGE_PATHM1,
@@ -76,9 +107,17 @@ async function syncM1 (id){
         });
 
         let dataModulo = JSON.parse(data);
+    
+        // console.log(selfiePDV.src);
+        // console.log(latitude);
+        // console.log(longitude);
 
+        // Inserto datos extra
         dataModulo.forEach((item) => {
             item.id = id;
+            item.foto_cierre = selfiePDV.src;
+            item.latitude = latitude;
+            item.longitude = longitude;
         });
         
         if (dataModulo.length){
@@ -95,6 +134,7 @@ async function syncM1 (id){
             if (response.status == 200){
                 deleteData(STORAGE_PATHM1);
                 alert("Módulo Ejecución de la actividad sincronizado con éxito.");    
+                reset();
             }else {
                 alert("Opps! hubo un problema en el Módulo Ejecución de la actividad.");    
             }
@@ -284,6 +324,12 @@ function validation (){
         }
     });
 
+    photos.forEach((elem) => {
+        if (elem.src === ""){
+            validator = false;
+        }
+    });
+
     return validator;
 } 
 
@@ -291,8 +337,13 @@ function reset(){
     elems.forEach((elem) => {
         elem.value = "";
     });
+
+    photos.forEach((elem) => {
+        elem.removeAttribute('src'); 
+    });
 }
 
 // Events
 sync.addEventListener('click', mount);
 btnReset.addEventListener('click', reset);
+selfiePDVBox.addEventListener('click', picture);

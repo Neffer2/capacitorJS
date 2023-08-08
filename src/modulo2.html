@@ -19,8 +19,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <meta name="theme-color" content="#31d53d" />
   </head>
-  <body>
-    <custom-navbar></custom-navbar>
+  <body> 
+    <custom-navbar>
+        <slot>Ventas abordaje</slot> 
+    </custom-navbar> 
     <div class="container my-2">
         <div class="row gy-2">
             <div class="col-md-12">
@@ -33,6 +35,47 @@
                         <option value="MALBORO">MALBORO</option>
                         <option value="CHESTERFIELD">CHESTERFIELD</option>
                         <option value="L&M">L&M</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="pdv">Punto de venta: </label>
+                    <select name="pdv" id="pdv" class="form-control" required>
+                        <option value="">Seleccionar</option>
+                        <optgroup label="BOGOTA">
+                            <option value="Carulla Soledad - Carrera 24 No 41 - 43">Carulla Soledad - Carrera 24 No 41 - 43</option>
+                            <option value="Magdalena Bog - Cra.13 N. 36-01	">Magdalena Bog - Cra.13 N. 36-01</option>
+                            <option value="556 Exito Niza - Cra 53 No 119 - 04">556 Exito Niza - Cra 53 No 119 - 04</option>
+                        </optgroup>
+                        <optgroup label="MEDELLIN">
+                            <option value="Carulla Centro Chia - Cra 13 #20-19 Sur">Carulla Centro Chia - Cra 13 #20-19 Sur</option>        
+                            <option value="Jumbo Hayuelos - Carrera 9 # 70 A - 41">Jumbo Hayuelos - Carrera 9 # 70 A - 41</option>
+                            <option value="Carrera 9Qc Bog - Av Calle 31 No. 88 A 19">Carrera 9Qc Bog - Av Calle 31 No. 88 A 19</option>                                        
+                        </optgroup>
+                        <optgroup label="BARRANQUILLA"></optgroup>
+                        <optgroup label="CALI">
+                            <option value="Sto 408 Contador Bgt - Trv 30 # 137-38">Sto 408 Contador Bgt - Trv 30 # 137-38</option>
+                            <option value="Carulla Cedro Bolivar - Carrera 17 # 151-44">Carulla Cedro Bolivar - Carrera 17 # 151-44</option>            
+                        </optgroup>
+                        <optgroup label="PEREIRA"></optgroup>
+                        <optgroup label="CHIA">
+                            <option value="Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
+                            <option value="Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
+                        </optgroup>
+                        <!-- <optgroup label="TULUA">
+                            <option value="Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65">Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65</option>            
+                            <option value="Sto 404 Santa Ana Bgt - Cra 7A # 108-44">Sto 404 Santa Ana Bgt - Cra 7A # 108-44</option>            
+                        </optgroup> -->
+                        <!-- <optgroup label="ARMENIA">
+                            <option value="Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)">Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)</option>                        
+                            <option value="Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11">Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11</option>
+                        </optgroup> -->
+                        <!-- <optgroup label="MANIZALES">
+                            <option value="091 Exito Occidente - Cll 54F Sur # 93C-18 Lc">091 Exito Occidente - Cll 54F Sur # 93C-18 Lc</option>            
+                            <option value="097 Exito Usme - Carrera 114A # 78B - 85">097 Exito Usme - Carrera 114A # 78B - 85</option>
+                            <option value="1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58">1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58</option>                
+                        </optgroup> -->
                     </select>
                 </div>
             </div>
@@ -63,10 +106,10 @@
                             <option value="CHESTERFIELD BLUE 10">CHESTERFIELD BLUE 10</option>
                             <option value="CHESTERFIELD BLUE 20">CHESTERFIELD BLUE 20</option>
                         </optgroup>
-                        <optgroup label="MALBORO">
-                            <option value="MALBORO ROJO">MALBORO ROJO</option>
-                            <option value="MALBORO VERDE">MALBORO VERDE</option>
-                            <option value="MALBORO AZUL">MALBORO AZUL</option>
+                        <optgroup label="MARLBORO">
+                            <option value="MARLBORO ROJO">MARLBORO ROJO</option>
+                            <option value="MARLBORO VERDE">MARLBORO VERDE</option>
+                            <option value="MARLBORO AZUL">MARLBORO AZUL</option>
                         </optgroup>
                         <optgroup label="IQOS">
                             <option value="LUCKY STRIKE BLUE 10">LUCKY STRIKE BLUE 10</option>
@@ -102,10 +145,38 @@
                     </select>
                 </div>
             </div>  
-            <div class="col-md-12">
+            <div class="col-8">
                 <div class="form-group">
                     <label for="num_ventas">N&uacute;mero de ventas: </label>
-                    <select name="num_ventas" id="num_ventas" class="form-control" required></select>
+                    <input type="number" name="num_ventas" id="num_ventas" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="genero">G&eacute;nero: </label>
+                    <select name="genero" id="genero" class="form-control" required>
+                        <option value="">Seleccionar</option>
+                        <option value="N/A">No aplica</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                </div>
+            </div>  
+            <div class="col-8">
+                <div class="form-group">
+                    <label for="num_ventas">N&uacute;mero de ventas: </label>
+                    <input type="number" name="num_ventas" id="num_ventas" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="genero">G&eacute;nero: </label>
+                    <select name="genero" id="genero" class="form-control" required>
+                        <option value="">Seleccionar</option>
+                        <option value="N/A">No aplica</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
                 </div>
             </div>                  
             <div class="col-md-12">
@@ -114,16 +185,6 @@
                     <select name="gifus" id="gifus" class="form-control" required></select>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="genero">G&eacute;nero: </label>
-                    <select name="genero" id="genero" class="form-control" required>
-                        <option value="">Seleccionar</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Femenino">Femenino</option>
-                    </select>
-                </div>
-            </div> 
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="edad">Rango de edad: </label>
@@ -140,12 +201,12 @@
                     </select>
                 </div>
             </div> 
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
                 <div class="form-group">
                     <label for="num_ventas_competencia">N&uacute;mero de ventas de la competencia: </label>
                     <select name="num_ventas_competencia" id="num_ventas_competencia" class="form-control" required></select>
                 </div>
-            </div> 
+            </div>  -->
             
             
             <div class="d-grid gap-2">

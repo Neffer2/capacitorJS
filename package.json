@@ -1,7 +1,7 @@
 {
-  "name": "capacitor-app",
+  "name": "PMI-Memories",
   "version": "1.0.0",
-  "description": "An Amazing Capacitor App",
+  "description": "Philip morris data collector",
   "main": "index.js",
   "keywords": [
     "capacitor",
@@ -17,6 +17,7 @@
     "@capacitor/camera": "^5.0.6",
     "@capacitor/core": "latest",
     "@capacitor/filesystem": "^5.1.1",
+    "@capacitor/geolocation": "^5.0.6",
     "@capacitor/haptics": "^5.0.6",
     "@capacitor/preferences": "^5.0.6",
     "@capacitor/splash-screen": "latest",
