@@ -120,6 +120,8 @@ function reset(){
     elems.forEach((elem) => {
         elem.value = "";
     });
+
+    window.location.href = "index.html";
 }
 
 function list500(elem){

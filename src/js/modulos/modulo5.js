@@ -5,22 +5,83 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 export const STORAGE_KEY = "modulo5";
 export const STORAGE_PATH = "PM5.txt";
 
-// Elems 
-let precio = document.getElementById('precio');
-let tipo_producto = document.getElementById('tipo_producto');
+// Elems
+let pdv = document.getElementById('pdv');
+
+let MLBROJO = document.getElementById('MLBROJO');
+let MLBREDSELECTION = document.getElementById('MLBREDSELECTION'); 
+let PIELROJA = document.getElementById('PIELROJA');
+let CARIBE = document.getElementById('CARIBE');
+let LMAZUL = document.getElementById('LMAZUL');
+let LMROJO = document.getElementById('LMROJO');
+
+let MLBGOLD = document.getElementById('MLBGOLD');
+let CHESTERFIELDAZUL = document.getElementById('CHESTERFIELDAZUL');
+let CHESTERFIELDBLANCO = document.getElementById('CHESTERFIELDBLANCO');
+let LMSILVER = document.getElementById('LMSILVER');
+
+let CHESTERFIELDGREEN = document.getElementById('CHESTERFIELDGREEN');
+
+let MLBFUSION_FRUTOSROJOS = document.getElementById('MLBFUSION_FRUTOSROJOS');
+let MLBSUMMER_SANDIA = document.getElementById('MLBSUMMER_SANDIA');
+let MLBEXOTIC_TUTIFRUTI = document.getElementById('MLBEXOTIC_TUTIFRUTI');
+let CHESTERFIELDPURPLE_FRUTOSROJOS = document.getElementById('CHESTERFIELDPURPLE_FRUTOSROJOS');
+let LMWARREGO_SANDIA = document.getElementById('LMWARREGO_SANDIA');
+
 
 // BUTTONS
 let btnStore = document.getElementById('store');
 let btnReset = document.getElementById('reset');
  
-let elems = [precio, tipo_producto];
+let elems = [pdv,
+    MLBROJO,
+    MLBREDSELECTION,
+    PIELROJA,
+    CARIBE, 
+    LMAZUL,
+    LMROJO,
+
+    MLBGOLD,
+    CHESTERFIELDAZUL,
+    CHESTERFIELDBLANCO,
+    LMSILVER, 
+
+    CHESTERFIELDGREEN,
+
+    MLBFUSION_FRUTOSROJOS,
+    MLBSUMMER_SANDIA, 
+    MLBEXOTIC_TUTIFRUTI, 
+    CHESTERFIELDPURPLE_FRUTOSROJOS,
+    LMPURPLE_FRUTOSROJOS,
+    LMWARREGO_SANDIA
+];
 
 async function store (){
     if (validation()){
         let dataModulo = [{
             id: 0,
-            precio: precio.value,
-            tipo_producto: tipo_producto.value
+            pdv: pdv.value,
+            
+            MLBROJO: MLBROJO.value,
+            MLBREDSELECTION: MLBREDSELECTION.value,
+            PIELROJA: PIELROJA.value,
+            CARIBE: CARIBE.value,
+            LMAZUL: LMAZUL.value,
+            LMROJO: LMROJO.value,
+
+            MLBGOLD: MLBGOLD.value,
+            CHESTERFIELDAZUL: CHESTERFIELDAZUL.value,
+            CHESTERFIELDBLANCO: CHESTERFIELDBLANCO.value,
+            LMSILVER: LMSILVER.value,
+
+            CHESTERFIELDGREEN: CHESTERFIELDGREEN.value,
+
+            MLBFUSION_FRUTOSROJOS: MLBFUSION_FRUTOSROJOS.value,
+            MLBSUMMER_SANDIA: MLBSUMMER_SANDIA.value,
+            MLBEXOTIC_TUTIFRUTI: MLBEXOTIC_TUTIFRUTI.value,
+            CHESTERFIELDPURPLE_FRUTOSROJOS: CHESTERFIELDPURPLE_FRUTOSROJOS.value,
+            LMPURPLE_FRUTOSROJOS: LMPURPLE_FRUTOSROJOS.value,
+            LMWARREGO_SANDIA: LMWARREGO_SANDIA.value  
         }];
 
         // await Filesystem.deleteFile({
@@ -44,8 +105,27 @@ async function store (){
             // console.log(dataModulo1);
             dataModulo.push({
                 id: dataModulo.length,
-                precio: precio.value,
-                tipo_producto: tipo_producto.value
+                pdv: pdv.value,            
+                MLBROJO: MLBROJO.value,
+                MLBREDSELECTION: MLBREDSELECTION.value,
+                PIELROJA: PIELROJA.value,
+                CARIBE: CARIBE.value,
+                LMAZUL: LMAZUL.value,
+                LMROJO: LMROJO.value,
+
+                MLBGOLD: MLBGOLD.value,
+                CHESTERFIELDAZUL: CHESTERFIELDAZUL.value,
+                CHESTERFIELDBLANCO: CHESTERFIELDBLANCO.value,
+                LMSILVER: LMSILVER.value,
+
+                CHESTERFIELDGREEN: CHESTERFIELDGREEN.value,
+
+                MLBFUSION_FRUTOSROJOS: MLBFUSION_FRUTOSROJOS.value,
+                MLBSUMMER_SANDIA: MLBSUMMER_SANDIA.value,
+                MLBEXOTIC_TUTIFRUTI: MLBEXOTIC_TUTIFRUTI.value,
+                CHESTERFIELDPURPLE_FRUTOSROJOS: CHESTERFIELDPURPLE_FRUTOSROJOS.value,
+                LMPURPLE_FRUTOSROJOS: LMPURPLE_FRUTOSROJOS.value,
+                LMWARREGO_SANDIA: LMWARREGO_SANDIA.value 
             });
         }else {
             await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
@@ -81,9 +161,9 @@ function validation (){
         if (elem.value === ""){
             validator = false;
         }
-    });
+    }); 
     return validator;
-}
+} 
 
 async function vibrate(){
     await Haptics.vibrate();
@@ -93,8 +173,18 @@ function reset(){
     elems.forEach((elem) => {
         elem.value = "";
     });
+
+    window.location.href = "index.html";
+}
+
+function mount(){
+    elems.forEach((elem) => {
+        elem.value = "0";
+    });
 }
 
 // Events
 btnStore.addEventListener('click', store);
 btnReset.addEventListener('click', reset);
+
+window.onload = mount();

@@ -22,7 +22,7 @@
   <body>
     <custom-navbar>
         <slot>Disponibilidad de producto</slot>
-    </custom-navbar>
+    </custom-navbar> 
     <div class="container my-2">
         <div class="row gy-2">
             <div class="col-md-12">
@@ -55,7 +55,7 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="presente">¿La marca esta presente en el punto de venta?: </label>
+                    <label for="presente">¿La marca esta presente en el punto de venta? </label>
                     <select name="presente" id="presente" class="form-control" required>
                         <option value="">Seleccionar</option>
                         <option value="Si">Si</option>
@@ -64,236 +64,177 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="form-group">
-                    <label for="inv_marca">Inventario por marca: </label>
-                    <div class="row gy-2">
-                        <div class="col-6">
-                            <b>L&M BLUE</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LMBLUE" type="number" class="form-control">
-                        </div>
+                <div class="text-center">
+                    <label for="inv_marca"><b>FULL FLAVOR</b></label>
+                </div>
+                <div class="row gy-2 my-3">
+                    <div class="col-6">
+                        <b>PREMIUM</b>
+                    </div>
+                    <div class="col-6 text-center">
+                        <b>STOCK</b>
+                    </div>
+                    <div class="col-6">
+                        MLB ROJO
+                    </div>
+                    <div class="col-6">
+                        <input id="MLBROJO" type="number" class="form-control">
+                    </div>
 
-                        <div class="col-6">
-                            <b>L&M PURPLE</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LMPURPLE" type="number" class="form-control">
-                        </div>
+                    <div class="col-12">
+                        <b>MEDIUM</b>
+                    </div>
+                    <div class="col-6">
+                        MLB RED SELECTION
+                    </div>
+                    <div class="col-6">
+                        <input id="MLBREDSELECTION" type="number" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        PIEL ROJA
+                    </div>
+                    <div class="col-6">
+                        <input id="PIELROJA" type="number" class="form-control">
+                    </div>
 
-                        <div class="col-6">
-                            <b>L&M RED</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LMRED" type="number" class="form-control">
-                        </div>
+                    <div class="col-12">
+                        <b>LOW</b>
+                    </div>
+                    <div class="col-6">
+                        CARIBE
+                    </div>
+                    <div class="col-6">
+                        <input id="CARIBE" type="number" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        L&M AZUL
+                    </div>
+                    <div class="col-6">
+                        <input id="LMAZUL" type="number" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        L&M ROJO
+                    </div>
+                    <div class="col-6">
+                        <input id="LMROJO" type="number" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <label for="inv_marca"><b>SABOR SUAVE</b></label>
+                </div>
+                <div class="row gy-2 my-3">
+                    <div class="col-6">
+                        <b>PREMIUM</b>
+                    </div>
+                    <div class="col-6 text-center">
+                        <b>STOCK</b>
+                    </div>
+                    <div class="col-6">
+                        MLB GOLD
+                    </div>
+                    <div class="col-6">
+                        <input id="MLBGOLD" type="number" class="form-control">
+                    </div>
 
-                        <div class="col-6">
-                            <b>L&M SILVER</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LMSILVER" type="number" class="form-control">
-                        </div>
+                    <div class="col-12">
+                        <b>MEDIUM</b>
+                    </div>
+                    <div class="col-6">
+                        CHESTERFIELD AZUL
+                    </div>
+                    <div class="col-6">
+                        <input id="CHESTERFIELDAZUL" type="number" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        CHESTERFIELD BLANCO
+                    </div>
+                    <div class="col-6">
+                        <input id="CHESTERFIELDBLANCO" type="number" class="form-control">
+                    </div>
 
-                        <div class="col-6">
-                            <b>L&M WARREGO</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LMWARREGO" type="number" class="form-control">
-                        </div> 
+                    <div class="col-12">
+                        <b>LOW</b>
+                    </div>
+                    <div class="col-6">
+                        L&M SILVER
+                    </div>
+                    <div class="col-6">
+                        <input id="LMSILVER" type="number" class="form-control">
+                    </div>
+                </div>
 
-                        <div class="col-6">
-                            <b>LUCKY STRIKE BLUE 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LUCKYSTRIKEBLUE10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>LUCKY STRIKE BLUE 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LUCKYSTRIKEBLUE20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>LUCKY STRIKE FEST 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LUCKYSTRIKEFEST10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>LUCKY STRIKE FEST 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LUCKYSTRIKEFEST20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>LUCKY STRIKE GIN 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LUCKYSTRIKEGIN10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>LUCKY STRIKE GIN 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LUCKYSTRIKEGIN20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>LUCKY STRIKE MOJITO 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LUCKYSTRIKEMOJITO10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>LUCKY STRIKE MOJITO 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="LUCKYSTRIKEMOJITO20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>ROTHMANS AZUL 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="ROTHMANSAZUL10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>ROTHMANS AZUL 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="ROTHMANSAZUL20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>ROTHMANS VERDE 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="ROTHMANSVERDE10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>ROTHMANS VERDE 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="ROTHMANSVERDE20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>ROTHMANS BLANCO 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="ROTHMANSBLANCO10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>ROTHMANS BLANCO 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="ROTHMANSBLANCO20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>ROTHMANS PURPLE 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="ROTHMANSPURPLE10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>ROTHMANS PURPLE 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="ROTHMANSPURPLE20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>STARLITE 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="STARLITE10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>STARLITE 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="STARLITE20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>MALBORO ROJO</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="MALBOROROJO" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>MALBORO VERDE</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="MALBOROVERDE" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>MALBORO AZUL</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="MALBOROAZUL" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>CHESTERFIELD PURPLE 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="CHESTERFIELDPURPLE10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>CHESTERFIELD PURPLE 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="CHESTERFIELDPURPLE20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>CHESTERFIELD GREEN 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="CHESTERFIELDGREEN10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>CHESTERFIELD GREEN 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="CHESTERFIELDGREEN20" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>CHESTERFIELD BLUE 10</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="CHESTERFIELDBLUE10" type="number" class="form-control">
-                        </div>
-
-                        <div class="col-6">
-                            <b>CHESTERFIELD BLUE 20</b>
-                        </div>
-                        <div class="col-6">
-                            <input id="CHESTERFIELDBLUE20" type="number" class="form-control">
-                        </div>
-                    </div>        
+                <div class="text-center">
+                    <label for="inv_marca"><b>MENTOL</b></label>
+                </div>
+                <div class="row gy-2 my-3">
+                    <div class="col-6">
+                        <b>MEDIUM</b>
+                    </div>
+                    <div class="col-6 text-center">
+                        <b>STOCK</b>
+                    </div>
+                    <div class="col-6">
+                        CHESTERFIELD GREEN
+                    </div>
+                    <div class="col-6">
+                        <input id="CHESTERFIELDGREEN" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <label for="inv_marca"><b>MENTOL CON SABOR</b></label>
+                </div>
+                <div class="row gy-2 my-3">
+                    <div class="col-6">
+                        <b>PREMIUM</b>
+                    </div>
+                    <div class="col-6 text-center">
+                        <b>STOCK</b>
+                    </div>
+                    <div class="col-6">
+                        MLB FUSION/FRUTOS ROJOS
+                    </div>
+                    <div class="col-6">
+                        <input id="MLBFUSION_FRUTOSROJOS" type="number" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        MLB SUMMER/SANDIA
+                    </div>
+                    <div class="col-6">
+                        <input id="MLBSUMMER_SANDIA" type="number" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        MLB EXOTIC/TUTIFRUTI
+                    </div>
+                    <div class="col-6">
+                        <input id="MLBEXOTIC_TUTIFRUTI" type="number" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <b>MEDIUM</b>
+                    </div>
+                    <div class="col-6">
+                        CHESTERFIELD PURPLE/FRUTOS ROJOS
+                    </div>
+                    <div class="col-6">
+                        <input id="CHESTERFIELDPURPLE_FRUTOSROJOS" type="number" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <b>LOW</b>
+                    </div>
+                    <div class="col-6">
+                        L&M PURPLE/FRUTOS ROJOS
+                    </div>
+                    <div class="col-6">
+                        <input id="LMPURPLE_FRUTOSROJOS" type="number" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        L&M WARREGO/SANDIA
+                    </div>
+                    <div class="col-6">
+                        <input id="LMWARREGO_SANDIA" type="number" class="form-control">
+                    </div>
                 </div>
             </div>                                                                                                                                                            
-
             <!-- <div class="col-md-12">
                 <div class="form-group">
                     <label for="agotados_marca">Indique si hay agotados por marca: </label>

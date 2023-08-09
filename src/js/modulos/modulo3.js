@@ -156,6 +156,8 @@ function reset(){
 
     foto_visibilidad_competenciaBox.style.display = "block";
     foto_visibilidad_marcaBox.style.display = "block";
+
+    window.location.href = "index.html";
 }
 
 // Events

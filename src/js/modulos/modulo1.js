@@ -101,6 +101,7 @@ async function appendData(src, data){
 
         reset();
         vibrate();
+        
     }catch(error){
         alert("Opps! tenemos un problema.");
     }
