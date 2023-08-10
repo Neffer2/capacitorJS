@@ -7,9 +7,9 @@ window.customElements.define(
             root.innerHTML = `
             <style>
                 nav { 
-                    background-color: #dc3545;
+                    background-color: #0062a3;
                     color: #fff;
-                    border: 1px solid #dc3545;
+                    border: 1px solid #0062a3;
                     font-weight: bold;
                 }
                  

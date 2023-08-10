@@ -3,10 +3,11 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
+  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif !important;
 }
 
 .primary {
-  background-color: #0d6efd !important;
+  background-color: #0062a3 !important;
   color: #fff !important;
 }
 
