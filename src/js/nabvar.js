@@ -48,7 +48,7 @@ window.customElements.define(
                     </li>
                     <li><a class="nav-title" href="#">Philip Morris</a></li>
                 </ul>
-            </nav>            
+            </nav>        
             `;
         }
     }

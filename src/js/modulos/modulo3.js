@@ -8,10 +8,12 @@ export const STORAGE_PATH = "PM3.txt";
 const QUALITY = 30;
  
 // Elems 
+let pdv = document.getElementById('pdv');
 let visibilidad = document.getElementById('visibilidad');
 let tipo_visibilidad = document.getElementById('tipo_visibilidad');
 let visibilidad_competencia = document.getElementById('visibilidad_competencia');
 let tipo_visibilidad_competencia = document.getElementById('tipo_visibilidad_competencia');
+let num_ventas_competencia = document.getElementById('num_ventas_competencia');
 let foto_visibilidad_marca = document.getElementById('foto_visibilidad_marca');
 let foto_visibilidad_competencia = document.getElementById('foto_visibilidad_competencia');
 
@@ -23,17 +25,19 @@ let foto_visibilidad_competenciaBox = document.getElementById('foto_visibilidad_
 let btnStore = document.getElementById('store');
 let btnReset = document.getElementById('reset');
  
-let elems = [visibilidad, tipo_visibilidad, visibilidad_competencia, tipo_visibilidad_competencia];
+let elems = [pdv, visibilidad, tipo_visibilidad, visibilidad_competencia, tipo_visibilidad_competencia, num_ventas_competencia];
 let photos = [foto_visibilidad_marca, foto_visibilidad_competencia];
 
 async function store (){
     if (validation()){
         let dataModulo = [{
             id: 0,
+            pdv: pdv.value,
             visibilidad: visibilidad.value,
             tipo_visibilidad: tipo_visibilidad.value,
             visibilidad_competencia: visibilidad_competencia.value,
             tipo_visibilidad_competencia: tipo_visibilidad_competencia.value,
+            num_ventas_competencia: num_ventas_competencia.value,
             foto_visibilidad_marca: foto_visibilidad_marca.src,
             foto_visibilidad_competencia: foto_visibilidad_competencia.src,
         }]; 
@@ -59,10 +63,12 @@ async function store (){
             // console.log(dataModulo1);
             dataModulo.push({
                 id: dataModulo.length,
+                pdv: pdv.value,
                 visibilidad: visibilidad.value,
                 tipo_visibilidad: tipo_visibilidad.value,
                 visibilidad_competencia: visibilidad_competencia.value,
                 tipo_visibilidad_competencia: tipo_visibilidad_competencia.value,
+                num_ventas_competencia: num_ventas_competencia.value,
                 foto_visibilidad_marca: foto_visibilidad_marca.src,
                 foto_visibilidad_competencia: foto_visibilidad_competencia.src,
             });
@@ -145,7 +151,7 @@ async function vibrate(){
     await Haptics.vibrate();
 }
 
-function reset(){
+function reset(){ 
     elems.forEach((elem) => {
         elem.value = "";
     });

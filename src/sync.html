@@ -19,46 +19,55 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <meta name="theme-color" content="#31d53d" />
 </head> 
-<body> 
-    <custom-navbar></custom-navbar>
-    <div class="container my-2">
-        <div class="row gy-2">
-            <div class="col-md-12">
+<body>
+    <div id="loading-container">
+        <div id="loading-spinner" class="spinner-border m-5" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <custom-navbar></custom-navbar>
+        <div class="container my-2">
+            <div class="row gy-2">
                 <div class="col-md-12">
-                    <img id="selfiePDV" class="card-img-top" style="display: none;">
-                </div>
-                <div id="selfiePDVBox" class="col-md-12">
-                    <div class="upload-box">
-                        <span>Selfie PDV</span>
+                    <div class="col-md-12">
+                        <img id="selfiePDV" class="card-img-top" style="display: none;">
+                    </div>
+                    <div id="selfiePDVBox" class="col-md-12">
+                        <div class="upload-box">
+                            <span>Selfie PDV</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="">Email: </label>
-                    <input id="email" type="email" class="form-control">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="">Email: </label>
+                        <input id="email" type="email" class="form-control">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <label for="">Contraseña:</label>
-                <input id="password" type="password" class="form-control">
-            </div>
-            
-            
-            <div class="d-grid gap-2">
-                <button id="sync-action" class="btn btn-primary">
-                  Enviar
-                </button>
-            </div>
-            <div class="d-grid gap-2">
-                <button id="reset" class="btn btn-danger">
-                  Limpiar
-                </button>
+                <div class="col-md-12">
+                    <label for="">Contraseña:</label>
+                    <input id="password" type="password" class="form-control">
+                </div>
+                
+                
+                <div class="d-grid gap-2">
+                    <button id="store" class="btn btn-primary">
+                        <b>ENVIAR</b>
+                    </button>
+                </div>
+                <div class="d-grid gap-2">
+                    <button id="reset" class="btn btn-danger">
+                      <b>LIMPIAR</b>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="./js/nabvar.js" type="module"></script>
     <script src="./js/sync.js" type="module"></script>
+    <script src="./js/loading.js" type="module"></script>
 </body>
 </html>

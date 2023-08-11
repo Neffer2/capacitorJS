@@ -58,15 +58,15 @@ async function mount(){
                  },
                  data: dataModulo, 
                 }
-                
+                 
                 const response = await CapacitorHttp.post(options);
                 if (response.data.status){
                     const coordinates = await Geolocation.getCurrentPosition();
                     if (coordinates.coords.latitude && coordinates.coords.longitude){
-                        // syncM1(response.data.id, coordinates.coords.latitude, coordinates.coords.longitude);
-                        // syncM2(response.data.id);
-                        // syncM3(response.data.id);
-                        // syncM4(response.data.id);
+                        syncM1(response.data.id, coordinates.coords.latitude, coordinates.coords.longitude);
+                        syncM2(response.data.id);
+                        syncM3(response.data.id);
+                        syncM4(response.data.id);
                         syncM5(response.data.id);
                     }else{ 
                         alert("!Opps, hubo un problema con tu ubicación. Iténtalo de nuevo.");

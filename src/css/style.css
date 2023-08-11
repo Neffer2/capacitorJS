@@ -6,6 +6,17 @@ body {
   font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif !important;
 }
 
+#loading-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-content {
+  height: 100%;
+}
+
 .primary {
   background-color: #0062a3 !important;
   color: #fff !important;
@@ -37,11 +48,11 @@ body {
   height: 15%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .main-menu {
-  padding: .5rem;
+  padding: 0rem .5rem;
   padding-bottom: .25rem;
   height: 45%;
   display: grid !important;
@@ -91,6 +102,11 @@ body {
   text-align: center;
 }
 
+.card input[type=checkbox] {
+  align-self: flex-start;
+  /* justify-self: flex-end !important; */
+}
+
 .upload-box {
   border: .1rem dashed var(--bs-secondary-bg);
   border-radius: 5px;
@@ -99,4 +115,9 @@ body {
   color: var(--bs-primary);
   font-weight: bold;
   cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #0062a3 !important;
+  border-color: #0062a3 !important;
 }
