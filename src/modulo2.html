@@ -32,7 +32,7 @@
         </custom-navbar> 
         <div class="container my-2">
             <div class="row gy-2">
-                ELIMINAR
+                <!-- ELIMINAR
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="marca">Marca: </label>
@@ -46,75 +46,36 @@
                         </select>
                     </div>
                 </div>
-                /**/
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="pdv">Punto de venta: </label>
-                        <select name="pdv" id="pdv" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <optgroup label="BOGOTA">
-                                <option value="Carulla Soledad - Carrera 24 No 41 - 43">Carulla Soledad - Carrera 24 No 41 - 43</option>
-                                <option value="Magdalena Bog - Cra.13 N. 36-01	">Magdalena Bog - Cra.13 N. 36-01</option>
-                                <option value="556 Exito Niza - Cra 53 No 119 - 04">556 Exito Niza - Cra 53 No 119 - 04</option>
-                            </optgroup>
-                            <optgroup label="MEDELLIN">
-                                <option value="Carulla Centro Chia - Cra 13 #20-19 Sur">Carulla Centro Chia - Cra 13 #20-19 Sur</option>        
-                                <option value="Jumbo Hayuelos - Carrera 9 # 70 A - 41">Jumbo Hayuelos - Carrera 9 # 70 A - 41</option>
-                                <option value="Carrera 9Qc Bog - Av Calle 31 No. 88 A 19">Carrera 9Qc Bog - Av Calle 31 No. 88 A 19</option>                                        
-                            </optgroup>
-                            <optgroup label="BARRANQUILLA"></optgroup>
-                            <optgroup label="CALI">
-                                <option value="Sto 408 Contador Bgt - Trv 30 # 137-38">Sto 408 Contador Bgt - Trv 30 # 137-38</option>
-                                <option value="Carulla Cedro Bolivar - Carrera 17 # 151-44">Carulla Cedro Bolivar - Carrera 17 # 151-44</option>            
-                            </optgroup>
-                            <optgroup label="PEREIRA"></optgroup>
-                            <optgroup label="CHIA">
-                                <option value="Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
-                                <option value="Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
-                            </optgroup>
-                            <!-- <optgroup label="TULUA">
-                                <option value="Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65">Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65</option>            
-                                <option value="Sto 404 Santa Ana Bgt - Cra 7A # 108-44">Sto 404 Santa Ana Bgt - Cra 7A # 108-44</option>            
-                            </optgroup> -->
-                            <!-- <optgroup label="ARMENIA">
-                                <option value="Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)">Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)</option>                        
-                                <option value="Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11">Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11</option>
-                            </optgroup> -->
-                            <!-- <optgroup label="MANIZALES">
-                                <option value="091 Exito Occidente - Cll 54F Sur # 93C-18 Lc">091 Exito Occidente - Cll 54F Sur # 93C-18 Lc</option>            
-                                <option value="097 Exito Usme - Carrera 114A # 78B - 85">097 Exito Usme - Carrera 114A # 78B - 85</option>
-                                <option value="1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58">1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58</option>                
-                            </optgroup> -->
-                        </select>
-                    </div>
-                </div>
+                /**/ -->
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="num_abordadas">N&uacute;mero de personas abordadas: </label>
                         <input type="number" name="num_abordadas" id="num_abordadas" class="form-control" required value="0">
                     </div>
                 </div>
-                
-                <div class="col-md-12">
-                    <div class="text-center">
-                        <label for="inv_marca"><b>FULL FLAVOR</b></label>
-                    </div>
-                    <div class="row gy-2 my-3">
-                        <div class="col-4">
-                            <b>PREMIUM</b>
+                <div class="col-md-12 my-3">
+                    <div class="row">
+                        <div class="col-4 text-center">
+                            <b>PRODUCTO</b>
                         </div>
                         <div class="col-4 text-center">
-                            <b>PRESENTACION</b>
+                            <b>PRESENTACI&Oacute;N</b>
                         </div>
                         <div class="col-4 text-center">
                             <b>CANTIDAD</b>
                         </div>
-                        
+                    </div>
+                    <div class="row gy-2">
                         <div class="col-4">
-                            MLB ROJO
+                            <select id="producto" class="form-control">
+                                <option value="">Seleccionar</option>
+                                <option value="Marlboro Rojo">Marlboro Rojo</option>
+                                <option value="p2">Producto 2</option>
+                                <option value="p3">Producto 3</option>
+                            </select>
                         </div>
                         <div class="col-4">
-                            <select id="MLBROJO_PRESENT" class="form-control">
+                            <select id="presentacion" class="form-control">
                                 <option value="">Seleccionar</option>
                                 <option value="stick">Stick</option>
                                 <option value="10s">10s</option>
@@ -123,336 +84,29 @@
                             </select>
                         </div>
                         <div class="col-4">
-                            <input id="MLBROJO" type="number" class="form-control" value="0">
+                            <input id="cantidad" type="number" class="form-control" placeholder="">
                         </div>
-    
                         <div class="col-12">
-                            <b>MEDIUM</b>
-                        </div>
-    
-                        <div class="col-4">
-                            MLB RED SELECTION
-                        </div>
-                        <div class="col-4">
-                            <select id="MLBREDSELECTION_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="MLBREDSELECTION" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-4">
-                            PIEL ROJA
-                        </div>
-                        <div class="col-4">
-                            <select id="PIELROJA_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="PIELROJA" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-12">
-                            <b>LOW</b>
-                        </div>
-    
-                        <div class="col-4">
-                            CARIBE
-                        </div>
-                        <div class="col-4">
-                            <select id="CARIBE_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="CARIBE" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-4">
-                            L&M AZUL
-                        </div>
-                        <div class="col-4">
-                            <select id="LMAZUL_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="LMAZUL" type="number" class="form-control" value="0">
-                        </div>
-    
-    
-                        <div class="col-4">
-                            L&M ROJO
-                        </div>
-                        <div class="col-4">
-                            <select id="LMROJO_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="LMROJO" type="number" class="form-control" value="0">
+                            <button id="storeVenta" class="btn btn-primary">Añadir venta</button>
                         </div>
                     </div>
-                    
-                    <div class="text-center">
-                        <label for="inv_marca"><b>SABOR SUAVE</b></label>
-                    </div>
-                    <div class="row gy-2 my-3">
-                        <div class="col-4">
-                            <b>PREMIUM</b>
-                        </div>
-                        <div class="col-4 text-center">
-                            <b>PRESENTACION</b>
-                        </div>
-                        <div class="col-4 text-center">
-                            <b>CANTIDAD</b>
-                        </div>
-    
-                        <div class="col-4">
-                            MLB GOLD
-                        </div>
-                        <div class="col-4">
-                            <select id="MLBGOLD_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="MLBGOLD" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-12">
-                            <b>MEDIUM</b>
-                        </div>
-    
-                        <div class="col-4">
-                            CHESTERFIELD AZUL
-                        </div>
-                        <div class="col-4">
-                            <select id="CHESTERFIELDAZUL_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="CHESTERFIELDAZUL" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-4">
-                            CHESTERFIELD BLANCO
-                        </div>
-                        <div class="col-4">
-                            <select id="CHESTERFIELDBLANCO_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="CHESTERFIELDBLANCO" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-12">
-                            <b>LOW</b>
-                        </div>
-    
-                        <div class="col-4">
-                            L&M SILVER
-                        </div>
-                        <div class="col-4">
-                            <select id="LMSILVER_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="LMSILVER" type="number" class="form-control" value="0">
+                    <div class="row my-2">
+                        <div class="col-12 ">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Presentacion</td>
+                                        <td class="text-center">Cantidad</td>
+                                        <td class="text-center">Acciones</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="ventas-list">
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-    
-                    <div class="text-center">
-                        <label for="inv_marca"><b>MENTOL</b></label>
-                    </div>
-                    <div class="row gy-2 my-3">
-                        <div class="col-4">
-                            <b>MEDIUM</b>
-                        </div>
-                        <div class="col-4 text-center">
-                            <b>PRESENTACION</b>
-                        </div>
-                        <div class="col-4 text-center">
-                            <b>CANTIDAD</b>
-                        </div>
-    
-                        <div class="col-4">
-                            CHESTERFIELD GREEN
-                        </div>
-                        <div class="col-4">
-                            <select id="CHESTERFIELDGREEN_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="CHESTERFIELDGREEN" type="number" class="form-control" value="0">
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <label for="inv_marca"><b>MENTOL CON SABOR</b></label>
-                    </div>
-                    <div class="row gy-2 my-3">
-                        <div class="col-4">
-                            <b>PREMIUM</b>
-                        </div>
-                        <div class="col-4 text-center">
-                            <b>PRESENTACION</b>
-                        </div>
-                        <div class="col-4 text-center">
-                            <b>CANTIDAD</b>
-                        </div>
-    
-                        <div class="col-4">
-                            MLB FUSION/FRUTOS ROJOS
-                        </div>
-                        <div class="col-4">
-                            <select id="MLBFUSION_FRUTOSROJOS_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="MLBFUSION_FRUTOSROJOS" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-4">
-                            MLB SUMMER/SANDIA
-                        </div>
-                        <div class="col-4">
-                            <select id="MLBSUMMER_SANDIA_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="MLBSUMMER_SANDIA" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-4">
-                            MLB EXOTIC/TUTIFRUTI
-                        </div>
-                        <div class="col-4">
-                            <select id="MLBEXOTIC_TUTIFRUTI_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="MLBEXOTIC_TUTIFRUTI" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-12">
-                            <b>MEDIUM</b>
-                        </div>
-    
-                        <div class="col-4">
-                            CHESTERFIELD PURPLE/FRUTOS ROJOS
-                        </div>
-                        <div class="col-4">
-                            <select id="CHESTERFIELDPURPLE_FRUTOSROJOS_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="CHESTERFIELDPURPLE_FRUTOSROJOS" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-12">
-                            <b>LOW</b>
-                        </div>
-    
-                        <div class="col-4">
-                            L&M PURPLE/FRUTOS ROJOS
-                        </div>
-                        <div class="col-4">
-                            <select id="LMPURPLE_FRUTOSROJOS_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="LMPURPLE_FRUTOSROJOS" type="number" class="form-control" value="0">
-                        </div>
-    
-                        <div class="col-4">
-                            L&M WARREGO/SANDIA
-                        </div>
-                        <div class="col-4">
-                            <select id="LMWARREGO_SANDIA_PRESENT" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <input id="LMWARREGO_SANDIA" type="number" class="form-control" value="0">
-                        </div>
-                    </div>
-                </div> 
-     
+                </div>                
                 <div class="col-4">
                     <div class="form-group">
                         <label for="num_ventas">N&uacute;mero de ventas: </label>
