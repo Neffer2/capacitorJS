@@ -31,7 +31,7 @@ let LMWARREGO_SANDIA = document.getElementById('LMWARREGO_SANDIA');
 
 // BUTTONS
 let btnStore = document.getElementById('store');
-let btnReset = document.getElementById('reset');
+let btnVolver = document.getElementById('volver');
  
 let elems = [pdv,
     MLBROJO,
@@ -183,8 +183,12 @@ function mount(){
     });
 }
 
+function volver(){
+    window.location.href = "index.html";
+}
+
 // Events
 btnStore.addEventListener('click', store);
-btnReset.addEventListener('click', reset);
+btnVolver.addEventListener('click', volver);
 
 window.onload = mount();

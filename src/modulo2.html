@@ -53,37 +53,66 @@
                         <input type="number" name="num_abordadas" id="num_abordadas" class="form-control" required value="0">
                     </div>
                 </div>
+
                 <div class="col-md-12 my-3">
-                    <div class="row">
-                        <div class="col-4 text-center">
+                    <label for="">Ventas</label>
+                    <div class="row" style="font-size: 10px;">
+                        <div class="col-2 text-center">
                             <b>PRODUCTO</b>
                         </div>
-                        <div class="col-4 text-center">
-                            <b>PRESENTACI&Oacute;N</b>
+                        <div class="col-3 text-center">
+                            <b>PRESENTACION</b>
                         </div>
-                        <div class="col-4 text-center">
+                        <div class="col-2 text-center">
+                            <b>G&Eacute;NERO</b>
+                        </div>
+                        <div class="col-2 text-center">
+                            <b>EDAD</b>
+                        </div>
+                        <div class="col-2 text-center">
                             <b>CANTIDAD</b>
                         </div>
                     </div>
                     <div class="row gy-2">
-                        <div class="col-4">
+                        <div class="col-2">
                             <select id="producto" class="form-control">
-                                <option value="">Seleccionar</option>
+                                <option value="" class="text-center">🔽</option>
                                 <option value="Marlboro Rojo">Marlboro Rojo</option>
                                 <option value="p2">Producto 2</option>
                                 <option value="p3">Producto 3</option>
                             </select>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <select id="presentacion" class="form-control">
-                                <option value="">Seleccionar</option>
-                                <option value="stick">Stick</option>
+                                <option value="" class="text-center">🔽</option>
+                                <option value="stick">1 Stick</option>
                                 <option value="10s">10s</option>
                                 <option value="20s">20s</option>
                                 <option value="18s">18s</option>
                             </select>
                         </div>
-                        <div class="col-4">
+                        <div class="col-2">
+                            <select id="genero" class="form-control" required>
+                                <option value="" class="text-center">🔽</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <select id="edad" class="form-control" required>
+                                <option value="" class="text-center">🔽</option>
+                                <option value="18-22">18-22</option>
+                                <option value="23-27">23-27</option>
+                                <option value="28-32">28-32</option>
+                                <option value="33-37">33-37</option>
+                                <option value="38-42">38-42</option>
+                                <option value="43-47">43-47</option>
+                                <option value="48-52">48-52</option>
+                                <option value="53">Mas de 52</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
                             <input id="cantidad" type="number" class="form-control" placeholder="">
                         </div>
                         <div class="col-12">
@@ -91,12 +120,14 @@
                         </div>
                     </div>
                     <div class="row my-2">
-                        <div class="col-12 ">
+                        <div class="col-12 table-responsive">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <td class="text-center">Producto</td>
-                                        <td class="text-center">Presentacion</td>
+                                        <td class="text-center">Presentaci&oacute;n</td>
+                                        <td class="text-center">G&eacute;nero</td>
+                                        <td class="text-center">Edad</td>
                                         <td class="text-center">Cantidad</td>
                                         <td class="text-center">Acciones</td>
                                     </tr>
@@ -106,78 +137,88 @@
                             </table>
                         </div>
                     </div>
-                </div>                
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="num_ventas">N&uacute;mero de ventas: </label>
-                        <input type="number" name="num_ventas_1" id="num_ventas_1" class="form-control" required value="0">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="genero">G&eacute;nero: </label>
-                        <select name="genero" id="genero_1" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="Otro">Otro</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="edad">Rango de edad: </label>
-                        <select name="edad" id="edad_1" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="18-22">18-22</option>
-                            <option value="23-27">23-27</option>
-                            <option value="28-32">28-32</option>
-                            <option value="33-37">33-37</option>
-                            <option value="38-42">38-42</option>
-                            <option value="43-47">43-47</option>
-                            <option value="48-52">48-52</option>
-                            <option value="53">Mas de 52</option>
-                        </select>
-                    </div>
-                </div>       
-    
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="num_ventas">N&uacute;mero de ventas: </label>
-                        <input type="number" name="num_ventas" id="num_ventas_2" class="form-control" required value="0">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="genero">G&eacute;nero: </label>
-                        <select name="genero" id="genero_2" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="Otro">Otro</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                        </select>
-                    </div>
-                </div> 
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="edad">Rango de edad: </label>
-                        <select name="edad" id="edad_2" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="18-22">18-22</option>
-                            <option value="23-27">23-27</option>
-                            <option value="28-32">28-32</option>
-                            <option value="33-37">33-37</option>
-                            <option value="38-42">38-42</option>
-                            <option value="43-47">43-47</option>
-                            <option value="48-52">48-52</option>
-                            <option value="53">Mas de 52</option>
-                        </select>
-                    </div>
-                </div>       
+                </div>     
+
                 <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="gifus">Gifus ofrecidos: </label>
-                        <input type="number" name="gifus" id="gifus" class="form-control" value="0" required>
+                    <label for="">Gifus</label>
+                    <div class="row" style="font-size: 10px;">
+                        <div class="col-3 text-center">
+                            <b>PRODUCTO</b>
+                        </div>
+                        <div class="col-3 text-center">
+                            <b>SABOR</b>
+                        </div>
+                        <div class="col-3 text-center">
+                            <b>G&Eacute;NERO</b>
+                        </div>
+                        <div class="col-3 text-center">
+                            <b>EDAD</b>
+                        </div>
+                    </div>
+                    <div class="row" style="font-size: 10px;">
+                        <div class="col-3 my-2">
+                            <div class="form-group">
+                                <select id="gifu" class="form-control">
+                                    <option value="" class="text-center">🔽</option>
+                                    <option value="Marlboro Rojo">Marlboro Rojo</option>
+                                    <option value="p2">Producto 2</option>
+                                    <option value="p3">Producto 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <select id="sabor" class="form-control">
+                                    <option value="" class="text-center">🔽</option>
+                                    <option value="S1">Fresa</option>
+                                    <option value="s2">Platano</option>
+                                    <option value="s3">Narnaja</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <select id="genero_gifu" class="form-control" required>
+                                    <option value="" class="text-center">🔽</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <select id="edad_gifu" class="form-control" required>
+                                <option value="" class="text-center">🔽</option>
+                                <option value="18-22">18-22</option>
+                                <option value="23-27">23-27</option>
+                                <option value="28-32">28-32</option>
+                                <option value="33-37">33-37</option>
+                                <option value="38-42">38-42</option>
+                                <option value="43-47">43-47</option>
+                                <option value="48-52">48-52</option>
+                                <option value="53">Mas de 52</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button id="storeGifu" class="btn btn-primary">Añadir Gifu</button>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Sabor</td>
+                                        <td class="text-center">G&eacute;nero</td>
+                                        <td class="text-center">Edad</td>
+                                        <td class="text-center">Acciones</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="gifus-list">
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <!-- <div class="col-md-12">
@@ -185,7 +226,7 @@
                         <label for="num_ventas_competencia">N&uacute;mero de ventas de la competencia: </label>
                         <select name="num_ventas_competencia" id="num_ventas_competencia" class="form-control" required></select>
                     </div>
-                </div>  -->
+                </div>  --> 
                 
                 
                 <div class="d-grid gap-2">
@@ -194,8 +235,8 @@
                     </button>
                 </div>
                 <div class="d-grid gap-2">
-                    <button id="reset" class="btn btn-danger">
-                      <b>LIMPIAR</b>
+                    <button id="volver" class="btn btn-danger">
+                      <b>VOLVER</b>
                     </button>
                 </div>
             </div>

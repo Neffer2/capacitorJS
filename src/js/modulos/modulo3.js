@@ -23,7 +23,7 @@ let foto_visibilidad_competenciaBox = document.getElementById('foto_visibilidad_
 
 // BUTTONS
 let btnStore = document.getElementById('store');
-let btnReset = document.getElementById('reset');
+let btnVolver = document.getElementById('volver');
  
 let elems = [pdv, visibilidad, tipo_visibilidad, visibilidad_competencia, tipo_visibilidad_competencia, num_ventas_competencia];
 let photos = [foto_visibilidad_marca, foto_visibilidad_competencia];
@@ -166,9 +166,13 @@ function reset(){
     window.location.href = "index.html";
 }
 
+function volver(){
+    window.location.href = "index.html";
+}
+
 // Events
 btnStore.addEventListener('click', store);
-btnReset.addEventListener('click', reset);
+btnVolver.addEventListener('click', volver);
 
 foto_visibilidad_marcaBox.addEventListener('click', visibilidad_marcaPicture);
 foto_visibilidad_competenciaBox.addEventListener('click', foto_visibilidad_competenciaPicture);

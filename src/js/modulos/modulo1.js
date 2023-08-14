@@ -24,7 +24,7 @@ let fotoFachadaBox = document.getElementById('fotoFachadaBox');
 
 // BUTTONS
 let btnStore = document.getElementById('store');
-let btnReset = document.getElementById('reset');
+let btnVovler = document.getElementById('volver');
 
 let elems = [marca, ciudad, pdv, fechaVisita, mes, semana, estrato, barrio];
 let photos = [selfiePDV, fotoFachada];
@@ -32,7 +32,6 @@ let photos = [selfiePDV, fotoFachada];
 async function store (){
     if (validation()){
         let dataModulo = [{
-            id: 0,
             marca: marca.value,
             ciudad: ciudad.value,
             pdv: pdv.value,
@@ -56,7 +55,7 @@ async function store (){
         */
         const { value } = await Preferences.get({ key: STORAGE_KEY });
 
-        if (value){
+        if (value){ 
             const { data } = await Filesystem.readFile({
                 path: STORAGE_PATH,
                 directory: Directory.Documents,
@@ -66,7 +65,6 @@ async function store (){
             dataModulo = JSON.parse(data);
             // console.log(dataModulo1);
             dataModulo.push({
-                id: dataModulo.length,
                 marca: marca.value,
                 ciudad: ciudad.value,
                 pdv: pdv.value,
@@ -101,7 +99,7 @@ async function appendData(src, data){
 
         reset();
         vibrate();
-        
+        volver();
     }catch(error){
         alert("Opps! tenemos un problema.");
     }
@@ -172,9 +170,13 @@ function reset(){
     selfiePDVBox.style.display = "block";
 }
 
+function volver(){
+    window.location.href = "index.html";
+}
+
 // Events
 btnStore.addEventListener('click', store);
-btnReset.addEventListener('click', reset);
+btnVovler.addEventListener('click', volver);
 
 selfiePDVBox.addEventListener('click', pdvPicture);
 fotoFachadaBox.addEventListener('click', fachadaPicture);
