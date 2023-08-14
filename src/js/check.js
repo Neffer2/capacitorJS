@@ -118,7 +118,7 @@ function enableSync(){
         sync.href = "sync.html";
     }else {
         sync.href = "#";
-    }
+    } 
 }
 
 function disableModulo(modulo, checkbox){

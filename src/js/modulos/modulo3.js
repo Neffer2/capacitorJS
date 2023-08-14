@@ -6,7 +6,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 export const STORAGE_KEY = "modulo3";
 export const STORAGE_PATH = "PM3.txt";
 const QUALITY = 30;
- 
+  
 // Elems 
 let pdv = document.getElementById('pdv');
 let visibilidad = document.getElementById('visibilidad');
@@ -25,57 +25,27 @@ let foto_visibilidad_competenciaBox = document.getElementById('foto_visibilidad_
 let btnStore = document.getElementById('store');
 let btnVolver = document.getElementById('volver');
  
-let elems = [pdv, visibilidad, tipo_visibilidad, visibilidad_competencia, tipo_visibilidad_competencia, num_ventas_competencia];
+let elems = [visibilidad, tipo_visibilidad, visibilidad_competencia, tipo_visibilidad_competencia];
 let photos = [foto_visibilidad_marca, foto_visibilidad_competencia];
 
-async function store (){
+async function store (){ 
     if (validation()){
         let dataModulo = [{
-            id: 0,
-            pdv: pdv.value,
             visibilidad: visibilidad.value,
             tipo_visibilidad: tipo_visibilidad.value,
             visibilidad_competencia: visibilidad_competencia.value,
             tipo_visibilidad_competencia: tipo_visibilidad_competencia.value,
-            num_ventas_competencia: num_ventas_competencia.value,
             foto_visibilidad_marca: foto_visibilidad_marca.src,
             foto_visibilidad_competencia: foto_visibilidad_competencia.src,
         }]; 
+        
+        appendData(STORAGE_PATH, dataModulo);
+        await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
 
         // await Filesystem.deleteFile({
         //     path: 'secrets/photos.txt',
         //     directory: Directory.Documents,
         // });
-
-        /* Verifico si existe el nombre del archivo dentro de la base de datos
-            ( Lo que significaría que ya existe un documento en FileSystem).
-        */
-        const { value } = await Preferences.get({ key: STORAGE_KEY });
-
-        if (value){
-            const { data } = await Filesystem.readFile({
-                path: STORAGE_PATH,
-                directory: Directory.Documents,
-                encoding: Encoding.UTF8,
-            });
-
-            dataModulo = JSON.parse(data);
-            // console.log(dataModulo1);
-            dataModulo.push({
-                id: dataModulo.length,
-                pdv: pdv.value,
-                visibilidad: visibilidad.value,
-                tipo_visibilidad: tipo_visibilidad.value,
-                visibilidad_competencia: visibilidad_competencia.value,
-                tipo_visibilidad_competencia: tipo_visibilidad_competencia.value,
-                num_ventas_competencia: num_ventas_competencia.value,
-                foto_visibilidad_marca: foto_visibilidad_marca.src,
-                foto_visibilidad_competencia: foto_visibilidad_competencia.src,
-            });
-        }else {
-            await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
-        }
-        appendData(STORAGE_PATH, dataModulo);
     }else {
         alert("Debes rellenar todos los campos");
     }

@@ -5,8 +5,9 @@ import { Alert } from 'bootstrap';
 import { Geolocation } from '@capacitor/geolocation';
 import * as CONSTANTS from'./constants/constants';
 
-// CONST
+// GLOBALS
 let pdv = "";
+let token = "";
 
 // Elems
 let email = document.getElementById('email'); 
@@ -83,6 +84,7 @@ async function syncM1 (id, latitude, longitude){
 
         let dataModulo = JSON.parse(data);
         pdv = dataModulo[0].pdv;
+        token = dataModulo[0].token;
 
         // Inserto datos extra
         dataModulo.forEach((item) => {
@@ -107,7 +109,6 @@ async function syncM1 (id, latitude, longitude){
                 deleteData(CONSTANTS.STORAGE_PATHM1);
                 syncM2(id);
                 alert("Módulo Ejecución de la actividad sincronizado con éxito.");    
-                reset();
             }else {
                 alert("Opps! hubo un problema en el Módulo Ejecución de la actividad.");    
             }
@@ -126,13 +127,14 @@ async function syncM2 (id){
             path: CONSTANTS.STORAGE_PATHM2,
             directory: Directory.Documents,
             encoding: Encoding.UTF8,
-        });
+        }); 
 
         let dataModulo = JSON.parse(data);
 
         dataModulo.forEach((item) => {
-            item.id = id;
-            item.pdv = pdv
+            item.id = id,
+            item.pdv = pdv,
+            item.token = token
         });
         
         if (dataModulo.length){
@@ -148,6 +150,7 @@ async function syncM2 (id){
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
                 deleteData(CONSTANTS.STORAGE_PATHM2);
+                syncM3(id);
                 alert("Módulo Ventas abordaje sincronizado con éxito.");    
             }else {
                 alert("Opps! hubo un problema en el Módulo Ventas abordaje.");    
@@ -161,10 +164,6 @@ async function syncM2 (id){
 }
   
 async function syncM3 (id){
-    console.log("Modulo 3 "+pdv);
-    syncM4(id);
-    return "HOla";
-
     try {
         const { data } = await Filesystem.readFile({
             path: CONSTANTS.STORAGE_PATHM3,
@@ -175,7 +174,9 @@ async function syncM3 (id){
         let dataModulo = JSON.parse(data);
 
         dataModulo.forEach((item) => {
-            item.id = id;
+            item.id = id,
+            item.pdv = pdv,
+            item.token = token
         });
         
         if (dataModulo.length){
@@ -191,34 +192,33 @@ async function syncM3 (id){
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
                 deleteData(CONSTANTS.STORAGE_PATHM3);
-                alert("Módulo Competencia de producto sincronizado con éxito.");    
+                syncM4(id);
+                alert("Módulo Visivilidad de producto sincronizado con éxito.");    
             }else {
-                alert("Opps! hubo un problema en el Módulo Competencia");
+                alert("Opps! hubo un problema en el Módulo Visivilidad");
             }
         }else {
-            alert("Nada que sincronizar en el módulo Competencia.");    
+            alert("Nada que sincronizar en el módulo Visivilidad.");    
         }
     }catch(error){
-        alert("No existe el módulo Competencia");
+        alert("No existe el módulo Visivilidad");
     }
 }
 
-async function syncM4 (id){
-    console.log("Modulo 4 "+pdv);
-    syncM5(id);
-    return "HOla";
-
+async function syncM4(id){
     try {
         const { data } = await Filesystem.readFile({
             path: CONSTANTS.STORAGE_PATHM4,
             directory: Directory.Documents,
-            encoding: Encoding.UTF8,
+            encoding: Encoding.UTF8, 
         });
 
         let dataModulo = JSON.parse(data);
 
         dataModulo.forEach((item) => {
-            item.id = id;
+            item.id = id,
+            item.pdv = pdv,
+            item.token = token
         });
         
         if (dataModulo.length){
@@ -234,6 +234,7 @@ async function syncM4 (id){
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
                 deleteData(CONSTANTS.STORAGE_PATHM4);
+                syncM5(id);
                 alert("Módulo Disponibilidad de producto sincronizado con éxito.");    
             }else {
                 alert("Opps! hubo un problema en el Módulo Disponibilidad de producto");
@@ -246,10 +247,7 @@ async function syncM4 (id){
     }
 } 
 
-async function syncM5 (id){ 
-    console.log("Modulo 5 "+pdv);
-    return "HOla";
-
+async function syncM5(id){ 
     try {
         const { data } = await Filesystem.readFile({
             path: CONSTANTS.STORAGE_PATHM5,
@@ -260,7 +258,9 @@ async function syncM5 (id){
         let dataModulo = JSON.parse(data);
         
         dataModulo.forEach((item) => {
-            item.id = id;
+            item.id = id,
+            item.pdv = pdv,
+            item.token = token
         });
 
         if (dataModulo.length){
@@ -276,7 +276,8 @@ async function syncM5 (id){
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
                 deleteData(CONSTANTS.STORAGE_PATHM5);
-                alert("Módulo Shpoping de precios sincronizado con éxito.");    
+                alert("Módulo Shpoping de precios sincronizado con éxito.");   
+                reset(); 
             }else {
                 alert("Opps! hubo un problema en el Shpoping de precios.");    
             }
@@ -320,15 +321,7 @@ function validation (){
 } 
 
 function reset(){
-    elems.forEach((elem) => {
-        elem.value = "";
-    });
-
-    photos.forEach((elem) => {
-        elem.removeAttribute('src'); 
-    });
-
-    // window.location.href = "index.html";
+    window.location.href = "index.html";
 }
 
 // Events

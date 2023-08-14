@@ -31,21 +31,8 @@
             <slot>Ejecuci&oacute;n de la actividad</slot> 
         </custom-navbar>
         <div class="container my-2">
-            <div class="row gy-2">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="marca">Marca: </label>
-                        <select name="marca" id="marca" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="IQOS">IQOS</option>
-                            <option value="BONDS">BONDS</option>
-                            <option value="MALBORO">MARLBORO</option>
-                            <option value="CHESTERFIELD">CHESTERFIELD</option>
-                            <option value="L&M">L&M</option>
-                        </select>
-                    </div>            
-                </div> 
-                <div class="col-md-12">
+            <div class="row gy-2"> 
+                <!-- <div class="col-md-12">
                     <div class="form-group">
                         <label for="ciudad">Ciudad: </label>
                         <select name="ciudad" id="ciudad" class="form-control" required>
@@ -58,7 +45,7 @@
                             <option value="CHIA">CHIA</option>
                         </select>
                     </div> 
-                </div> 
+                </div>  -->
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="pdv">Punto de venta: </label>
@@ -106,49 +93,34 @@
                         <input type="date" name="fechaVisita" id="fechaVisita" class="form-control" required>
                     </div>
                 </div>
-                REVISAR
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="mes">Mes: </label>
-                        <select name="mes" id="mes" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="Agosto">Agosto</option>
-                            <option value="Septiembre">Septiembre</option>
-                            <option value="Octubre">Octubre</option>
-                            <option value="Noviembre">Noviembre</option>
-                            <option value="Diciembre">Diciembre</option>
-                        </select>
-                    </div>
-                </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="semana">Semana: </label>
                         <select name="semana" id="semana" class="form-control" required>
                             <option value="">Seleccionar</option>
-                            <option value="Semana-01">Semana 1: 14-ago - 18-ago </option>
-                            <option value="Semana-02">Semana 2: 21-ago - 25-ago </option>
-                            <option value="Semana-03">Semana 3: 28-ago - 1-sep </option>
-                            <option value="Semana-04">Semana 4: 4-sep - 8-sep </option>
-                            <option value="Semana-05">Semana 5: 11-sep - 15-sep </option>
-                            <option value="Semana-06">Semana 6: 18-sep - 22-sep </option>
-                            <option value="Semana-07">Semana 7: 25-sep - 29-sep </option>
-                            <option value="Semana-08">Semana 8: 2-oct - 6-oct </option>
-                            <option value="Semana-09">Semana 9: 9-oct - 13-oct </option>
-                            <option value="Semana-10">Semana 10: 16-oct - 20-oct </option>
-                            <option value="Semana-11">Semana 11: 23-oct - 27-oct </option>
-                            <option value="Semana-12">Semana 12: 30-oct - 3-nov </option>
-                            <option value="Semana-13">Semana 13: 6-nov - 10-nov </option>
-                            <option value="Semana-14">Semana 14: 13-nov - 17-nov </option>
-                            <option value="Semana-15">Semana 15: 20-nov - 24-nov </option>
-                            <option value="Semana-16">Semana 16: 27-nov - 1-dic </option>
-                            <option value="Semana-17">Semana 17: 4-dic - 8-dic </option>
-                            <option value="Semana-18">Semana 18: 11-dic - 15-dic </option>
-                            <option value="Semana-19">Semana 19: 18-dic - 22-dic </option>
-                            <option value="Semana-20">Semana 20: 25-dic - 29-dic </option>
+                            <option value="1">Semana 1: 14-ago - 18-ago </option>
+                            <option value="2">Semana 2: 21-ago - 25-ago </option>
+                            <option value="3">Semana 3: 28-ago - 1-sep </option>
+                            <option value="4">Semana 4: 4-sep - 8-sep </option>
+                            <option value="5">Semana 5: 11-sep - 15-sep </option>
+                            <option value="6">Semana 6: 18-sep - 22-sep </option>
+                            <option value="7">Semana 7: 25-sep - 29-sep </option>
+                            <option value="8">Semana 8: 2-oct - 6-oct </option>
+                            <option value="9">Semana 9: 9-oct - 13-oct </option>
+                            <option value="10">Semana 10: 16-oct - 20-oct </option>
+                            <option value="11">Semana 11: 23-oct - 27-oct </option>
+                            <option value="12">Semana 12: 30-oct - 3-nov </option>
+                            <option value="13">Semana 13: 6-nov - 10-nov </option>
+                            <option value="14">Semana 14: 13-nov - 17-nov </option>
+                            <option value="15">Semana 15: 20-nov - 24-nov </option>
+                            <option value="16">Semana 16: 27-nov - 1-dic </option>
+                            <option value="17">Semana 17: 4-dic - 8-dic </option>
+                            <option value="18">Semana 18: 11-dic - 15-dic </option>
+                            <option value="19">Semana 19: 18-dic - 22-dic </option>
+                            <option value="20">Semana 20: 25-dic - 29-dic </option>
                         </select>
                     </div>
                 </div>
-                /***/
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="estrato">Estrato: </label>
