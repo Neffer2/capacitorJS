@@ -15,6 +15,11 @@ let edad = document.getElementById('edad');
 let cantidad = document.getElementById('cantidad');
 let ventasList = document.getElementById('ventas-list');
 
+let productoComp = document.getElementById('productoComp');
+let presentacionComp = document.getElementById('presentacionComp');
+let cantidadComp = document.getElementById('cantidadComp');
+let ventasCompList = document.getElementById('ventasComp-list');
+
 let gifu = document.getElementById('gifu');
 let sabor = document.getElementById('sabor');
 let genero_gifu = document.getElementById('genero_gifu');
@@ -22,12 +27,13 @@ let edad_gifu = document.getElementById('edad_gifu');
 let gifusList = document.getElementById('gifus-list');
 
 let ventas = [];
+let ventasComp = [];
 let gifus = [];
-
 
 // BUTTONS
 let btnStore = document.getElementById('store');
 let btnStoreVenta = document.getElementById('storeVenta');
+let btnStoreVentaComp = document.getElementById('storeVentaComp');
 let btnStoreGifu = document.getElementById('storeGifu');
 let btnVolver = document.getElementById('volver');
 
@@ -37,8 +43,9 @@ async function store (){
     if (validation()){
         let dataModulo = [{
             ventas: ventas,
+            ventasComp: ventasComp,
             gifus: gifus
-        }]; 
+        }];  
 
         await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
         appendData(STORAGE_PATH, dataModulo);
@@ -46,7 +53,7 @@ async function store (){
         alert("Debes rellenar todos los campos");
     }
 }  
-
+ 
 async function appendData(src, data){
     try {
         await Filesystem.writeFile({
@@ -78,6 +85,17 @@ function storeVenta(){
     }
 }
 
+function storeVentaComp(){
+    if (productoComp.value && presentacionComp.value && cantidadComp.value){
+        ventasComp.push({
+            producto: productoComp.value,
+            presentacion: presentacionComp.value,
+            cantidad:cantidad.value
+        });
+        showVentasComp();
+    }
+}
+
 function storeGifu(){
     if (gifu.value && sabor.value && genero_gifu.value && edad_gifu.value){
         gifus.push({
@@ -100,6 +118,11 @@ const deleteVenta = (key) =>{
     showVentas();
 } 
 
+const deleteVentaComp = (key) => {
+   ventasComp.splice(key, 1);
+   showVentasComp();
+}
+
 const deleteGifu = (key) =>{
     gifus.splice(key, 1);
     showGifus();
@@ -116,6 +139,19 @@ function showVentas(){
             <td>${item.edad}</td>
             <td>${item.cantidad}</td>
             <td><button onclick="deleteVenta(${key})" class="btn btn-danger">x</button></td>
+        </tr>`;
+    });
+}
+
+function showVentasComp(){
+    ventasCompList.innerHTML = "";
+    ventasComp.forEach((item, key) => {
+        ventasCompList.innerHTML += 
+        `<tr class="text-center">
+            <td>${item.producto}</td>
+            <td>${item.presentacion}</td>
+            <td>${item.cantidad}</td>
+            <td><button onclick="deleteVentaComp(${key})" class="btn btn-danger">x</button></td>
         </tr>`;
     });
 }
@@ -167,6 +203,7 @@ function mount(){}
 // Events
 btnStoreGifu.addEventListener('click', storeGifu);
 btnStoreVenta.addEventListener('click', storeVenta);
+btnStoreVentaComp.addEventListener('click', storeVentaComp);
 btnStore.addEventListener('click', store);
 btnVolver.addEventListener('click', volver);
 
@@ -175,3 +212,4 @@ window.onload = mount();
 // Attached functions
 window.deleteVenta = deleteVenta;
 window.deleteGifu = deleteGifu;
+window.deleteVentaComp = deleteVentaComp;

@@ -49,45 +49,38 @@
                 </div>
             </div>
             <div class="row gy-2">
-                <div class="col-4">
-                    <select id="producto" class="form-control">
-                        <option value="" class="text-center">🔽</option>
-                        <option value="Marlboro Rojo">Marlboro Rojo</option>
-                        <option value="p2">Producto 2</option>
-                        <option value="p3">Producto 3</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <select id="presentacion" class="form-control">
-                        <option value="" class="text-center">🔽</option>
-                        <!-- <option value="stick">1 Stick</option> -->
-                        <option value="10s">10s</option>
-                        <option value="20s">20s</option>
-                        <option value="18s">18s</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <input id="precio" type="number" class="form-control" placeholder="">
-                </div>
-                <div class="col-12"> 
-                    <button id="storePrecio" class="btn btn-primary">Añadir precio</button>
-                </div>
+              <div class="col-4">
+                <select id="producto" class="form-control">
+                  <option value="" class="text-center">🔽</option>   
+                </select>
+              </div>
+              <div class="col-4">
+                <select id="presentacion" class="form-control">
+                  <option value="" class="text-center">🔽</option>
+                </select>
+              </div>
+              <div class="col-4">
+                <input id="precio" type="number" class="form-control" placeholder="">
+              </div>
+              <div class="col-12"> 
+                <button id="storePrecio" class="btn btn-primary">Añadir precio</button>
+              </div>
             </div>
             <div class="row my-2">
-                <div class="col-12 table-responsive">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <td class="text-center">Producto</td>
-                          <td class="text-center">Presentaci&oacute;n</td>
-                          <td class="text-center">Precio</td>
-                          <td class="text-center">Acciones</td>
-                        </tr>
-                      </thead>
-                      <tbody id="precios-list">
-                      </tbody>
-                    </table>
-                </div>
+              <div class="col-12 table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <td class="text-center">Producto</td>
+                      <td class="text-center">Presentaci&oacute;n</td>
+                      <td class="text-center">Precio</td>
+                      <td class="text-center">Acciones</td>
+                    </tr>
+                  </thead>
+                  <tbody id="precios-list">
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-12">
@@ -119,64 +112,58 @@
                 </div>
             </div>
             <div class="row gy-2">
-                <div class="col-4">
-                    <select id="productoComp" class="form-control">
-                        <option value="" class="text-center">🔽</option>
-                        <option value="Marlboro Rojo">Marlboro Rojo</option>
-                        <option value="p2">Producto 2</option>
-                        <option value="p3">Producto 3</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <select id="presentacionComp" class="form-control">
-                        <option value="" class="text-center">🔽</option>
-                        <!-- <option value="stick">1 Stick</option> -->
-                        <option value="10s">10s</option>
-                        <option value="20s">20s</option>
-                        <option value="18s">18s</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <input id="precioComp" type="number" class="form-control" placeholder="">
-                </div>
-                <div class="col-12"> 
-                    <button id="storePrecioComp" class="btn btn-primary">Añadir precio</button>
-                </div>
+              <div class="col-4">
+                <select id="productoComp" class="form-control">
+                  <option value="" class="text-center">🔽</option>
+                  
+                </select>
+              </div>
+              <div class="col-4">
+                <select id="presentacionComp" class="form-control">
+                  <option value="" class="text-center">🔽</option>
+                </select>
+              </div>
+              <div class="col-4">
+                <input id="precioComp" type="number" class="form-control" placeholder="">
+              </div>
+              <div class="col-12"> 
+                <button id="storePrecioComp" class="btn btn-primary">Añadir precio</button>
+              </div>
             </div>
             <div class="row my-2">
-                <div class="col-12 table-responsive">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <td class="text-center">Producto</td>
-                          <td class="text-center">Presentaci&oacute;n</td>
-                          <td class="text-center">Precio</td>
-                          <td class="text-center">Acciones</td>
-                        </tr>
-                      </thead>
-                      <tbody id="preciosComp-list">
-                      </tbody>
-                    </table>
-                </div>
+              <div class="col-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <td class="text-center">Producto</td>
+                        <td class="text-center">Presentaci&oacute;n</td>
+                        <td class="text-center">Precio</td>
+                        <td class="text-center">Acciones</td>
+                      </tr>
+                    </thead>
+                    <tbody id="preciosComp-list">
+                    </tbody>
+                  </table>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="col-md-12">
-                    <img id="fotoPreciosComp" class="card-img-top" style="display: none;">
+                  <img id="fotoPreciosComp" class="card-img-top" style="display: none;">
                 </div>
                 <div id="fotoPreciosCompBox" class="col-md-12">
-                    <div class="upload-box">
-                        <span>Foto precios competencia</span>
-                    </div>
+                  <div class="upload-box">
+                    <span>Foto precios competencia</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           
           <div class="d-grid gap-2">
-              <button id="store" class="btn btn-primary">
-                  <b>ENVIAR</b>
-              </button>
+            <button id="store" class="btn btn-primary">
+              <b>ENVIAR</b>
+            </button>
           </div>
           <div class="d-grid gap-2">
             <button id="volver" class="btn btn-danger">

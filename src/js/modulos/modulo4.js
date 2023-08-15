@@ -12,20 +12,28 @@ let producto = document.getElementById('producto');
 let presentacion = document.getElementById('presentacion');
 let stock = document.getElementById('stock');
 let disponibilidadList = document.getElementById('disponibilidad-list');
-let disponibilidades = [];
 
-// BUTTONS
+let productoComp = document.getElementById('productoComp');
+let presentacionComp = document.getElementById('presentacionComp');
+let stockComp = document.getElementById('stockComp');
+let disponibilidadCompList = document.getElementById('disponibilidadComp-list');
+
+// BUTTONS 
 let btnStore = document.getElementById('store');
 let btnVolver = document.getElementById('volver');
 let btnStoreDispo = document.getElementById('storeDispo');
+let btnStoreDispoComp = document.getElementById('storeDispoComp');
 
 let elems = [presente];
+let disponibilidades = [];
+let disponibilidadesComp = [];
  
 async function store (){
     if (validation()){
         let dataModulo = [{
             presente: presente.value,
-            disponibilidades: disponibilidades
+            disponibilidades: disponibilidades,
+            disponibilidadesComp: disponibilidadesComp
         }];
 
         await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
@@ -33,7 +41,6 @@ async function store (){
     }else {
         alert("Debes rellenar todos los campos");
     }
-
 }
 
 async function appendData(src, data){
@@ -64,10 +71,26 @@ function storeDispo(){
     }
 }
 
+function storeDispoComp(){
+    if (productoComp.value && presentacionComp.value && stockComp.value){
+        disponibilidadesComp.push({
+            producto: productoComp.value,
+            presentacion: presentacionComp.value,
+            stock: stockComp.value
+        });
+        showDisponibilidadesComp();
+    }
+}
+
 const deleteDisponibilidad = (key) =>{
     disponibilidades.splice(key, 1);
     showDisponibilidades();
 } 
+
+const deleteDisponibilidadComp = (key) => {
+    disponibilidadesComp.splice(key, 1);
+    showDisponibilidadesComp();
+}
 
 function showDisponibilidades(){
     disponibilidadList.innerHTML = "";
@@ -78,6 +101,19 @@ function showDisponibilidades(){
             <td>${item.presentacion}</td>
             <td>${item.stock}</td>
             <td><button onclick="deleteDisponibilidad(${key})" class="btn btn-danger">x</button></td>
+        </tr>`;
+    });
+}
+
+function showDisponibilidadesComp(){
+    disponibilidadCompList.innerHTML = "";
+    disponibilidadesComp.forEach((item, key) => {
+        disponibilidadCompList.innerHTML += 
+        `<tr class="text-center">
+            <td>${item.producto}</td>
+            <td>${item.presentacion}</td>
+            <td>${item.stock}</td>
+            <td><button onclick="deleteDisponibilidadComp(${key})" class="btn btn-danger">x</button></td>
         </tr>`;
     });
 }
@@ -120,7 +156,8 @@ function volver(){
 btnStore.addEventListener('click', store);
 btnVolver.addEventListener('click', volver);
 btnStoreDispo.addEventListener('click', storeDispo);
-
+btnStoreDispoComp.addEventListener('click', storeDispoComp);
 
 window.onload = mount();
 window.deleteDisponibilidad = deleteDisponibilidad;
+window.deleteDisponibilidadComp = deleteDisponibilidadComp;

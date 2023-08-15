@@ -44,11 +44,13 @@
                 </div> 
                 
                 <div class="col-md-12 my-3">
-                    <label for="">Disponibilidad: </label>
+                    <div class="text-center">
+                        <h6><b>DISPONIBILIDAD DE PRODUCTO</b></h6>
+                    </div>
                     <div class="row" style="font-size: 10px;">
                         <div class="col-4 text-center">
                             <b>PRODUCTO</b>
-                        </div>
+                        </div> 
                         <div class="col-4 text-center">
                             <b>PRESENTACION</b>
                         </div>
@@ -60,18 +62,11 @@
                         <div class="col-4">
                             <select id="producto" class="form-control">
                                 <option value="" class="text-center">🔽</option>
-                                <option value="Marlboro Rojo">Marlboro Rojo</option>
-                                <option value="p2">Producto 2</option>
-                                <option value="p3">Producto 3</option>
                             </select>
                         </div>
                         <div class="col-4">
                             <select id="presentacion" class="form-control">
                                 <option value="" class="text-center">🔽</option>
-                                <!-- <option value="stick">1 Stick</option> -->
-                                <option value="10s">10s</option>
-                                <option value="20s">20s</option>
-                                <option value="18s">18s</option>
                             </select>
                         </div>
                         <div class="col-4">
@@ -97,17 +92,58 @@
                             </table>
                         </div>
                     </div>
-                </div>     
-                <!-- <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="agotados_marca">Indique si hay agotados por marca: </label>
-                        <select name="agotados_marca" id="agotados_marca" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="Opcion 1">Opcion 1</option>
-                        </select>
-                    </div>
-                </div> -->
+                </div>
                 
+                <div class="col-md-12 my-3">
+                    <div class="text-center">
+                        <h6><b>DISPONIBILIDAD DE PRODUCTO COMPETENCIA</b></h6>
+                    </div>
+                    <div class="row" style="font-size: 10px;">
+                        <div class="col-4 text-center">
+                            <b>PRODUCTO</b>
+                        </div> 
+                        <div class="col-4 text-center">
+                            <b>PRESENTACION</b>
+                        </div>
+                        <div class="col-4 text-center">
+                            <b>STOCK</b>
+                        </div>
+                    </div>
+                    <div class="row gy-2">
+                        <div class="col-4">
+                            <select id="productoComp" class="form-control">
+                                <option value="" class="text-center">🔽</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <select id="presentacionComp" class="form-control">
+                                <option value="" class="text-center">🔽</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <input id="stockComp" type="number" class="form-control" placeholder="">
+                        </div>
+                        <div class="col-12">
+                            <button id="storeDispoComp" class="btn btn-primary">Añadir disponibilidad</button>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Presentaci&oacute;n</td>
+                                        <td class="text-center">Stock</td>
+                                        <td class="text-center">Acciones</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="disponibilidadComp-list">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
                 <div class="d-grid gap-2">
                     <button id="store" class="btn btn-primary">
                         <b>ENVIAR</b>
@@ -127,5 +163,6 @@
     <script src="./js/modulos/modulo4.js" type="module"></script>
     <script src="./js/nabvar.js" type="module"></script>
     <script src="./js/loading.js" type="module"></script>
+    <script src="./js/constants/constants.js" type="module"></script>
   </body>
 </html>
