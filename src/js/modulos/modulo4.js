@@ -1,9 +1,7 @@
+import * as CONSTANTS from'../constants/constants';
 import { Preferences } from '@capacitor/preferences';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
- 
-export const STORAGE_KEY = "modulo4";
-export const STORAGE_PATH = "PM4.txt";
 
 // Elems
 let presente = document.getElementById('presente');
@@ -36,8 +34,8 @@ async function store (){
             disponibilidadesComp: disponibilidadesComp
         }];
 
-        await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
-        appendData(STORAGE_PATH, dataModulo);
+        // await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
+        appendData(CONSTANTS.STORAGE_PATHM4, dataModulo);
     }else {
         alert("Debes rellenar todos los campos");
     }

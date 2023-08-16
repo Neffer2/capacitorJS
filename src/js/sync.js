@@ -1,9 +1,9 @@
+import * as CONSTANTS from'./constants/constants';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { CapacitorHttp } from '@capacitor/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Alert } from 'bootstrap';
 import { Geolocation } from '@capacitor/geolocation';
-import * as CONSTANTS from'./constants/constants';
 
 // GLOBALS
 let pdv = "";
@@ -18,12 +18,15 @@ let selfiePDVBox = document.getElementById('selfiePDVBox');
 
 let elems = [email, password];
 let photos = [selfiePDV];  
+
+// LOGS
+let error = document.getElementById('error');
  
 // BUTTONS
 let sync = document.getElementById('sync-action');
 let btnReset = document.getElementById('reset');
 
-async function mount(){             
+async function mount(){     
     if (validation()){
         let dataModulo = {
             email: email.value,
@@ -44,6 +47,8 @@ async function mount(){
                 if (response.data.status){
                     const coordinates = await Geolocation.getCurrentPosition();
                     if (coordinates.coords.latitude && coordinates.coords.longitude){
+                        document.getElementById('loading-container').style.display = "flex";
+                        document.getElementById('main-content').style.display = "none";
                         syncM1(response.data.id, coordinates.coords.latitude, coordinates.coords.longitude);
                     }else{ 
                         alert("!Opps, hubo un problema con tu ubicación. Iténtalo de nuevo.");
@@ -59,7 +64,7 @@ async function mount(){
     }
 }
 
-const picture = async () => {
+const picture = async () => { 
     const image = await Camera.getPhoto({
         quality: CONSTANTS.QUALITY,
         allowEditing: false,
@@ -74,7 +79,7 @@ const picture = async () => {
     selfiePDVBox.style.display = "none";
 }; 
 
-async function syncM1 (id, latitude, longitude){
+async function syncM1 (id, latitude, longitude, newToken = null){
     try {
         const { data } = await Filesystem.readFile({
             path: CONSTANTS.STORAGE_PATHM1,
@@ -83,16 +88,19 @@ async function syncM1 (id, latitude, longitude){
         });
 
         let dataModulo = JSON.parse(data);
-        pdv = dataModulo[0].pdv;
-        token = dataModulo[0].token;
 
         // Inserto datos extra
         dataModulo.forEach((item) => {
             item.id = id;
             item.foto_cierre = selfiePDV.src;
             item.latitude = latitude;
-            item.longitude = longitude;
+            item.longitude = longitude; 
+            if (token){ console.log("Se cambia: "+item.token+" por: "+newToken); item.token = newToken; }
         });
+        
+        // Globals
+        pdv = dataModulo[0].pdv;
+        token = dataModulo[0].token;
         
         if (dataModulo.length){
             const options = {
@@ -105,18 +113,28 @@ async function syncM1 (id, latitude, longitude){
             };
             
             const response = await CapacitorHttp.post(options);
+            // Token repetido   
+            if (response.data.status === 'error'){
+                syncM1(id, latitude, longitude, CONSTANTS.generateToken());
+                return false;
+            }        
+
             if (response.status == 200){
-                deleteData(CONSTANTS.STORAGE_PATHM1);
+                // deleteData(CONSTANTS.STORAGE_PATHM1);
                 syncM2(id);
                 alert("Módulo Ejecución de la actividad sincronizado con éxito.");    
             }else {
+                console.log(response)
+                loadOff();
                 alert("Opps! hubo un problema en el Módulo Ejecución de la actividad.");    
             }
         }else {
+            loadOff();
             alert("Nada que sincronizar en el Módulo Ejecución de la actividad.");    
         }
     }catch(error){
         console.log(error);
+        loadOff();
         alert("No existe el módulo Ejecución de la actividad");
     }
 }
@@ -149,18 +167,21 @@ async function syncM2 (id){
             
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
-                deleteData(CONSTANTS.STORAGE_PATHM2);
+                // deleteData(CONSTANTS.STORAGE_PATHM2);
                 syncM3(id);
                 alert("Módulo Ventas abordaje sincronizado con éxito.");    
             }else {
+                loadOff();
                 alert("Opps! hubo un problema en el Módulo Ventas abordaje.");    
             }
         }else {
+            loadOff();
             alert("Nada que sincronizar en módulo Ventas abordaje.");    
         }
     }catch(error){
+        loadOff();
         alert("No existe el módulo Ventas abordaje");
-    }
+    } 
 }
   
 async function syncM3 (id){
@@ -191,16 +212,19 @@ async function syncM3 (id){
             
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
-                deleteData(CONSTANTS.STORAGE_PATHM3);
+                // deleteData(CONSTANTS.STORAGE_PATHM3);
                 syncM4(id);
                 alert("Módulo Visivilidad de producto sincronizado con éxito.");    
             }else {
+                loadOff();
                 alert("Opps! hubo un problema en el Módulo Visivilidad");
             }
         }else {
+            loadOff();
             alert("Nada que sincronizar en el módulo Visivilidad.");    
         }
     }catch(error){
+        loadOff();
         alert("No existe el módulo Visivilidad");
     }
 }
@@ -233,16 +257,19 @@ async function syncM4(id){
             
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
-                deleteData(CONSTANTS.STORAGE_PATHM4);
+                // deleteData(CONSTANTS.STORAGE_PATHM4);
                 syncM5(id);
                 alert("Módulo Disponibilidad de producto sincronizado con éxito.");    
             }else {
+                loadOff();
                 alert("Opps! hubo un problema en el Módulo Disponibilidad de producto");
             }
         }else {
+            loadOff();
             alert("Nada que sincronizar en el módulo Disponibilidad de producto.");    
         }
     }catch(error){
+        loadOff();
         alert("No existe el módulo Disponibilidad de producto");
     }
 } 
@@ -275,16 +302,19 @@ async function syncM5(id){
             
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
-                deleteData(CONSTANTS.STORAGE_PATHM5);
+                // deleteData(CONSTANTS.STORAGE_PATHM5);
                 alert("Módulo Shpoping de precios sincronizado con éxito.");   
                 reset(); 
             }else {
+                loadOff();
                 alert("Opps! hubo un problema en el Shpoping de precios.");    
             }
         }else {
+            loadOff();
             alert("Nada que sincronizar en módulo Shpoping de precios.");    
         }
     }catch(error){
+        loadOff();
         alert("No existe el módulo Shpoping de precios.");
     }
 }
@@ -322,6 +352,11 @@ function validation (){
 
 function reset(){
     window.location.href = "index.html";
+}
+
+function loadOff(){
+    document.getElementById('loading-container').style.display = "none";
+    document.getElementById('main-content').style.display = "block";
 }
 
 // Events

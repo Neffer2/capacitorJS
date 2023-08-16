@@ -1,11 +1,8 @@
+import * as CONSTANTS from'../constants/constants';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Preferences } from '@capacitor/preferences';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
-
-export const STORAGE_KEY = "modulo3";
-export const STORAGE_PATH = "PM3.txt";
-const QUALITY = 30;
   
 // Elems 
 let pdv = document.getElementById('pdv');
@@ -39,8 +36,8 @@ async function store (){
             foto_visibilidad_competencia: foto_visibilidad_competencia.src,
         }]; 
         
-        appendData(STORAGE_PATH, dataModulo);
-        await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
+        // await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
+        appendData(CONSTANTS.STORAGE_PATHM3, dataModulo);
 
         // await Filesystem.deleteFile({
         //     path: 'secrets/photos.txt',
@@ -71,7 +68,7 @@ async function appendData(src, data){
 
 const visibilidad_marcaPicture = async () => {
     const image = await Camera.getPhoto({
-        quality: QUALITY,
+        quality: CONSTANTS.QUALITY,
         allowEditing: false,
         source: CameraSource.Camera,
         resultType: CameraResultType.Base64
@@ -86,7 +83,7 @@ const visibilidad_marcaPicture = async () => {
 
 const foto_visibilidad_competenciaPicture = async () => {
     const image = await Camera.getPhoto({
-        quality: QUALITY,
+        quality: CONSTANTS.QUALITY,
         allowEditing: false,
         source: CameraSource.Camera,
         resultType: CameraResultType.Base64
@@ -116,7 +113,7 @@ function validation (){
 
     return validator;
 }
-
+ 
 async function vibrate(){
     await Haptics.vibrate();
 }

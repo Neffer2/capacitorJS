@@ -13,13 +13,13 @@ export const STORAGE_PATHM4 = "PM4.txt";
 export const STORAGE_KEYM5 = "modulo5";
 export const STORAGE_PATHM5 = "PM5.txt";
 
-const QUALITY = 30;
+export const QUALITY = 25;
 
-// export const API_LINK = "https://desarrolloiglu.com/api/"
-// export const API_AUTH = "https://desarrolloiglu.com/api/login";
+export const API_LINK = "https://desarrolloiglu.com/api/"
+export const API_AUTH = "https://desarrolloiglu.com/api/login";
 
-export const API_LINK = "http://localhost:8000/api/"
-export const API_AUTH = "http://localhost:8000/api/login";
+// export const API_LINK = "http://localhost:8000/api/"
+// export const API_AUTH = "http://localhost:8000/api/login";
 
 export const presentaciones = [
     '1 Stick',
@@ -121,9 +121,7 @@ export const productos = `<optgroup label="FULL FLAVOR">
 
 export const productosComp = [
     'ROTHMANS',
-    'SABOR SUAVE',
     'ROTHMANS SILVER',
-    'MENTOL CON SABOR',
     'LUCKY STRIKE DAIQUIRI',
     'LUCKY STRIKE MOJITO',
     'LUCKY STRIKE GIN',
@@ -138,7 +136,6 @@ export const productosComp = [
     'ROTHMANS MORAZUL',
     'ROTHMANS TROPIC',
     'CAMEL MENTOL',
-    'LOW',
     'WINSTON ROJO',
     'CAMEL',
     'ROTHMANS BLANCO',
@@ -148,16 +145,14 @@ export const productosComp = [
     'WINSTON PURPLE'
 ];                        
 
-export const gifus = `<optgroup label="HETS IQOS">
-                        <option value="CAJETILLA X20 /CARTÓN X200">CAJETILLA X20 /CARTÓN X200</option>
+export const gifus = `<optgroup label="HEETS IQOS">
                         <option value="AMBER">AMBER</option>
                         <option value="BRONZE">BRONZE</option>
-                        <option value="TURQUOISE">URQUOISE</option>
+                        <option value="TURQUOISE">TURQUOISE</option>
                         <option value="BLUE">BLUE</option>
                         <option value="PURPLE">PURPLE</option>
                         </optgroup>
-                        <optgroup label="BLENS BONS">
-                        <option value="CAJETILLA X20 /CARTÓN X200 - BLENS BONS">CAJETILLA X20 /CARTÓN X200</option>
+                        <optgroup label="BLENDS BONS">
                         <option value="BLENS COPPER">BLENS COPPER</option>
                         <option value="BLENS GOLD">BLENS GOLD</option>
                         <option value="BLENS BLUE">BLENS BLUE</option>
@@ -185,7 +180,11 @@ export const visibilidades = [
     'Publicidad',
     'No aplica'
 ];
-                        
+
+/*
+    User: admin@pmi.com
+    Pass: PMI.2023*
+*/                   
                         
 /* Modulos */
 let producto = document.getElementById('producto');
@@ -264,5 +263,18 @@ if (tipo_visibilidad){
 
 /* ** */
 
-/* Modulo 4 */
-/* ** */
+function generateHexCode(){
+    const hexDigits = "0123456789ABCDGF";
+    const randomNumber = Math.floor(Math.random() * 16);
+    const hexDigit = hexDigits[randomNumber];    
+    return hexDigit;
+}
+
+export function generateToken(){
+    let hexCode = "";
+    for (let i = 0; i < 10; i++) {
+        hexCode += generateHexCode();
+    }
+
+    return hexCode;
+}

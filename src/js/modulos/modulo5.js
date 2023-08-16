@@ -4,9 +4,6 @@ import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
-export const STORAGE_KEY = "modulo5";
-export const STORAGE_PATH = "PM5.txt";
-
 // Elems 
 let producto = document.getElementById('producto');
 let presentacion = document.getElementById('presentacion');
@@ -47,8 +44,8 @@ async function store (){
             fotoPreciosComp: fotoPreciosComp.src
         }];
         
-        await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
-        appendData(STORAGE_PATH, dataModulo);
+        // await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
+        appendData(CONSTANTS.STORAGE_PATHM5, dataModulo);
     }else {
         alert("Debes rellenar todos los campos");
     }

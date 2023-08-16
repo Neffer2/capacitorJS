@@ -4,9 +4,6 @@ import { Preferences } from '@capacitor/preferences';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
-export const STORAGE_KEY = "modulo1";
-export const STORAGE_PATH = "PM1.txt";
-
 // Elems
 let pdv = document.getElementById('pdv');
 let fechaVisita = document.getElementById('fechaVisita');
@@ -24,12 +21,12 @@ let btnStore = document.getElementById('store');
 let btnVovler = document.getElementById('volver');
 
 let elems = [pdv, fechaVisita, semana, estrato, barrio];
-let photos = [selfiePDV, fotoFachada];
+let photos = [selfiePDV, fotoFachada]; 
 
 async function store (){
     if (validation()){
         let dataModulo = [{
-            token: generateToken(),
+            token: CONSTANTS.generateToken(),
             pdv: pdv.value,
             fechaVisita: fechaVisita.value,
             semana: semana.value,
@@ -45,8 +42,8 @@ async function store (){
         //     directory: Directory.Documents,
         // });
         
-        await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
-        appendData(STORAGE_PATH, dataModulo);
+        // await Preferences.set({ key: CONSTANTS.STORAGE_KEYM1, value: JSON.stringify({path: CONSTANTS.STORAGE_PATHM1}) });
+        appendData(CONSTANTS.STORAGE_PATHM1, dataModulo);
     }else {
         alert("Debes rellenar todos los campos");
     }
@@ -138,22 +135,6 @@ function reset(){
 
 function volver(){
     window.location.href = "index.html";
-}
-
-function generateHexCode(){
-    const hexDigits = "0123456789ABCDGF";
-    const randomNumber = Math.floor(Math.random() * 16);
-    const hexDigit = hexDigits[randomNumber];    
-    return hexDigit;
-}
-
-function generateToken(){
-    let hexCode = "";
-    for (let i = 0; i < 10; i++) {
-        hexCode += generateHexCode();
-    }
-
-    return hexCode;
 }
 
 // Events
