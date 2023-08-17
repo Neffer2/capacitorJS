@@ -124,7 +124,6 @@ async function syncM1 (id, latitude, longitude, newToken = null){
             }        
 
             if (response.status == 200){
-                // deleteData(CONSTANTS.STORAGE_PATHM1);
                 syncM2(id);
                 alert("Módulo Ejecución de la actividad sincronizado con éxito.");    
             }else {
@@ -171,7 +170,6 @@ async function syncM2 (id){
             
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
-                // deleteData(CONSTANTS.STORAGE_PATHM2);
                 syncM3(id);
                 alert("Módulo Ventas abordaje sincronizado con éxito.");    
             }else {
@@ -216,7 +214,6 @@ async function syncM3 (id){
             
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
-                // deleteData(CONSTANTS.STORAGE_PATHM3);
                 syncM4(id);
                 alert("Módulo Visivilidad de producto sincronizado con éxito.");    
             }else {
@@ -261,9 +258,12 @@ async function syncM4(id){
             
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
-                // deleteData(CONSTANTS.STORAGE_PATHM4);
-                loadOff();
                 alert("Módulo Disponibilidad de producto sincronizado con éxito.");    
+                deleteData(CONSTANTS.STORAGE_PATHM1);
+                deleteData(CONSTANTS.STORAGE_PATHM2);
+                deleteData(CONSTANTS.STORAGE_PATHM3);
+                deleteData(CONSTANTS.STORAGE_PATHM4);
+                reset();
             }else {
                 loadOff();
                 alert("Opps! hubo un problema en el Módulo Disponibilidad de producto");

@@ -5,6 +5,7 @@ import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 // Elems
+let ciudad = document.getElementById('ciudad');
 let pdv = document.getElementById('pdv');
 let fechaVisita = document.getElementById('fechaVisita');
 let semana = document.getElementById('semana');
@@ -116,6 +117,62 @@ function validation (){
     return validator;
 }
 
+function fillPdv(){
+    pdv.innerHTML = "<option value=''>Seleccionar</option>";
+    switch(ciudad.value){
+        case 'Bogota': 
+            CONSTANTS.puntosBogota.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+        case 'Barranquilla': 
+            CONSTANTS.puntosBarranquilla.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+        case 'Medellin': 
+            CONSTANTS.puntosMedellin.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+        case 'Cali': 
+            CONSTANTS.puntosCali.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+        case 'Manizales': 
+            CONSTANTS.puntosManizales.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+        case 'Caldas': 
+            CONSTANTS.puntosCaldas.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+        case 'Pereira': 
+            CONSTANTS.puntosPereira.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+        case 'Cuba': 
+            CONSTANTS.puntosCuba.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+        case 'SanJoaquin': 
+            CONSTANTS.puntosSanJoaquin.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+        case 'VillaMaria': 
+            CONSTANTS.puntosVillaMaria.forEach((item) => {
+                pdv.innerHTML += `<option value="${item.cod}">${item.nom}</option>`;
+            });
+        break;
+    }
+}
+
 async function vibrate(){
     await Haptics.vibrate();
 }
@@ -143,3 +200,5 @@ btnVovler.addEventListener('click', volver);
 
 selfiePDVBox.addEventListener('click', pdvPicture);
 fotoFachadaBox.addEventListener('click', fachadaPicture);
+
+ciudad.addEventListener('change', fillPdv);

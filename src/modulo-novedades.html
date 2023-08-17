@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Awesome Capacitor App</title>
     <meta
-      name="viewport"
+      name="viewport" 
       content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta name="format-detection" content="telephone=no" />
@@ -20,6 +20,12 @@
     <meta name="theme-color" content="#31d53d" />
   </head>
   <body>
+    <div id="loading-container">
+      <div id="loading-spinner" class="spinner-border m-5" role="status">
+          <span class="sr-only"></span>
+      </div>
+    </div>
+
     <custom-navbar>
       <slot>Novedades de asistencia</slot> 
     </custom-navbar>
@@ -60,19 +66,6 @@
                         <option value="Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Carulla Centro Chia - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
                         <option value="Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029">Dorado Plaza Bog - Avenida Pradilla 900 Este C.C Centro Chia Local 1029</option>
                     </optgroup>
-                    <!-- <optgroup label="TULUA">
-                        <option value="Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65">Jumbo Plaza Central Bogota - Cc Plz Central Lc1-34 Cra62Y65</option>            
-                        <option value="Sto 404 Santa Ana Bgt - Cra 7A # 108-44">Sto 404 Santa Ana Bgt - Cra 7A # 108-44</option>            
-                    </optgroup> -->
-                    <!-- <optgroup label="ARMENIA">
-                        <option value="Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)">Soluzona Bog - Av Calle 17 N. 65 B - 95 (Esquina Avivamiento)</option>                        
-                        <option value="Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11">Colsubsidio Porvenir - Av Cll 26 #85D - 55 Local A11</option>
-                    </optgroup> -->
-                    <!-- <optgroup label="MANIZALES">
-                        <option value="091 Exito Occidente - Cll 54F Sur # 93C-18 Lc">091 Exito Occidente - Cll 54F Sur # 93C-18 Lc</option>            
-                        <option value="097 Exito Usme - Carrera 114A # 78B - 85">097 Exito Usme - Carrera 114A # 78B - 85</option>
-                        <option value="1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58">1Ero De Mayo Bog - Carrera 1Ra No 65D Sur 58</option>                
-                    </optgroup> -->
                 </select>
             </div>
           </div>

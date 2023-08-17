@@ -1,14 +1,6 @@
+import * as CONSTANTS from'../constants/constants';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { CapacitorHttp } from '@capacitor/core';
-
-export const STORAGE_KEYM1 = "modulo1";
-export const STORAGE_PATHM1 = "PM1.txt";
-
-// export const API_LINK = "https://desarrolloiglu.com/api/";
-// export const API_AUTH = "https://desarrolloiglu.com/api/login";
-
-export const API_LINK = "http://localhost:8000/api/" 
-export const API_AUTH = "http://localhost:8000/api/login";
 
 let novedades = document.getElementById('novedades');
 let email = document.getElementById('email'); 
@@ -31,7 +23,7 @@ async function storeNovedad(){
 
         try {
             const options = {
-            url: API_AUTH,
+            url: CONSTANTS.API_AUTH,
             headers: { 
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -41,7 +33,7 @@ async function storeNovedad(){
             
             const response = await CapacitorHttp.post(options);
             if (response.data.status){
-                syncM1(response.data.id);
+                syncM1(response.data.id); 
             }else {
                 alert("Usuario no encontrado");
             }
@@ -58,12 +50,13 @@ async function syncM1 (id){
     let dataModulo = [{
         id: id,
         pdv: pdv.value,
+        token: null,
         novedades: novedades.value,    
     }]; 
 
     try {
         const options = {
-            url: `${API_LINK}insertM1`,
+            url: `${CONSTANTS.API_LINK}insertM1`,
             headers: { 
               'Accept': 'application/json',
               'Content-Type': 'application/json'
@@ -79,6 +72,7 @@ async function syncM1 (id){
             alert("Opps! hubo un problema verifique su conexión.");    
         }
     }catch(error){
+        console.log(error);
         alert("Opps! hubo un problema verifique su conexión.");    
     }
 }
