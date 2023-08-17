@@ -38,14 +38,6 @@ async function sincronizar(){
         });
         alert("Modulo 4 depurado con éxito");
     }catch(error){}
-    
-    try{
-        await Filesystem.deleteFile({
-            path: CONSTANTS.STORAGE_PATHM5,
-            directory: Directory.Documents,
-        });
-        alert("Modulo 5 depurado con éxito");
-    }catch(error){}   
                
     alert("Sincronización exitosa");
     enableUpdates();

@@ -4,15 +4,15 @@ import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 // Elems
-let presente = document.getElementById('presente');
-
 let producto = document.getElementById('producto');
 let presentacion = document.getElementById('presentacion');
+let precio = document.getElementById('precio');
 let stock = document.getElementById('stock');
 let disponibilidadList = document.getElementById('disponibilidad-list');
 
 let productoComp = document.getElementById('productoComp');
 let presentacionComp = document.getElementById('presentacionComp');
+let precioComp = document.getElementById('precioComp');
 let stockComp = document.getElementById('stockComp');
 let disponibilidadCompList = document.getElementById('disponibilidadComp-list');
 
@@ -22,19 +22,17 @@ let btnVolver = document.getElementById('volver');
 let btnStoreDispo = document.getElementById('storeDispo');
 let btnStoreDispoComp = document.getElementById('storeDispoComp');
 
-let elems = [presente];
 let disponibilidades = [];
 let disponibilidadesComp = [];
+let elems = [];
  
 async function store (){
     if (validation()){
         let dataModulo = [{
-            presente: presente.value,
             disponibilidades: disponibilidades,
             disponibilidadesComp: disponibilidadesComp
         }];
 
-        // await Preferences.set({ key: STORAGE_KEY, value: JSON.stringify({path: STORAGE_PATH}) });
         appendData(CONSTANTS.STORAGE_PATHM4, dataModulo);
     }else {
         alert("Debes rellenar todos los campos");
@@ -63,6 +61,7 @@ function storeDispo(){
         disponibilidades.push({
             producto: producto.value,
             presentacion: presentacion.value,
+            precio: precio.value,
             stock: stock.value
         });
         showDisponibilidades();
@@ -74,6 +73,7 @@ function storeDispoComp(){
         disponibilidadesComp.push({
             producto: productoComp.value,
             presentacion: presentacionComp.value,
+            precio: precioComp.value,
             stock: stockComp.value
         });
         showDisponibilidadesComp();
@@ -97,6 +97,7 @@ function showDisponibilidades(){
         `<tr class="text-center">
             <td>${item.producto}</td>
             <td>${item.presentacion}</td>
+            <td>${item.precio}</td>
             <td>${item.stock}</td>
             <td><button onclick="deleteDisponibilidad(${key})" class="btn btn-danger">x</button></td>
         </tr>`;
@@ -110,6 +111,7 @@ function showDisponibilidadesComp(){
         `<tr class="text-center">
             <td>${item.producto}</td>
             <td>${item.presentacion}</td>
+            <td>${item.precio}</td>
             <td>${item.stock}</td>
             <td><button onclick="deleteDisponibilidadComp(${key})" class="btn btn-danger">x</button></td>
         </tr>`;
@@ -140,11 +142,7 @@ function reset(){
     window.location.href = "index.html";
 }
 
-function mount(){
-    elems.forEach((elem) => {
-        elem.value = "0";
-    });
-}
+function mount(){}
 
 function volver(){
     window.location.href = "index.html";

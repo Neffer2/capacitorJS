@@ -27,6 +27,8 @@ let sync = document.getElementById('sync-action');
 let btnReset = document.getElementById('reset');
 
 async function mount(){     
+    loadOn();
+
     if (validation()){
         let dataModulo = {
             email: email.value,
@@ -47,20 +49,22 @@ async function mount(){
                 if (response.data.status){
                     const coordinates = await Geolocation.getCurrentPosition();
                     if (coordinates.coords.latitude && coordinates.coords.longitude){
-                        document.getElementById('loading-container').style.display = "flex";
-                        document.getElementById('main-content').style.display = "none";
                         syncM1(response.data.id, coordinates.coords.latitude, coordinates.coords.longitude);
                     }else{ 
-                        alert("!Opps, hubo un problema con tu ubicación. Iténtalo de nuevo.");
+                        alert("!Opps, hubo un problema con tu ubicación. Iténtalo de nuevo.");1
+                        loadOff();
                     }
                 }else {
                     alert("Usuario no encontrado");
+                    loadOff();
                 }
         }catch(error){
+            loadOff();
             return false;
         }
     }else{
         alert("Debes rellenar todos los campos");
+        loadOff();
     }
 }
 
@@ -95,7 +99,7 @@ async function syncM1 (id, latitude, longitude, newToken = null){
             item.foto_cierre = selfiePDV.src;
             item.latitude = latitude;
             item.longitude = longitude; 
-            if (token){ console.log("Se cambia: "+item.token+" por: "+newToken); item.token = newToken; }
+            if (token){ /* console.log("Se cambia: "+item.token+" por: "+newToken); */ item.token = newToken; }
         });
         
         // Globals
@@ -258,7 +262,7 @@ async function syncM4(id){
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
                 // deleteData(CONSTANTS.STORAGE_PATHM4);
-                syncM5(id);
+                loadOff();
                 alert("Módulo Disponibilidad de producto sincronizado con éxito.");    
             }else {
                 loadOff();
@@ -273,51 +277,6 @@ async function syncM4(id){
         alert("No existe el módulo Disponibilidad de producto");
     }
 } 
-
-async function syncM5(id){ 
-    try {
-        const { data } = await Filesystem.readFile({
-            path: CONSTANTS.STORAGE_PATHM5,
-            directory: Directory.Documents,
-            encoding: Encoding.UTF8,
-        });
-
-        let dataModulo = JSON.parse(data);
-        
-        dataModulo.forEach((item) => {
-            item.id = id,
-            item.pdv = pdv,
-            item.token = token
-        });
-
-        if (dataModulo.length){
-            const options = {
-                url: `${CONSTANTS.API_LINK}insertM5`,
-                headers: { 
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json'
-                 },
-                data: dataModulo,
-            };
-            
-            const response = await CapacitorHttp.post(options);
-            if (response.status == 200){
-                // deleteData(CONSTANTS.STORAGE_PATHM5);
-                alert("Módulo Shpoping de precios sincronizado con éxito.");   
-                reset(); 
-            }else {
-                loadOff();
-                alert("Opps! hubo un problema en el Shpoping de precios.");    
-            }
-        }else {
-            loadOff();
-            alert("Nada que sincronizar en módulo Shpoping de precios.");    
-        }
-    }catch(error){
-        loadOff();
-        alert("No existe el módulo Shpoping de precios.");
-    }
-}
 
 async function deleteData(src){
     try {
@@ -352,6 +311,11 @@ function validation (){
 
 function reset(){
     window.location.href = "index.html";
+}
+
+function loadOn(){
+    document.getElementById('loading-container').style.display = "flex";
+    document.getElementById('main-content').style.display = "none";
 }
 
 function loadOff(){

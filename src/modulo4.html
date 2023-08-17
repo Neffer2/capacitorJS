@@ -31,46 +31,40 @@
             <slot>Disponibilidad de producto</slot>
         </custom-navbar>  
         <div class="container my-2">
-            <!-- Eliminar  -->
             <div class="row gy-2">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="presente">¿La marca esta presente en el punto de venta? </label>
-                        <select name="presente" id="presente" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="Si">Si</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-                </div> 
-                <!-- ***** -->
                 <div class="col-md-12 my-3">
                     <div class="text-center">
                         <h6><b>DISPONIBILIDAD DE PRODUCTO</b></h6>
                     </div>
                     <div class="row" style="font-size: 10px;">
-                        <div class="col-4 text-center">
+                        <div class="col-3 text-center">
                             <b>PRODUCTO</b>
                         </div> 
-                        <div class="col-4 text-center">
+                        <div class="col-3 text-center">
                             <b>PRESENTACION</b>
                         </div>
-                        <div class="col-4 text-center">
+                        <div class="col-3 text-center">
+                            <b>PRECIO</b>
+                        </div>
+                        <div class="col-3 text-center">
                             <b>STOCK</b>
                         </div>
                     </div>
                     <div class="row gy-2">
-                        <div class="col-4">
+                        <div class="col-3">
                             <select id="producto" class="form-control">
                                 <option value="" class="text-center">🔽</option>
                             </select>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <select id="presentacion" class="form-control">
                                 <option value="" class="text-center">🔽</option>
                             </select>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
+                            <input id="precio" class="form-control" type="number">
+                        </div>
+                        <div class="col-3">
                             <input id="stock" type="number" class="form-control" placeholder="">
                         </div>
                         <div class="col-12">
@@ -84,6 +78,7 @@
                                     <tr>
                                         <td class="text-center">Producto</td>
                                         <td class="text-center">Presentaci&oacute;n</td>
+                                        <td class="text-center">Precio</td>
                                         <td class="text-center">Stock</td>
                                         <td class="text-center">Acciones</td>
                                     </tr>
@@ -96,32 +91,35 @@
                 </div>
                 
                 <div class="col-md-12 my-3">
-                    <div class="text-center">
-                        <h6><b>DISPONIBILIDAD DE PRODUCTO COMPETENCIA</b></h6>
-                    </div>
                     <div class="row" style="font-size: 10px;">
-                        <div class="col-4 text-center">
+                        <div class="col-3 text-center">
                             <b>PRODUCTO</b>
                         </div> 
-                        <div class="col-4 text-center">
+                        <div class="col-3 text-center">
                             <b>PRESENTACION</b>
                         </div>
-                        <div class="col-4 text-center">
+                        <div class="col-3 text-center">
+                            <b>PRECIO</b>
+                        </div>
+                        <div class="col-3 text-center">
                             <b>STOCK</b>
                         </div>
                     </div>
                     <div class="row gy-2">
-                        <div class="col-4">
+                        <div class="col-3">
                             <select id="productoComp" class="form-control">
                                 <option value="" class="text-center">🔽</option>
                             </select>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <select id="presentacionComp" class="form-control">
                                 <option value="" class="text-center">🔽</option>
                             </select>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
+                            <input id="precioComp" class="form-control" type="number">
+                        </div>
+                        <div class="col-3">
                             <input id="stockComp" type="number" class="form-control" placeholder="">
                         </div>
                         <div class="col-12">
@@ -135,6 +133,7 @@
                                     <tr>
                                         <td class="text-center">Producto</td>
                                         <td class="text-center">Presentaci&oacute;n</td>
+                                        <td class="text-center">Precio</td>
                                         <td class="text-center">Stock</td>
                                         <td class="text-center">Acciones</td>
                                     </tr>
@@ -164,6 +163,5 @@
     <script src="./js/modulos/modulo4.js" type="module"></script>
     <script src="./js/nabvar.js" type="module"></script>
     <script src="./js/loading.js" type="module"></script>
-    <script src="./js/constants/constants.js" type="module"></script>
   </body>
 </html>

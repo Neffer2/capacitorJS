@@ -13,9 +13,6 @@ let checkboxM3 = document.getElementById('checkboxM3');
 let modulo4 = document.getElementById('modulo4');
 let checkboxM4 = document.getElementById('checkboxM4'); 
 
-let modulo5 = document.getElementById('modulo5');
-let checkboxM5 = document.getElementById('checkboxM5'); 
-
 let sync = document.getElementById('sync');
 
 function mount() {
@@ -23,7 +20,6 @@ function mount() {
     checkModulo2();
     checkModulo3();
     checkModulo4();
-    checkModulo5();
 }
 
 async function checkModulo1(){
@@ -39,7 +35,6 @@ async function checkModulo1(){
             disableModulo(modulo1, checkboxM1);
         }
     }catch(error){
-        console.log(error);
         return true;
     }
 }
@@ -57,7 +52,6 @@ async function checkModulo2(){
             disableModulo(modulo2, checkboxM2);
         }
     }catch(error){
-        console.log(error);
         return true;
     }
 }
@@ -96,25 +90,8 @@ async function checkModulo4(){
     }
 }
 
-async function checkModulo5(){
-    try {
-        const { data } = await Filesystem.readFile({
-            path: CONSTANTS.STORAGE_PATHM5,
-            directory: Directory.Documents,
-            encoding: Encoding.UTF8,
-        });
-        
-        let dataModulo = JSON.parse(data);
-        if (dataModulo.length){
-            disableModulo(modulo5, checkboxM5);
-        }
-    }catch(error){
-        return true;
-    }
-}
-
 function enableSync(){
-    if (checkboxM1.checked && checkboxM2.checked && checkboxM3.checked && checkboxM4.checked && checkboxM5.checked){
+    if (checkboxM1.checked && checkboxM2.checked && checkboxM3.checked && checkboxM4.checked){
         sync.href = "sync.html";
     }else {
         sync.href = "#";
