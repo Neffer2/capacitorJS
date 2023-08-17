@@ -50,7 +50,7 @@
                         <div class="col-2 text-center">
                             <b>PRODUCTO</b>
                         </div>
-                        <div class="col-3 text-center">
+                        <div class="col-2 text-center">
                             <b>PRESENTACI&Oacute;N</b>
                         </div>
                         <div class="col-2 text-center">
@@ -62,6 +62,9 @@
                         <div class="col-2 text-center">
                             <b>CANTIDAD</b>
                         </div>
+                        <div class="col-2 text-center">
+                            <b>INTER&Eacute;S INICIAL</b> 
+                        </div>
                     </div>
                     <div class="row gy-2">
                         <div class="col-2">
@@ -69,7 +72,7 @@
                                 <option value="" class="text-center">🔽</option>
                             </select>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <select id="presentacion" class="form-control">
                                 <option value="" class="text-center">🔽</option>
                             </select>
@@ -92,8 +95,14 @@
                                 <option value="53">Mas de 52</option>
                             </select>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <input id="cantidad" type="number" class="form-control" placeholder="">
+                        </div>
+                        <div class="col-2">
+                            <select id="interes" class="form-control">
+                                <option value="" class="text-center">🔽</option>
+                                <option value="N/A">No aplica</option>
+                            </select>
                         </div>
                         <div class="col-12">
                             <button id="storeVenta" class="btn btn-primary">Añadir venta</button>
@@ -109,6 +118,7 @@
                                         <td class="text-center">G&eacute;nero</td>
                                         <td class="text-center">Edad</td>
                                         <td class="text-center">Cantidad</td>
+                                        <td class="text-center">Inter&eacute;s inicial</td>
                                         <td class="text-center">Acciones</td>
                                     </tr>
                                 </thead>
@@ -171,51 +181,40 @@
                 </div> 
                 <div class="px-2">
                     <hr>
-                </div>
+                </div> 
                 <div class="col-md-12">
                     <div class="text-center">
                         <h6><b>GIFUS</b></h6>
                     </div>
                     <!-- /Eliminar columna sabor -->
                     <div class="row" style="font-size: 10px;">
-                        <div class="col-3 text-center">
+                        <div class="col-4 text-center">
                             <b>PRODUCTO</b>
                         </div>
-                        <div class="col-3 text-center">
-                            <b>SABOR</b>
-                        </div>
-                        <div class="col-3 text-center">
+                        <div class="col-4 text-center">
                             <b>G&Eacute;NERO</b>
                         </div>
-                        <div class="col-3 text-center">
+                        <div class="col-4 text-center">
                             <b>EDAD</b>
                         </div>
                     </div>
 
                     <div class="row" style="font-size: 10px;">
-                        <div class="col-3 mb-2">
+                        <div class="col-4 mb-2">
                             <div class="form-group">
                                 <select id="gifu" class="form-control">
                                     <option value="" class="text-center">🔽</option>                                    
                                 </select>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <select id="sabor" class="form-control">
-                                    <option value="" class="text-center">🔽</option>
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
                                 <select id="genero_gifu" class="form-control" required>
                                     <option value="" class="text-center">🔽</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <select id="edad_gifu" class="form-control" required>
                                 <option value="" class="text-center">🔽</option>
                                 <option value="18-22">18-22</option>

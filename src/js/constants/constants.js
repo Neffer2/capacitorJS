@@ -15,11 +15,11 @@ export const STORAGE_PATHM5 = "PM5.txt";
 
 export const QUALITY = 25;
 
-export const API_LINK = "https://desarrolloiglu.com/api/"
-export const API_AUTH = "https://desarrolloiglu.com/api/login";
+// export const API_LINK = "https://desarrolloiglu.com/api/"
+// export const API_AUTH = "https://desarrolloiglu.com/api/login";
 
-// export const API_LINK = "http://localhost:8000/api/"
-// export const API_AUTH = "http://localhost:8000/api/login";
+export const API_LINK = "http://localhost:8000/api/"
+export const API_AUTH = "http://localhost:8000/api/login";
 
 export const presentaciones = [
     '1 Stick',
@@ -189,6 +189,7 @@ export const visibilidades = [
 /* Modulos */
 let producto = document.getElementById('producto');
 let productoComp = document.getElementById('productoComp');
+let interesInicial = document.getElementById('interes');
 
 let presentacion = document.getElementById('presentacion');
 let presentacionComp = document.getElementById('presentacionComp');
@@ -209,6 +210,13 @@ if (productoComp){
         productoComp.innerHTML += `<option value="${item}">${item}</option>`;
     });
 }
+
+if (interesInicial){    
+    productosComp.forEach((item) => {
+        interesInicial.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
 
 if (presentacion){
     presentaciones.forEach((item) => {

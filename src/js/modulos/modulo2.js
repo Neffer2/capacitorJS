@@ -11,6 +11,7 @@ let presentacion = document.getElementById('presentacion');
 let genero = document.getElementById('genero'); 
 let edad = document.getElementById('edad'); 
 let cantidad = document.getElementById('cantidad');
+let interesInicial = document.getElementById('interes');
 let ventasList = document.getElementById('ventas-list');
 
 let productoComp = document.getElementById('productoComp');
@@ -19,7 +20,6 @@ let cantidadComp = document.getElementById('cantidadComp');
 let ventasCompList = document.getElementById('ventasComp-list');
 
 let gifu = document.getElementById('gifu');
-let sabor = document.getElementById('sabor');
 let genero_gifu = document.getElementById('genero_gifu');
 let edad_gifu = document.getElementById('edad_gifu');
 let gifusList = document.getElementById('gifus-list');
@@ -77,7 +77,8 @@ function storeVenta(){
             presentacion: presentacion.value,
             genero: genero.value,
             edad: edad.value,
-            cantidad:cantidad.value
+            cantidad:cantidad.value,
+            interesInicial: interesInicial.value
         });
         showVentas();
     }
@@ -95,10 +96,9 @@ function storeVentaComp(){
 }
 
 function storeGifu(){
-    if (gifu.value && sabor.value && genero_gifu.value && edad_gifu.value){
+    if (gifu.value && genero_gifu.value && edad_gifu.value){
         gifus.push({
             gifu: gifu.value,
-            sabor: sabor.value,
             genero_gifu: genero_gifu.value,
             edad_gifu: edad_gifu.value,
         });
@@ -136,6 +136,7 @@ function showVentas(){
             <td>${item.genero}</td>
             <td>${item.edad}</td>
             <td>${item.cantidad}</td>
+            <td>${item.interesInicial}</td>
             <td><button onclick="deleteVenta(${key})" class="btn btn-danger">x</button></td>
         </tr>`;
     });
@@ -160,7 +161,6 @@ function showGifus(){
         gifusList.innerHTML += 
         `<tr class="text-center">
             <td>${item.gifu}</td>
-            <td>${item.sabor}</td>
             <td>${item.genero_gifu}</td>
             <td>${item.edad_gifu}</td>
             <td><button onclick="deleteGifu(${key})" class="btn btn-danger">x</button></td>
