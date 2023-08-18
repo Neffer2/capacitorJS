@@ -154,6 +154,5 @@ btnVolver.addEventListener('click', volver);
 btnStoreDispo.addEventListener('click', storeDispo);
 btnStoreDispoComp.addEventListener('click', storeDispoComp);
 
-window.onload = mount();
 window.deleteDisponibilidad = deleteDisponibilidad;
 window.deleteDisponibilidadComp = deleteDisponibilidadComp;

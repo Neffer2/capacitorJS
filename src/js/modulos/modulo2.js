@@ -205,8 +205,6 @@ btnStoreVentaComp.addEventListener('click', storeVentaComp);
 btnStore.addEventListener('click', store);
 btnVolver.addEventListener('click', volver);
 
-window.onload = mount();
-
 // Attached functions
 window.deleteVenta = deleteVenta;
 window.deleteGifu = deleteGifu;
