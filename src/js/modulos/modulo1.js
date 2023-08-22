@@ -14,6 +14,10 @@ let barrio = document.getElementById('barrio');
 let selfiePDV = document.getElementById('selfiePDV');
 let fotoFachada = document.getElementById('fotoFachada');
 
+let customPdvContainer = document.getElementById('custom-pdv-container');
+let pdvNom = document.getElementById('pdvNom');
+let pdvDire = document.getElementById('pdvDire');
+
 let selfiePDVBox = document.getElementById('selfiePDVBox');
 let fotoFachadaBox = document.getElementById('fotoFachadaBox');
 
@@ -22,14 +26,20 @@ let btnStore = document.getElementById('store');
 let btnReset = document.getElementById('reset');
 let btnVovler = document.getElementById('volver');
 
-let elems = [pdv, fechaVisita, semana, estrato, barrio];
+let elems = [fechaVisita, semana, estrato, barrio];
 let photos = [selfiePDV, fotoFachada]; 
 
 async function store (){
     if (validation()){
+        let auxPdv = pdv.value;
+
+        if (auxPdv === ''){   
+            auxPdv = `Nombre: ${pdvNom.value} Dirección: ${pdvDire.value}`;
+        }
+
         let dataModulo = [{
             token: CONSTANTS.generateToken(),
-            pdv: pdv.value,
+            pdv: auxPdv,
             fechaVisita: fechaVisita.value,
             semana: semana.value,
             estrato: estrato.value,
@@ -37,12 +47,7 @@ async function store (){
             selfiePDV: selfiePDV.src,
             fotoFachada: fotoFachada.src,
             novedades: null
-        }]; 
-
-        // await Filesystem.deleteFile({
-        //     path: 'secrets/photos.txt',
-        //     directory: Directory.Documents,
-        // });
+        }];
         
         // await Preferences.set({ key: CONSTANTS.STORAGE_KEYM1, value: JSON.stringify({path: CONSTANTS.STORAGE_PATHM1}) });
         appendData(CONSTANTS.STORAGE_PATHM1, dataModulo);
@@ -100,24 +105,6 @@ const fachadaPicture = async () => {
     fotoFachadaBox.style.display = "none";
 };
 
-function validation (){
-    let validator = true;
- 
-    elems.forEach((elem) => {
-        if (elem.value === ""){
-            validator = false;
-        }
-    });
-
-    photos.forEach((elem) => {
-        if (elem.src === ""){
-            validator = false;
-        }
-    });
-
-    return validator;
-}
-
 function fillPdv(){
     pdv.innerHTML = "<option value=''>Seleccionar</option>";
     switch(ciudad.value){
@@ -172,6 +159,52 @@ function fillPdv(){
             });
         break;
     }
+
+    pdv.innerHTML += "<option value='OTRO'>OTRO</option>";
+    showPdv();
+}
+
+function customPdv(){
+    if (pdv.value === "OTRO"){
+        hidePdv();
+    }else {
+        showPdv();
+    }
+}
+
+function showPdv(){
+    pdv.style.display = 'block';
+    customPdvContainer.style.display = 'none';
+}
+
+function hidePdv(){
+    pdv.value = "";
+    pdv.style.display = 'none';
+    customPdvContainer.style.display = 'block';        
+}
+
+function validation (){
+    let validator = true;
+    
+    if (pdv.value === ""){
+        if (pdvNom.value === "" || pdvDire.value === ""){
+            validator = false;
+        }
+    }
+    
+    elems.forEach((elem) => {
+        if (elem.value === ""){
+            validator = false;
+        }
+    });
+
+    photos.forEach((elem) => {
+        if (elem.src === ""){
+            validator = false;
+        }
+    });
+
+    return validator;
 }
 
 async function vibrate(){ 
@@ -179,16 +212,7 @@ async function vibrate(){
 }
 
 function reset(){
-    elems.forEach((elem) => {
-        elem.value = "";
-    });
-
-    photos.forEach((elem) => {
-        elem.removeAttribute('src'); 
-    });
-
-    fotoFachadaBox.style.display = "block";
-    selfiePDVBox.style.display = "block";
+    window.location.href = "modulo1.html";
 }
 
 function volver(){
@@ -204,3 +228,4 @@ selfiePDVBox.addEventListener('click', pdvPicture);
 fotoFachadaBox.addEventListener('click', fachadaPicture);
 
 ciudad.addEventListener('change', fillPdv);
+pdv.addEventListener('change', customPdv);

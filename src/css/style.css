@@ -148,3 +148,7 @@ body {
   background-color: #0062a3 !important;
   border-color: #0062a3 !important;
 }
+
+#custom-pdv-container {
+  display: none;
+}
