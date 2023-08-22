@@ -19,6 +19,7 @@ let fotoFachadaBox = document.getElementById('fotoFachadaBox');
 
 // BUTTONS
 let btnStore = document.getElementById('store');
+let btnReset = document.getElementById('reset');
 let btnVovler = document.getElementById('volver');
 
 let elems = [pdv, fechaVisita, semana, estrato, barrio];
@@ -173,7 +174,7 @@ function fillPdv(){
     }
 }
 
-async function vibrate(){
+async function vibrate(){ 
     await Haptics.vibrate();
 }
 
@@ -196,6 +197,7 @@ function volver(){
 
 // Events
 btnStore.addEventListener('click', store);
+btnReset.addEventListener('click', reset);
 btnVovler.addEventListener('click', volver);
 
 selfiePDVBox.addEventListener('click', pdvPicture);

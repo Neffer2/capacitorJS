@@ -198,12 +198,39 @@ function volver(){
 
 function mount(){}
 
-// Events
+// Events 
 btnStoreGifu.addEventListener('click', storeGifu);
 btnStoreVenta.addEventListener('click', storeVenta);
 btnStoreVentaComp.addEventListener('click', storeVentaComp);
 btnStore.addEventListener('click', store);
 btnVolver.addEventListener('click', volver);
+
+// Dynamic selects
+producto.addEventListener('change', () => {
+    if (producto.selectedIndex !== -1){
+        const selectedOptionElement = producto.options[producto.selectedIndex];   
+        
+        if (selectedOptionElement.dataset.type){
+            setPresentacionesElectricos();
+        }else{ 
+            setPresentacionesCombustubles();
+        }
+    }    
+});
+
+function setPresentacionesElectricos(){
+    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
+    CONSTANTS.presentacionesElectricos.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
+function setPresentacionesCombustubles(){
+    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
+    CONSTANTS.presentaciones.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
 
 // Attached functions
 window.deleteVenta = deleteVenta;

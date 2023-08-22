@@ -20,7 +20,8 @@ let foto_visibilidad_competenciaBox = document.getElementById('foto_visibilidad_
 
 // BUTTONS
 let btnStore = document.getElementById('store');
-let btnVolver = document.getElementById('volver');
+let btnReset = document.getElementById('reset');
+let btnVolver = document.getElementById('volver'); 
  
 let elems = [visibilidad, tipo_visibilidad, visibilidad_competencia, tipo_visibilidad_competencia];
 let photos = [foto_visibilidad_marca, foto_visibilidad_competencia];
@@ -59,7 +60,7 @@ async function appendData(src, data){
 
         alert("Datos almacenados con éxito.");
 
-        reset();
+        volver();
         vibrate();
     }catch(error){
         alert("Opps! tenemos un problema.");
@@ -129,8 +130,6 @@ function reset(){
 
     foto_visibilidad_competenciaBox.style.display = "block";
     foto_visibilidad_marcaBox.style.display = "block";
-
-    window.location.href = "index.html";
 }
 
 function volver(){
@@ -139,6 +138,7 @@ function volver(){
 
 // Events
 btnStore.addEventListener('click', store);
+btnReset.addEventListener('click', reset);
 btnVolver.addEventListener('click', volver);
 
 foto_visibilidad_marcaBox.addEventListener('click', visibilidad_marcaPicture);

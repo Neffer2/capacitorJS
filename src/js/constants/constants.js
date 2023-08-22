@@ -498,6 +498,9 @@ export const presentaciones = [
     '10s',
     '18s',
     '20s',
+];
+
+export const presentacionesElectricos = [
     'CAJETILLA X20',
     'CARTON X200'
 ];
@@ -556,39 +559,36 @@ export const productos = `<optgroup label="FULL FLAVOR">
                         </optgroup>                
                         <optgroup label="IQOS">
                             <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; IQOS ORIGINALS DUO">
-                                <option value="GRÁFITO">&nbsp;&nbsp;&nbsp;&nbsp; GRÁFITO</option>
-                                <option value="PLATA">&nbsp;&nbsp;&nbsp;&nbsp; PLATA</option>
-                                <option value="TURQUESA">&nbsp;&nbsp;&nbsp;&nbsp; TURQUESA</option>
-                                <option value="ESCARLATA"> &nbsp;&nbsp;&nbsp;&nbsp; ESCARLATA</option>
+                                <option value="IQOS GRÁFITO">&nbsp;&nbsp;&nbsp;&nbsp; GRÁFITO</option>
+                                <option value="IQOS PLATA">&nbsp;&nbsp;&nbsp;&nbsp; PLATA</option>
+                                <option value="IQOS TURQUESA">&nbsp;&nbsp;&nbsp;&nbsp; TURQUESA</option>
+                                <option value="IQOS ESCARLATA"> &nbsp;&nbsp;&nbsp;&nbsp; ESCARLATA</option>
                             </optgroup>
                             <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; IQOS TOGETHER">
-                                <option value="GRÁFITO">&nbsp;&nbsp;&nbsp;&nbsp; GRÁFITO</option>
-                                <option value="PLATA">&nbsp;&nbsp;&nbsp;&nbsp; PLATA</option>
-                                <option value="TURQUESA">&nbsp;&nbsp;&nbsp;&nbsp; TURQUESA</option>
-                                <option value="ESCARLATA"> &nbsp;&nbsp;&nbsp;&nbsp; ESCARLATA</option>                           
+                                <option value="IQOS GRÁFITO">&nbsp;&nbsp;&nbsp;&nbsp; GRÁFITO</option>
+                                <option value="IQOS PLATA">&nbsp;&nbsp;&nbsp;&nbsp; PLATA</option>
+                                <option value="IQOS TURQUESA">&nbsp;&nbsp;&nbsp;&nbsp; TURQUESA</option>
+                                <option value="IQOS ESCARLATA"> &nbsp;&nbsp;&nbsp;&nbsp; ESCARLATA</option>                           
                             </optgroup>
                         </optgroup>
                         <optgroup label="HETS IQOS">
-                            <option value="CAJETILLA X20 /CARTÓN X200">CAJETILLA X20 /CARTÓN X200</option>
-                            <option value="AMBER">AMBER</option>
-                            <option value="BRONZE">BRONZE</option>
-                            <option value="TURQUOISE">URQUOISE</option>
-                            <option value="BLUE">BLUE</option>
-                            <option value="PURPLE">PURPLE</option>
+                            <option value="HETS AMBER" data-type="bons/hets">AMBER</option>
+                            <option value="HETS BRONZE" data-type="bons/hets">BRONZE</option>
+                            <option value="HETS TURQUOISE" data-type="bons/hets">TURQUOISE</option>
+                            <option value="HETS BLUE" data-type="bons/hets">BLUE</option>
+                            <option value="HETS PURPLE" data-type="bons/hets">PURPLE</option>
                         </optgroup>
                         <optgroup label="BONS">
-                            <option value="CAJETILLA X20 /CARTÓN X200">CAJETILLA X20 /CARTÓN X200</option>
-                            <option value="VERDE">VERDE</option>
-                            <option value="ROJO">ROJO</option>
-                            <option value="GRIS OSCURO">GRIS OSCURO</option>
-                            <option value="AZUL">AZUL</option>
+                            <option value="BONS VERDE">VERDE</option>
+                            <option value="BONS ROJO">ROJO</option>
+                            <option value="BONS GRIS OSCURO">GRIS OSCURO</option>
+                            <option value="BONS AZUL">AZUL</option>
                         </optgroup>
-                        <optgroup label="BLENS BONS">
-                            <option value="CAJETILLA X20 /CARTÓN X200 - BLENS BONS">CAJETILLA X20 /CARTÓN X200</option>
-                            <option value="BLENS COPPER">BLENS COPPER</option>
-                            <option value="BLENS GOLD">BLENS GOLD</option>
-                            <option value="BLENS BLUE">BLENS BLUE</option>
-                            <option value="BLENS CORAL">BLENS CORAL</option>
+                        <optgroup label="BLENDS BONS">
+                            <option value="BLENDS COPPER" data-type="bons/hets">BLENS COPPER</option>
+                            <option value="BLENDS GOLD" data-type="bons/hetss">BLENS GOLD</option>
+                            <option value="BLENDS BLUE" data-type="bons/hets">BLENS BLUE</option>
+                            <option value="BLENDS CORAL" data-type="bons/hets">BLENS CORAL</option>
                         </optgroup>`;
 
 export const productosComp = [
@@ -618,24 +618,18 @@ export const productosComp = [
 ];                        
 
 export const gifus = `<optgroup label="HEETS IQOS">
-                        <option value="AMBER">AMBER</option>
-                        <option value="BRONZE">BRONZE</option>
-                        <option value="TURQUOISE">TURQUOISE</option>
-                        <option value="BLUE">BLUE</option>
-                        <option value="PURPLE">PURPLE</option>
+                        <option value="HEETS AMBER">AMBER</option>
+                        <option value="HEETS BRONZE">BRONZE</option>
+                        <option value="HEETS TURQUOISE">TURQUOISE</option>
+                        <option value="HEETS BLUE">BLUE</option>
+                        <option value="HEETS PURPLE">PURPLE</option>
                         </optgroup>
                         <optgroup label="BLENDS BONS">
-                        <option value="BLENS COPPER">BLENS COPPER</option>
-                        <option value="BLENS GOLD">BLENS GOLD</option>
-                        <option value="BLENS BLUE">BLENS BLUE</option>
-                        <option value="BLENS CORAL">BLENS CORAL</option>
+                        <option value="BLENDS COPPER">BLENS COPPER</option>
+                        <option value="BLENDS GOLD">BLENS GOLD</option>
+                        <option value="BLENDS BLUE">BLENS BLUE</option>
+                        <option value="BLENDS CORAL">BLENS CORAL</option>
                     </optgroup>`;
-
-export const sabores = [
-    'Fresa',
-    'Platano',
-    'Narnaja'
-];
 
 export const generos = [
     'Masculino',
@@ -673,7 +667,7 @@ let genero = document.getElementById('genero');
 let tipo_visibilidad = document.getElementById('tipo_visibilidad');
 let tipo_visibilidad_competencia = document.getElementById('tipo_visibilidad_competencia');
 
-if (producto){
+if (productoComp){
     producto.innerHTML += productos;
 }
 
@@ -688,7 +682,6 @@ if (interesInicial){
         interesInicial.innerHTML += `<option value="${item}">${item}</option>`;
     });
 }
-
 
 if (presentacion){
     presentaciones.forEach((item) => {
