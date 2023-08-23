@@ -571,24 +571,24 @@ export const productos = `<optgroup label="FULL FLAVOR">
                                 <option value="IQOS ESCARLATA"> &nbsp;&nbsp;&nbsp;&nbsp; ESCARLATA</option>                           
                             </optgroup>
                         </optgroup>
-                        <optgroup label="HETS IQOS">
-                            <option value="HETS AMBER" data-type="bons/hets">AMBER</option>
-                            <option value="HETS BRONZE" data-type="bons/hets">BRONZE</option>
-                            <option value="HETS TURQUOISE" data-type="bons/hets">TURQUOISE</option>
-                            <option value="HETS BLUE" data-type="bons/hets">BLUE</option>
-                            <option value="HETS PURPLE" data-type="bons/hets">PURPLE</option>
+                        <optgroup label="HEETS IQOS">
+                            <option value="HEETS AMBER" data-type="bons/hets">AMBER</option>
+                            <option value="HEETS BRONZE" data-type="bons/hets">BRONZE</option>
+                            <option value="HEETS TURQUOISE" data-type="bons/hets">TURQUOISE</option>
+                            <option value="HEETS BLUE" data-type="bons/hets">BLUE</option>
+                            <option value="HEETS PURPLE" data-type="bons/hets">PURPLE</option>
                         </optgroup>
-                        <optgroup label="BONS">
-                            <option value="BONS VERDE">VERDE</option>
-                            <option value="BONS ROJO">ROJO</option>
-                            <option value="BONS GRIS OSCURO">GRIS OSCURO</option>
-                            <option value="BONS AZUL">AZUL</option>
+                        <optgroup label="BONDS">
+                            <option value="BONDS VERDE">VERDE</option>
+                            <option value="BONDS ROJO">ROJO</option>
+                            <option value="BONDS GRIS OSCURO">GRIS OSCURO</option>
+                            <option value="BONDS AZUL">AZUL</option>
                         </optgroup>
-                        <optgroup label="BLENDS BONS">
-                            <option value="BLENDS COPPER" data-type="bons/hets">BLENS COPPER</option>
-                            <option value="BLENDS GOLD" data-type="bons/hetss">BLENS GOLD</option>
-                            <option value="BLENDS BLUE" data-type="bons/hets">BLENS BLUE</option>
-                            <option value="BLENDS CORAL" data-type="bons/hets">BLENS CORAL</option>
+                        <optgroup label="BLENDS BONDS">
+                            <option value="BLENDS COPPER" data-type="bons/hets">BLENDS COPPER</option>
+                            <option value="BLENDS GOLD" data-type="bons/hetss">BLENDS GOLD</option>
+                            <option value="BLENDS BLUE" data-type="bons/hets">BLENDS BLUE</option>
+                            <option value="BLENDS CORAL" data-type="bons/hets">BLENDS CORAL</option>
                         </optgroup>`;
 
 export const productosComp = [
@@ -625,10 +625,10 @@ export const gifus = `<optgroup label="HEETS IQOS">
                         <option value="HEETS PURPLE">PURPLE</option>
                         </optgroup>
                         <optgroup label="BLENDS BONS">
-                        <option value="BLENDS COPPER">BLENS COPPER</option>
-                        <option value="BLENDS GOLD">BLENS GOLD</option>
-                        <option value="BLENDS BLUE">BLENS BLUE</option>
-                        <option value="BLENDS CORAL">BLENS CORAL</option>
+                        <option value="BLENDS COPPER">BLENDS COPPER</option>
+                        <option value="BLENDS GOLD">BLENDS GOLD</option>
+                        <option value="BLENDS BLUE">BLENDS BLUE</option>
+                        <option value="BLENDS CORAL">BLENDS CORAL</option>
                     </optgroup>`;
 
 export const generos = [
@@ -638,13 +638,14 @@ export const generos = [
 ];
 
 export const visibilidades = [
-    'TPOSM MLB',
-    'TPOSM L&M',
-    'PPOSM',
-    'RISTRA DE PRECIOS',
-    'COUNTER BONDS',
-    'COUNTER IQOS',
-    'BUS STOP'
+    'Material Temporal',
+    'Meterial Permanente',
+    'Tabla de precio',
+    'Mueble Bonds',
+    'Mueble IQOS',
+    'Bus Stop - Flanger',
+    'Cenefa',
+    'Bandeja'
 ];
 
 /*
