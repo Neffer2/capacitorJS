@@ -104,8 +104,6 @@ function disableModulo(modulo, checkbox){
     enableSync();
 }
 
-// window.onload = mount;
-
 window.addEventListener("DOMContentLoaded", function() {
     mount()
 });

@@ -12,36 +12,32 @@ let genero = document.getElementById('genero');
 let edad = document.getElementById('edad'); 
 let cantidad = document.getElementById('cantidad');
 let interesInicial = document.getElementById('interes');
-let ventasList = document.getElementById('ventas-list');
-
-let productoComp = document.getElementById('productoComp');
-let presentacionComp = document.getElementById('presentacionComp');
-let cantidadComp = document.getElementById('cantidadComp');
-let ventasCompList = document.getElementById('ventasComp-list');
+let ventasList = document.getElementById('ventas-list'); 
 
 let gifu = document.getElementById('gifu');
 let genero_gifu = document.getElementById('genero_gifu');
 let edad_gifu = document.getElementById('edad_gifu');
 let gifusList = document.getElementById('gifus-list');
 
-let ventas = [];
-let ventasComp = [];
+let ventas = []; 
 let gifus = [];
 
 // BUTTONS
 let btnStore = document.getElementById('store');
 let btnStoreVenta = document.getElementById('storeVenta');
-let btnStoreVentaComp = document.getElementById('storeVentaComp');
 let btnStoreGifu = document.getElementById('storeGifu');
 let btnVolver = document.getElementById('volver');
 
 let elems = [num_abordadas];
- 
+
+function mount(){
+    showVentas();
+}
+
 async function store (){
     if (validation()){
         let dataModulo = [{
             ventas: ventas,
-            ventasComp: ventasComp,
             gifus: gifus
         }];  
 
@@ -51,28 +47,10 @@ async function store (){
         alert("Debes rellenar todos los campos");
     }
 }  
- 
-async function appendData(src, data){
-    try {
-        await Filesystem.writeFile({
-            path: src,
-            data: JSON.stringify(data),
-            directory: Directory.Documents,
-            encoding: Encoding.UTF8,
-        });    
 
-        alert("Datos almacenados con éxito.");
-
-        reset();
-        vibrate();
-    }catch(error){
-        alert("Opps! tenemos un problema.");
-    }
-}
-
-function storeVenta(){
+async function storeVenta(){
     if (producto.value && presentacion.value && genero.value && edad.value && cantidad.value){
-        ventas.push({
+        await appendVenta({
             producto: producto.value,
             presentacion: presentacion.value,
             genero: genero.value,
@@ -81,17 +59,6 @@ function storeVenta(){
             interesInicial: interesInicial.value
         });
         showVentas();
-    }
-}
-
-function storeVentaComp(){
-    if (productoComp.value && presentacionComp.value && cantidadComp.value){
-        ventasComp.push({
-            producto: productoComp.value,
-            presentacion: presentacionComp.value,
-            cantidad:cantidad.value
-        });
-        showVentasComp();
     }
 }
 
@@ -110,25 +77,25 @@ function storeGifu(){
     Los modulos no son accesibles desde el window. 
     Por eso se define la variable y se almacena una función flecha
 */
-
-const deleteVenta = (key) =>{
-    ventas.splice(key, 1);
+const deleteVenta = async (key) =>{
+    let ventasStored = await readData(CONSTANTS.STORAGE_VENTAS);
+    ventasStored.splice(key, 1);
+    await deleteData(CONSTANTS.STORAGE_VENTAS);
+    console.log(ventasStored);
+    // await appendVenta(ventasStored);
     showVentas();
 } 
-
-const deleteVentaComp = (key) => {
-   ventasComp.splice(key, 1);
-   showVentasComp();
-}
 
 const deleteGifu = (key) =>{
     gifus.splice(key, 1);
     showGifus();
 } 
+ 
+async function showVentas(){
+    let ventasStored = await readData(CONSTANTS.STORAGE_VENTAS);
 
-function showVentas(){
     ventasList.innerHTML = "";
-    ventas.forEach((item, key) => {
+    ventasStored.forEach((item, key) => {
         ventasList.innerHTML += 
         `<tr class="text-center">
             <td>${item.producto}</td>
@@ -138,19 +105,6 @@ function showVentas(){
             <td>${item.cantidad}</td>
             <td>${item.interesInicial}</td>
             <td><button onclick="deleteVenta(${key})" class="btn btn-danger">x</button></td>
-        </tr>`;
-    });
-}
-
-function showVentasComp(){
-    ventasCompList.innerHTML = "";
-    ventasComp.forEach((item, key) => {
-        ventasCompList.innerHTML += 
-        `<tr class="text-center">
-            <td>${item.producto}</td>
-            <td>${item.presentacion}</td>
-            <td>${item.cantidad}</td>
-            <td><button onclick="deleteVentaComp(${key})" class="btn btn-danger">x</button></td>
         </tr>`;
     });
 }
@@ -168,6 +122,72 @@ function showGifus(){
     });
 }
 
+function reset(){
+    elems.forEach((elem) => {
+        elem.value = "";
+    });
+
+    window.location.href = "index.html";
+}
+
+function volver(){
+    window.location.href = "index.html";
+}
+
+async function appendVenta(ventas){
+    let ventasStored = await readData(CONSTANTS.STORAGE_VENTAS);
+    ventasStored.push(ventas);
+    await appendData(CONSTANTS.STORAGE_VENTAS, ventasStored);
+}
+
+async function readData(src){
+    try {
+        const { data } = await Filesystem.readFile({
+            path: src,
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+        });
+        
+        let dataStored = JSON.parse(data);
+        if (dataStored.length){
+            return dataStored;
+        }
+
+        return [];
+    }catch(error){
+        alert("Opps! este archivo no existe.");
+    }
+}
+
+async function appendData(src, data){
+    try {
+        await Filesystem.writeFile({
+            path: src,
+            data: JSON.stringify(data),
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+        });
+
+        // reset();
+        vibrate();
+    }catch(error){
+        alert("Opps! tenemos un problema.");
+    }
+}
+
+async function deleteData(src){
+    try {
+        await Filesystem.writeFile({
+            path: src,
+            data: JSON.stringify([]),
+            directory: Directory.Documents,
+            encoding: Encoding.UTF8,
+        });    
+    }catch(error){
+        alert("Opps! tenemos un problema.");
+    }
+}
+
 async function vibrate(){
     await Haptics.vibrate();
 }
@@ -183,33 +203,21 @@ function validation (){
 
     return validator;
 } 
-
-function reset(){
-    elems.forEach((elem) => {
-        elem.value = "";
-    });
-
-    window.location.href = "index.html";
-}
-
-function volver(){
-    window.location.href = "index.html";
-}
-
-function mount(){}
-
 // Events 
 btnStoreGifu.addEventListener('click', storeGifu);
 btnStoreVenta.addEventListener('click', storeVenta);
-btnStoreVentaComp.addEventListener('click', storeVentaComp);
 btnStore.addEventListener('click', store);
 btnVolver.addEventListener('click', volver);
 
 // Dynamic selects
+if (producto){
+    producto.innerHTML += CONSTANTS.productos;
+}
+
 producto.addEventListener('change', () => {
     if (producto.selectedIndex !== -1){
         const selectedOptionElement = producto.options[producto.selectedIndex];   
-        
+        // deleteData(CONSTANTS.STORAGE_VENTAS);
         if (selectedOptionElement.dataset.type){
             setPresentacionesElectricos();
         }else{ 
@@ -232,7 +240,10 @@ function setPresentacionesCombustubles(){
     });
 }
 
+window.addEventListener("DOMContentLoaded", function() {
+    mount()
+});
+
 // Attached functions
 window.deleteVenta = deleteVenta;
 window.deleteGifu = deleteGifu;
-window.deleteVentaComp = deleteVentaComp;

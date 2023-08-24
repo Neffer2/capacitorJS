@@ -2,12 +2,13 @@ export const STORAGE_PATHM1 = "PM1.txt"
 export const STORAGE_PATHM2 = "PM2.txt"
 export const STORAGE_PATHM3 = "PM3.txt"
 export const STORAGE_PATHM4 = "PM4.txt";
+export const STORAGE_VENTAS = "PMIVENTAS.txt";
 export const QUALITY = 25; 
 
-export const API_LINK = "https://desarrolloiglu.com/api/"
-export const API_AUTH = "https://desarrolloiglu.com/api/login";
-// export const API_LINK = "http://localhost:8000/api/"
-// export const API_AUTH = "http://localhost:8000/api/login";
+// export const API_LINK = "https://desarrolloiglu.com/api/"
+// export const API_AUTH = "https://desarrolloiglu.com/api/login";
+export const API_LINK = "http://localhost:8000/api/"
+export const API_AUTH = "http://localhost:8000/api/login";
 
 export const puntosBogota = [
     {cod: '1481622', nom: 'BOCADITO 1 AV CL 26 # 92 - 32'},
@@ -261,7 +262,7 @@ export const puntosBarranquilla = [
 
     {cod: '808636', nom: 'REFRESQUERIA LA ESTACION CL 19 # 6 - 38'}
 ];
-
+ 
 export const puntosCaldas = [
     {cod: '1512193', nom: 'LICORES EL CASTILLO SAS KR 50 # 132 SUR - 35'},
     {cod: '1086808', nom: 'MINIMERCADO COCOROLLO EL ALTICO KR 48 # 100B SUR - 151'}
@@ -647,11 +648,6 @@ export const visibilidades = [
     'Cenefa',
     'Bandeja'
 ];
-
-/*
-    User: admin@pmi.com
-    Pass: PMI.2023*
-*/                   
                         
 /* Modulos */
 let producto = document.getElementById('producto');
@@ -667,10 +663,6 @@ let genero_gifu = document.getElementById('genero_gifu');
 let genero = document.getElementById('genero');
 let tipo_visibilidad = document.getElementById('tipo_visibilidad');
 let tipo_visibilidad_competencia = document.getElementById('tipo_visibilidad_competencia');
-
-if (productoComp){
-    producto.innerHTML += productos;
-}
 
 if (productoComp){
     productosComp.forEach((item) => {
