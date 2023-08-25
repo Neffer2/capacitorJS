@@ -80,9 +80,9 @@ function storeGifu(){
 const deleteVenta = async (key) =>{
     let ventasStored = await readData(CONSTANTS.STORAGE_VENTAS);
     ventasStored.splice(key, 1);
+
     await deleteData(CONSTANTS.STORAGE_VENTAS);
-    console.log(ventasStored);
-    // await appendVenta(ventasStored);
+    await appendData(CONSTANTS.STORAGE_VENTAS, ventasStored);
     showVentas();
 } 
 
@@ -94,19 +94,21 @@ const deleteGifu = (key) =>{
 async function showVentas(){
     let ventasStored = await readData(CONSTANTS.STORAGE_VENTAS);
 
-    ventasList.innerHTML = "";
-    ventasStored.forEach((item, key) => {
-        ventasList.innerHTML += 
-        `<tr class="text-center">
-            <td>${item.producto}</td>
-            <td>${item.presentacion}</td>
-            <td>${item.genero}</td>
-            <td>${item.edad}</td>
-            <td>${item.cantidad}</td>
-            <td>${item.interesInicial}</td>
-            <td><button onclick="deleteVenta(${key})" class="btn btn-danger">x</button></td>
-        </tr>`;
-    });
+    if (ventasStored){
+        ventasList.innerHTML = "";
+        ventasStored.forEach((item, key) => {
+            ventasList.innerHTML += 
+            `<tr class="text-center">
+                <td>${item.producto}</td>
+                <td>${item.presentacion}</td>
+                <td>${item.genero}</td>
+                <td>${item.edad}</td>
+                <td>${item.cantidad}</td>
+                <td>${item.interesInicial}</td>
+                <td><button onclick="deleteVenta(${key})" class="btn btn-danger">x</button></td>
+            </tr>`;
+        });
+    }
 }
 
 function showGifus(){
@@ -155,7 +157,7 @@ async function readData(src){
 
         return [];
     }catch(error){
-        alert("Opps! este archivo no existe.");
+        return [];
     }
 }
 
@@ -177,11 +179,9 @@ async function appendData(src, data){
 
 async function deleteData(src){
     try {
-        await Filesystem.writeFile({
+        await Filesystem.deleteFile({
             path: src,
-            data: JSON.stringify([]),
             directory: Directory.Documents,
-            encoding: Encoding.UTF8,
         });    
     }catch(error){
         alert("Opps! tenemos un problema.");
