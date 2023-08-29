@@ -1,6 +1,5 @@
 import * as CONSTANTS from'../constants/constants';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { Preferences } from '@capacitor/preferences';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 

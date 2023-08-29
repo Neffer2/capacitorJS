@@ -9,8 +9,10 @@ export const QUALITY = 25;
 
 // export const API_LINK = "https://desarrolloiglu.com/api/"
 // export const API_AUTH = "https://desarrolloiglu.com/api/login";
-export const API_LINK = "http://localhost:8000/api/"
-export const API_AUTH = "http://localhost:8000/api/login";
+// export const API_LINK = "http://localhost:8000/api/"
+// export const API_AUTH = "http://localhost:8000/api/login";
+export const API_LINK = "https://pmi-memories.com/api/"
+export const API_AUTH = "https://pmi-memories.com/api/login";
 
 export const puntosBogota = [
     {cod: '1481622', nom: 'BOCADITO 1 AV CL 26 # 92 - 32'},
@@ -588,6 +590,12 @@ export const productos = `<optgroup label="FULL FLAVOR">
                             <option value="BONDS AZUL">AZUL</option>
                         </optgroup>
                         <optgroup label="BLENDS BONDS">
+                            <option value="BLENDS COPPER" data-type="bons/hets">BLENDS COPPER</option>
+                            <option value="BLENDS GOLD" data-type="bons/hetss">BLENDS GOLD</option>
+                            <option value="BLENDS BLUE" data-type="bons/hets">BLENDS BLUE</option>
+                            <option value="BLENDS CORAL" data-type="bons/hets">BLENDS CORAL</option>
+                        </optgroup>
+                        <optgroup label="COMPETENCIA">
                             <option value="BLENDS COPPER" data-type="bons/hets">BLENDS COPPER</option>
                             <option value="BLENDS GOLD" data-type="bons/hetss">BLENDS GOLD</option>
                             <option value="BLENDS BLUE" data-type="bons/hets">BLENDS BLUE</option>

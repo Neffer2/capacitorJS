@@ -1,5 +1,4 @@
 import * as CONSTANTS from'../constants/constants';
-import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { CapacitorHttp } from '@capacitor/core';
 
 let novedades = document.getElementById('novedades');

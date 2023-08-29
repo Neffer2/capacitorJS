@@ -59,6 +59,8 @@ async function mount(){
                     loadOff();
                 }
         }catch(error){
+            alert("Error, activa la ubicación de tu teléfono");
+            // alert(error);
             loadOff();
             return false;
         }
@@ -136,7 +138,6 @@ async function syncM1 (id, latitude, longitude, newToken = null){
             alert("Nada que sincronizar en el Módulo Ejecución de la actividad.");    
         }
     }catch(error){
-        console.log(error);
         loadOff();
         alert("No existe el módulo Ejecución de la actividad");
     }

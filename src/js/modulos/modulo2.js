@@ -3,7 +3,7 @@ import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
   
 // Elems
-let num_abordadas = document.getElementById('num_abordadas');
+let num_abordadas = document.getElementById('num_abordadas'); 
 
 let producto = document.getElementById('producto');
 let presentacion = document.getElementById('presentacion');
