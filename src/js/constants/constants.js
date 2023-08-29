@@ -3,6 +3,8 @@ export const STORAGE_PATHM2 = "PM2.txt"
 export const STORAGE_PATHM3 = "PM3.txt"
 export const STORAGE_PATHM4 = "PM4.txt";
 export const STORAGE_VENTAS = "PMIVENTAS.txt";
+export const STORAGE_ABORDADOS = "PMIABORDADOS.txt";
+export const STORAGE_GIFUS = "PMIGIFUS.txt";
 export const QUALITY = 25; 
 
 // export const API_LINK = "https://desarrolloiglu.com/api/"

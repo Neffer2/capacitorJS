@@ -29,7 +29,7 @@ async function checkModulo1(){
             directory: Directory.Documents,
             encoding: Encoding.UTF8,
         });
-         
+          
         let dataModulo = JSON.parse(data);
         if (dataModulo.length){
             disableModulo(modulo1, checkboxM1);

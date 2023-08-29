@@ -25,7 +25,7 @@ let btnVolver = document.getElementById('volver');
  
 let elems = [visibilidad, tipo_visibilidad, visibilidad_competencia, tipo_visibilidad_competencia];
 let photos = [foto_visibilidad_marca, foto_visibilidad_competencia];
-
+ 
 async function store (){ 
     if (validation()){
         let dataModulo = [{

@@ -125,7 +125,7 @@ async function syncM1 (id, latitude, longitude, newToken = null){
 
             if (response.status == 200){
                 syncM2(id);
-                alert("Módulo Ejecución de la actividad sincronizado con éxito.");    
+                // alert("Módulo Ejecución de la actividad sincronizado con éxito.");    
             }else {
                 console.log(response)
                 loadOff();
@@ -171,7 +171,7 @@ async function syncM2 (id){
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
                 syncM3(id);
-                alert("Módulo Ventas abordaje sincronizado con éxito.");    
+                // alert("Módulo Ventas abordaje sincronizado con éxito.");    
             }else {
                 loadOff();
                 alert("Opps! hubo un problema en el Módulo Ventas abordaje.");    
@@ -215,7 +215,7 @@ async function syncM3 (id){
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
                 syncM4(id);
-                alert("Módulo Visivilidad de producto sincronizado con éxito.");    
+                // alert("Módulo Visivilidad de producto sincronizado con éxito.");    
             }else {
                 loadOff();
                 alert("Opps! hubo un problema en el Módulo Visivilidad");
@@ -244,8 +244,8 @@ async function syncM4(id){
             item.id = id,
             item.pdv = pdv,
             item.token = token
-        });
-        
+        }); 
+         
         if (dataModulo.length){
             const options = {
                 url: `${CONSTANTS.API_LINK}insertM4`,
@@ -258,11 +258,15 @@ async function syncM4(id){
             
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
-                alert("Módulo Disponibilidad de producto sincronizado con éxito.");    
-                deleteData(CONSTANTS.STORAGE_PATHM1);
-                deleteData(CONSTANTS.STORAGE_PATHM2);
-                deleteData(CONSTANTS.STORAGE_PATHM3);
-                deleteData(CONSTANTS.STORAGE_PATHM4);
+                // alert("Módulo Disponibilidad de producto sincronizado con éxito.");    
+                await deleteData(CONSTANTS.STORAGE_PATHM1);
+                await deleteData(CONSTANTS.STORAGE_PATHM2);
+                await deleteData(CONSTANTS.STORAGE_PATHM3);
+                await deleteData(CONSTANTS.STORAGE_PATHM4);
+                await deleteData(CONSTANTS.STORAGE_VENTAS);
+                await deleteData(CONSTANTS.STORAGE_ABORDADOS);
+                await deleteData(CONSTANTS.STORAGE_GIFUS);
+                alert("Sincronización éxitosa.");    
                 reset();
             }else {
                 loadOff();

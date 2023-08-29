@@ -6,11 +6,11 @@ let btnVolver = document.getElementById('volver');
 let btnAndroid = document.getElementById('android');
 let btnApple = document.getElementById('apple');
 
-async function sincronizar(){
+async function depurar(){
     try{
         await Filesystem.deleteFile({
           path: CONSTANTS.STORAGE_PATHM1,
-          directory: Directory.Documents,
+          directory: Directory.Documents, 
         });
         alert("Modulo 1 depurado con éxito");
     }catch(error){}
@@ -20,7 +20,29 @@ async function sincronizar(){
             path: CONSTANTS.STORAGE_PATHM2,
             directory: Directory.Documents,
         });
+
         alert("Modulo 2 depurado con éxito");
+    }catch(error){}
+
+    try {
+        await Filesystem.deleteFile({
+            path: CONSTANTS.STORAGE_VENTAS,
+            directory: Directory.Documents,
+        });
+    }catch(error){}
+
+    try {
+        await Filesystem.deleteFile({
+            path: CONSTANTS.STORAGE_ABORDADOS,
+            directory: Directory.Documents,
+        });
+    }catch(error){}
+
+    try {
+        await Filesystem.deleteFile({
+            path: CONSTANTS.STORAGE_GIFUS,
+            directory: Directory.Documents,
+        });
     }catch(error){}
 
     try{
@@ -39,7 +61,7 @@ async function sincronizar(){
         alert("Modulo 4 depurado con éxito");
     }catch(error){}
                
-    alert("Sincronización exitosa");
+    alert("Depuración exitosa");
     enableUpdates();
 }
 
@@ -61,7 +83,7 @@ function updateApple(){
 }
 
 // Events
-sync.addEventListener('click', sincronizar);
+sync.addEventListener('click', depurar);
 btnVolver.addEventListener('click', volver);
 
 btnAndroid.addEventListener('click', updateAndroid);

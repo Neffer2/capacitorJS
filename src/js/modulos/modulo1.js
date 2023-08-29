@@ -48,8 +48,7 @@ async function store (){
             fotoFachada: fotoFachada.src,
             novedades: null
         }];
-        
-        // await Preferences.set({ key: CONSTANTS.STORAGE_KEYM1, value: JSON.stringify({path: CONSTANTS.STORAGE_PATHM1}) });
+    
         appendData(CONSTANTS.STORAGE_PATHM1, dataModulo);
     }else {
         alert("Debes rellenar todos los campos");

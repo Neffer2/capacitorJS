@@ -1,5 +1,4 @@
 import * as CONSTANTS from'../constants/constants';
-import { Preferences } from '@capacitor/preferences';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
@@ -17,7 +16,7 @@ let stockComp = document.getElementById('stockComp');
 let disponibilidadCompList = document.getElementById('disponibilidadComp-list');
 
 // BUTTONS 
-let btnStore = document.getElementById('store');
+let btnStore = document.getElementById('store'); 
 let btnVolver = document.getElementById('volver');
 let btnStoreDispo = document.getElementById('storeDispo');
 let btnStoreDispoComp = document.getElementById('storeDispoComp');
@@ -141,12 +140,17 @@ function reset(){
 
     window.location.href = "index.html";
 }
-
+ 
 function mount(){}
+
+// Dynamic selects
+if (producto){
+    producto.innerHTML += CONSTANTS.productos;
+}
 
 function volver(){
     window.location.href = "index.html";
-}
+} 
 
 // Events
 btnStore.addEventListener('click', store);

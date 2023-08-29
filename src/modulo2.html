@@ -32,10 +32,24 @@
         </custom-navbar> 
         <div class="container my-2">
             <div class="row gy-2">
-                <div class="col-md-12">
+                <label for="num_abordadas">N&uacute;mero de personas abordadas: </label>
+                <div class="col-6">
                     <div class="form-group">
-                        <label for="num_abordadas">N&uacute;mero de personas abordadas: </label>
-                        <input type="number" name="num_abordadas" id="num_abordadas" class="form-control" required value="0">
+                        <input type="number" disabled name="num_abordadas" id="num_abordadas" class="form-control" required value="0">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <button id="storeAbordado" class="btn btn-primary px-5">
+                                <b>+</b>
+                            </button>
+                        </div>
+                        <div class="col-6 form-group">
+                            <button id="subsAbordado" class="btn btn-secondary px-5">
+                                <b>-</b>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="px-2"> 
@@ -74,7 +88,7 @@
                         </div>
                         <div class="col-4">
                             <select id="genero" class="form-control" required>
-                                <option value="" class="text-center">🔽</option>
+                                 <option value="" class="text-center">🔽</option>
                             </select>
                         </div>
                     </div>
@@ -196,7 +210,6 @@
                                 <thead>
                                     <tr> 
                                         <td class="text-center">Producto</td>
-                                        <!-- <td class="text-center">Sabor</td> -->
                                         <td class="text-center">G&eacute;nero</td>
                                         <td class="text-center">Edad</td>
                                         <td class="text-center">Acciones</td>
@@ -207,6 +220,15 @@
                             </table>
                         </div>
                     </div>
+
+                    <div class="row my-2">
+                        <label for="leads">Leads: </label>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <input type="number" name="leads" id="leads" class="form-control" required value="0">
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
                 
                 <div class="d-grid gap-2">

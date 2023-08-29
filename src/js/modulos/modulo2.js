@@ -1,5 +1,4 @@
 import * as CONSTANTS from'../constants/constants';
-import { Preferences } from '@capacitor/preferences';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
   
@@ -10,8 +9,8 @@ let producto = document.getElementById('producto');
 let presentacion = document.getElementById('presentacion');
 let genero = document.getElementById('genero'); 
 let edad = document.getElementById('edad'); 
-let cantidad = document.getElementById('cantidad');
-let interesInicial = document.getElementById('interes');
+let cantidad = document.getElementById('cantidad'); 
+let interesInicial = document.getElementById('interes'); 
 let ventasList = document.getElementById('ventas-list'); 
 
 let gifu = document.getElementById('gifu');
@@ -19,34 +18,48 @@ let genero_gifu = document.getElementById('genero_gifu');
 let edad_gifu = document.getElementById('edad_gifu');
 let gifusList = document.getElementById('gifus-list');
 
-let ventas = []; 
-let gifus = [];
-
 // BUTTONS
 let btnStore = document.getElementById('store');
 let btnStoreVenta = document.getElementById('storeVenta');
 let btnStoreGifu = document.getElementById('storeGifu');
+let btnStoreAbordado = document.getElementById('storeAbordado');
+let btnSubsAbordado = document.getElementById('subsAbordado');
 let btnVolver = document.getElementById('volver');
 
-let elems = [num_abordadas];
+let elems = [num_abordadas, leads];
 
 function mount(){
     showVentas();
+    showAbordados();
+    showGifus();
 }
 
 async function store (){
+    let abordadosStored = await readData(CONSTANTS.STORAGE_ABORDADOS);
+    let ventasStored = await readData(CONSTANTS.STORAGE_VENTAS);
+    let gifusStored = await readData(CONSTANTS.STORAGE_GIFUS);
+
     if (validation()){
         let dataModulo = [{
-            ventas: ventas,
-            gifus: gifus
-        }];  
+            num_abordadas: abordadosStored.length -1,
+            ventas: ventasStored,
+            gifus: gifusStored
+        }];
 
-        // await Preferences.set({ key: CONSTANTS.STORAGE_KEYM2, value: JSON.stringify({path: CONSTANTS.STORAGE_PATHM2}) });
         appendData(CONSTANTS.STORAGE_PATHM2, dataModulo);
+
+        reset();
+        vibrate();
+        volver();
     }else {
         alert("Debes rellenar todos los campos");
     }
-}  
+}
+
+async function storeAbordado(){
+    await appendAbordados();
+    showAbordados();
+}
 
 async function storeVenta(){
     if (producto.value && presentacion.value && genero.value && edad.value && cantidad.value){
@@ -62,9 +75,9 @@ async function storeVenta(){
     }
 }
 
-function storeGifu(){
+async function storeGifu(){
     if (gifu.value && genero_gifu.value && edad_gifu.value){
-        gifus.push({
+        await appendGifu({
             gifu: gifu.value,
             genero_gifu: genero_gifu.value,
             edad_gifu: edad_gifu.value,
@@ -73,10 +86,20 @@ function storeGifu(){
     }
 }
 
-/*
-    Los modulos no son accesibles desde el window. 
-    Por eso se define la variable y se almacena una función flecha
+/*  
+Los modulos no son accesibles desde el window. 
+Por eso se define la variable y se almacena una función flecha.
+Deletes
 */
+const deleteAbordado = async (key) =>{
+    let abordadosStored = await readData(CONSTANTS.STORAGE_ABORDADOS);
+    abordadosStored.splice(key, 1);
+
+    await deleteData(CONSTANTS.STORAGE_ABORDADOS);
+    await appendData(CONSTANTS.STORAGE_ABORDADOS, abordadosStored);
+    showAbordados();
+}
+
 const deleteVenta = async (key) =>{
     let ventasStored = await readData(CONSTANTS.STORAGE_VENTAS);
     ventasStored.splice(key, 1);
@@ -85,15 +108,34 @@ const deleteVenta = async (key) =>{
     await appendData(CONSTANTS.STORAGE_VENTAS, ventasStored);
     showVentas();
 } 
-
-const deleteGifu = (key) =>{
-    gifus.splice(key, 1);
-    showGifus();
-} 
  
+const deleteGifu = async (key) =>{
+    let gifusStored = await readData(CONSTANTS.STORAGE_GIFUS);
+    gifusStored.splice(key, 1);
+
+    await deleteData(CONSTANTS.STORAGE_GIFUS);
+    await appendData(CONSTANTS.STORAGE_GIFUS, gifusStored);
+    showGifus();
+}
+/* *** */
+
+/* Shows */
+async function showAbordados(){
+    let abordados = await readData(CONSTANTS.STORAGE_ABORDADOS);
+
+    if (abordados){
+        if ((abordados.length - 1) > 0){
+            num_abordadas.value = abordados.length - 1;
+        }else {
+            num_abordadas.value = 0;
+        }
+    }else{
+        num_abordadas.value = 0;
+    }
+}
+
 async function showVentas(){
     let ventasStored = await readData(CONSTANTS.STORAGE_VENTAS);
-
     if (ventasStored){
         ventasList.innerHTML = "";
         ventasStored.forEach((item, key) => {
@@ -111,29 +153,32 @@ async function showVentas(){
     }
 }
 
-function showGifus(){
-    gifusList.innerHTML = "";
-    gifus.forEach((item, key) => {
-        gifusList.innerHTML += 
-        `<tr class="text-center">
-            <td>${item.gifu}</td>
-            <td>${item.genero_gifu}</td>
-            <td>${item.edad_gifu}</td>
-            <td><button onclick="deleteGifu(${key})" class="btn btn-danger">x</button></td>
-        </tr>`;
-    });
+async function showGifus(){
+    let gifusStored = await readData(CONSTANTS.STORAGE_GIFUS);
+    if (gifusStored){
+        gifusList.innerHTML = "";
+        gifusStored.forEach((item, key) => {
+            gifusList.innerHTML += 
+            `<tr class="text-center">
+                <td>${item.gifu}</td>
+                <td>${item.genero_gifu}</td>
+                <td>${item.gifu}</td>
+                <td>
+                <button onclick="deleteGifu(${key})" class="btn btn-danger">
+                    <b>x</b>
+                </button>
+                </td>
+            </tr>`;
+        });
+    }
 }
+/* *** */
 
-function reset(){
-    elems.forEach((elem) => {
-        elem.value = "";
-    });
-
-    window.location.href = "index.html";
-}
-
-function volver(){
-    window.location.href = "index.html";
+/* Appends */
+async function appendAbordados(){
+    let abordadosStored = await readData(CONSTANTS.STORAGE_ABORDADOS);
+    abordadosStored.push({ abordados: 1 });
+    await appendData(CONSTANTS.STORAGE_ABORDADOS, abordadosStored);
 }
 
 async function appendVenta(ventas){
@@ -142,6 +187,14 @@ async function appendVenta(ventas){
     await appendData(CONSTANTS.STORAGE_VENTAS, ventasStored);
 }
 
+async function appendGifu(gifus){
+    let gifusStored = await readData(CONSTANTS.STORAGE_GIFUS);
+    gifusStored.push(gifus);
+    await appendData(CONSTANTS.STORAGE_GIFUS, gifusStored);
+}
+/* *** */
+
+/* Utilities */
 async function readData(src){
     try {
         const { data } = await Filesystem.readFile({
@@ -154,7 +207,7 @@ async function readData(src){
         if (dataStored.length){
             return dataStored;
         }
-
+        
         return [];
     }catch(error){
         return [];
@@ -170,7 +223,6 @@ async function appendData(src, data){
             encoding: Encoding.UTF8,
         });
 
-        // reset();
         vibrate();
     }catch(error){
         alert("Opps! tenemos un problema.");
@@ -187,6 +239,7 @@ async function deleteData(src){
         alert("Opps! tenemos un problema.");
     }
 }
+/* *** */
 
 async function vibrate(){
     await Haptics.vibrate();
@@ -202,10 +255,25 @@ function validation (){
     });
 
     return validator;
+}
+
+function reset(){
+    elems.forEach((elem) => {
+        elem.value = "";
+    });
+
+    window.location.href = "index.html";
+}
+
+function volver(){
+    window.location.href = "index.html";
 } 
 // Events 
 btnStoreGifu.addEventListener('click', storeGifu);
 btnStoreVenta.addEventListener('click', storeVenta);
+btnStoreAbordado.addEventListener('click', storeAbordado);
+btnSubsAbordado.addEventListener('click', deleteAbordado);
+
 btnStore.addEventListener('click', store);
 btnVolver.addEventListener('click', volver);
 
@@ -217,7 +285,6 @@ if (producto){
 producto.addEventListener('change', () => {
     if (producto.selectedIndex !== -1){
         const selectedOptionElement = producto.options[producto.selectedIndex];   
-        // deleteData(CONSTANTS.STORAGE_VENTAS);
         if (selectedOptionElement.dataset.type){
             setPresentacionesElectricos();
         }else{ 
