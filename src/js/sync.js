@@ -18,9 +18,6 @@ let selfiePDVBox = document.getElementById('selfiePDVBox');
 
 let elems = [email, password];
 let photos = [selfiePDV];  
-
-// LOGS
-let error = document.getElementById('error');
  
 // BUTTONS
 let sync = document.getElementById('sync-action');
@@ -101,7 +98,7 @@ async function syncM1 (id, latitude, longitude, newToken = null){
             item.foto_cierre = selfiePDV.src;
             item.latitude = latitude;
             item.longitude = longitude; 
-            if (token){ /* console.log("Se cambia: "+item.token+" por: "+newToken); */ item.token = newToken; }
+            if (token){ item.token = newToken; }
         });
         
         // Globals

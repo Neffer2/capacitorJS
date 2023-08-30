@@ -25,7 +25,11 @@ let btnVolver = document.getElementById('volver');
  
 let elems = [visibilidad, tipo_visibilidad, visibilidad_competencia, tipo_visibilidad_competencia];
 let photos = [foto_visibilidad_marca, foto_visibilidad_competencia];
- 
+
+function mount(){
+    fillFields();
+}
+
 async function store (){ 
     if (validation()){
         let dataModulo = [{
@@ -118,7 +122,7 @@ function validation (){
 async function vibrate(){
     await Haptics.vibrate();
 }
-
+ 
 function reset(){ 
     elems.forEach((elem) => {
         elem.value = "";
@@ -135,6 +139,17 @@ function reset(){
 function volver(){
     window.location.href = "index.html";
 }
+
+function fillFields(){
+    CONSTANTS.visibilidades.forEach((item) => {
+        tipo_visibilidad.innerHTML += `<option value="${item}">${item}</option>`;
+        tipo_visibilidad_competencia.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+    mount()
+});
 
 // Events
 btnStore.addEventListener('click', store);

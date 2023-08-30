@@ -24,7 +24,11 @@ let btnStoreDispoComp = document.getElementById('storeDispoComp');
 let disponibilidades = [];
 let disponibilidadesComp = [];
 let elems = [];
- 
+
+function mount(){
+    fillFields();
+}
+
 async function store (){
     if (validation()){
         let dataModulo = [{
@@ -101,7 +105,7 @@ function showDisponibilidades(){
             <td><button onclick="deleteDisponibilidad(${key})" class="btn btn-danger">x</button></td>
         </tr>`;
     });
-}
+} 
 
 function showDisponibilidadesComp(){
     disponibilidadCompList.innerHTML = "";
@@ -140,17 +144,60 @@ function reset(){
 
     window.location.href = "index.html";
 }
- 
-function mount(){}
 
 // Dynamic selects
-if (producto){
+function fillFields(){
     producto.innerHTML += CONSTANTS.productos;
+    productoComp.innerHTML += CONSTANTS.productos;
+    
+    CONSTANTS.presentaciones.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+        presentacionComp.innerHTML += `<option value="${item}">${item}</option>`;
+    });
 }
+
+producto.addEventListener('change', () => {
+    if (producto.selectedIndex !== -1){
+        const selectedOptionElement = producto.options[producto.selectedIndex];   
+        if (selectedOptionElement.dataset.type == 'bons/hets'){
+            setPresentacionesElectricos();
+        }else if(selectedOptionElement.dataset.type == 'PIEL_ROJA'){ 
+            setPresentacionesPielRoja();
+        }else{ 
+            setPresentacionesCombustubles();
+        }
+    }    
+});
+
+function setPresentacionesElectricos(){
+    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
+    CONSTANTS.presentacionesElectricos.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
+function setPresentacionesCombustubles(){
+    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
+    CONSTANTS.presentaciones.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
+function setPresentacionesPielRoja(){
+    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
+    CONSTANTS.presentacionPielRoja.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+/* ** */  
 
 function volver(){
     window.location.href = "index.html";
 } 
+
+window.addEventListener("DOMContentLoaded", function() {
+    mount()
+});
 
 // Events
 btnStore.addEventListener('click', store);
@@ -158,5 +205,6 @@ btnVolver.addEventListener('click', volver);
 btnStoreDispo.addEventListener('click', storeDispo);
 btnStoreDispoComp.addEventListener('click', storeDispoComp);
 
+// Attached functions
 window.deleteDisponibilidad = deleteDisponibilidad;
 window.deleteDisponibilidadComp = deleteDisponibilidadComp;

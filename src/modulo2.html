@@ -65,15 +65,14 @@
                             <b>INTER&Eacute;S INICIAL</b> 
                         </div>
                         <div class="col-4 text-center">
-                            <b>PRESENTACI&Oacute;N</b>
+                            <b>PRODUCTO VENDIDO</b>
                         </div>
                         <div class="col-4 text-center">
-                            <b>G&Eacute;NERO</b>
+                            <b>PRESENTACI&Oacute;N</b>
                         </div>
                     </div>
-                    <!-- - Cambiar orden, interes inicial, cambiar nombre produccto.
+                    <!-- Cambiar orden, interes inicial, cambiar nombre produccto.
                     - Prediccion de texto?  -->
-                    
                     <div class="row gy-2">
                         <div class="col-4">
                             <select id="interes" class="form-control">
@@ -82,30 +81,35 @@
                             </select>
                         </div>
                         <div class="col-4">
-                            <select id="presentacion" class="form-control">
+                            <select id="producto" class="form-control">
                                 <option value="" class="text-center">🔽</option>
                             </select>
                         </div>
                         <div class="col-4">
-                            <select id="genero" class="form-control" required>
-                                 <option value="" class="text-center">🔽</option>
+                            <select id="presentacion" class="form-control">
+                                <option value="" class="text-center">🔽</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="row" style="font-size: 10px;">
                         <div class="col-4 text-center">
+                            <b>G&Eacute;NERO</b>
+                        </div>
+                        <div class="col-4 text-center">
                             <b>EDAD</b>
                         </div>
                         <div class="col-4 text-center">
                             <b>CANTIDAD</b>
                         </div>
-                        <div class="col-4 text-center">
-                            <b>PRODUCTO VENDIDO</b>
-                        </div>
                     </div>
                     
                     <div class="row gy-2">
+                        <div class="col-4">
+                            <select id="genero" class="form-control" required>
+                                 <option value="" class="text-center">🔽</option>
+                            </select>
+                        </div>
                         <div class="col-4">
                             <select id="edad" class="form-control" required>
                                 <option value="" class="text-center">🔽</option>
@@ -121,11 +125,6 @@
                         </div>
                         <div class="col-4">
                             <input id="cantidad" type="number" class="form-control" placeholder="">
-                        </div>
-                        <div class="col-4">
-                            <select id="producto" class="form-control">
-                                <option value="" class="text-center">🔽</option>
-                            </select>
                         </div>
                         <div class="col-12">
                             <button id="storeVenta" class="btn btn-primary">Añadir venta</button>

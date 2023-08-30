@@ -29,6 +29,7 @@ let btnVolver = document.getElementById('volver');
 let elems = [num_abordadas, leads];
 
 function mount(){
+    fillFileds();
     showVentas();
     showAbordados();
     showGifus();
@@ -278,15 +279,29 @@ btnStore.addEventListener('click', store);
 btnVolver.addEventListener('click', volver);
 
 // Dynamic selects
-if (producto){
+function fillFileds() {
     producto.innerHTML += CONSTANTS.productos;
+    interesInicial.innerHTML += CONSTANTS.productos;
+    setPresentacionesCombustubles();
+
+    gifu.innerHTML += CONSTANTS.gifus;
+
+    CONSTANTS.generos.forEach(item => {
+        genero.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+    CONSTANTS.generos.forEach(item => {
+        genero_gifu.innerHTML += `<option value="${item}">${item}</option>`;
+    });    
 }
+/* ** */
 
 producto.addEventListener('change', () => {
     if (producto.selectedIndex !== -1){
         const selectedOptionElement = producto.options[producto.selectedIndex];   
-        if (selectedOptionElement.dataset.type){
+        if (selectedOptionElement.dataset.type == 'bons/hets'){
             setPresentacionesElectricos();
+        }else if(selectedOptionElement.dataset.type == 'PIEL_ROJA'){ 
+            setPresentacionesPielRoja();
         }else{ 
             setPresentacionesCombustubles();
         }
@@ -303,6 +318,13 @@ function setPresentacionesElectricos(){
 function setPresentacionesCombustubles(){
     presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
     CONSTANTS.presentaciones.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
+function setPresentacionesPielRoja(){
+    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
+    CONSTANTS.presentacionPielRoja.forEach((item) => {
         presentacion.innerHTML += `<option value="${item}">${item}</option>`;
     });
 }

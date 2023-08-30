@@ -510,123 +510,88 @@ export const presentacionesElectricos = [
     'CARTON X200'
 ];
 
-export const presentacionesComp = [
+export const presentacionPielRoja = [
     '1 Stick',
-    '10s',
     '18s',
-    '20s',
 ];
 
-export const productos = `<optgroup label="FULL FLAVOR">
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; PREMIUM">
-                                <option value="MLB ROJO">&nbsp;&nbsp;&nbsp;&nbsp; MLB ROJO</option>
+export const productos = `<optgroup label="MARLBORO">
+                                <option value="MLB ROJO">MLB ROJO</option>
+                                <option value="MLB RED SELECTION">MLB RED SELECTION</option>
+                                <option value="MLB GOLD">MLB GOLD</option>
+                                <option value="MLB FUSION/FRUTOS ROJOS">MLB FUSION/FRUTOS ROJOS</option>
+                                <option value="MLB SUMMER/SANDIA">MLB SUMMER/SANDIA</option>
+                                <option value="MLB EXOTIC/TUTIFRUTI">MLB EXOTIC/TUTIFRUTI</option>
                             </optgroup>
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; MEDIUM">
-                                <option value="MLB RED SELECTION">&nbsp;&nbsp;&nbsp;&nbsp; MLB RED SELECTION</option>
-                                <option value="PIEL ROJA">&nbsp;&nbsp;&nbsp;&nbsp; PIEL ROJA</option>
+                            <optgroup label="CHESTERFIELD">
+                                <option value="CHESTERFIELD AZUL">CHESTERFIELD AZUL</option>
+                                <option value="CHESTERFIELD BLANCO">CHESTERFIELD BLANCO</option>
+                                <option value="CHESTERFIELD GREEN">CHESTERFIELD GREEN</option>
+                                <option value="CHESTERFIELD PURPLE/FRUTOS ROJOS">CHESTERFIELD PURPLE/FRUTOS ROJOS</option>
                             </optgroup>
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; LOW">
-                                <option value="CARIBE">&nbsp;&nbsp;&nbsp;&nbsp; CARIBE</option>
-                                <option value="L&M AZUL">&nbsp;&nbsp;&nbsp;&nbsp; L&M AZUL</option>
-                                <option value="L&M ROJO">&nbsp;&nbsp;&nbsp;&nbsp; L&M ROJO</option>
+                            <optgroup label="L&M">
+                                <option value="L&M AZUL">L&M AZUL</option>
+                                <option value="L&M ROJO">L&M ROJO</option>
+                                <option value="L&M SILVER">L&M SILVER</option>
+                                <option value="L&M PURPLE/FRUTOS ROJOS">L&M PURPLE/FRUTOS ROJOS</option>
+                                <option value="L&M WARREGO/SANDIA">L&M WARREGO/SANDIA</option>
                             </optgroup>
-                        </optgroup>
-                        <optgroup label="SABOR SUAVE">
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; PREMIUM">
-                                <option value="MLB GOLD">&nbsp;&nbsp;&nbsp;&nbsp; MLB GOLD</option>
+                            <option value="CARIBE">CARIBE</option>
+                            <option value="PIEL ROJA" data-type="PIEL_ROJA">PIEL ROJA</option>
+                            <optgroup label="IQOS">
+                                <option value="IQOS GRÁFITO">GRÁFITO</option>
+                                <option value="IQOS PLATA">PLATA</option>
+                                <option value="IQOS TURQUESA">TURQUESA</option>
+                                <option value="IQOS ESCARLATA">ESCARLATA</option>
                             </optgroup>
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; MEDIUM">                            
-                                <option value="CHESTERFIELD AZUL">&nbsp;&nbsp;&nbsp;&nbsp; CHESTERFIELD AZUL</option>
-                                <option value="CHESTERFIELD BLANCO">&nbsp;&nbsp;&nbsp;&nbsp; CHESTERFIELD BLANCO</option>
+                            <optgroup label="HEETS IQOS">
+                                <option value="HEETS AMBER" data-type="bons/hets">AMBER</option>
+                                <option value="HEETS BRONZE" data-type="bons/hets">BRONZE</option>
+                                <option value="HEETS TURQUOISE" data-type="bons/hets">TURQUOISE</option>
+                                <option value="HEETS BLUE" data-type="bons/hets">BLUE</option>
+                                <option value="HEETS PURPLE" data-type="bons/hets">PURPLE</option>
                             </optgroup>
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; LOW">
-                                <option value="L&M SILVER">&nbsp;&nbsp;&nbsp;&nbsp; L&M SILVER</option>
+                            <optgroup label="BONDS">
+                                <option value="BONDS VERDE">VERDE</option>
+                                <option value="BONDS ROJO">ROJO</option>
+                                <option value="BONDS GRIS OSCURO">GRIS OSCURO</option>
+                                <option value="BONDS AZUL">AZUL</option>
                             </optgroup>
-                        </optgroup>
-                        <optgroup label="MENTOL">
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; MEDIUM">                            
-                                <option value="CHESTERFIELD GREEN">&nbsp;&nbsp;&nbsp;&nbsp;  CHESTERFIELD GREEN</option>
+                            <optgroup label="BLENDS BONDS">
+                                <option value="BLENDS COPPER" data-type="bons/hets">BLENDS COPPER</option>
+                                <option value="BLENDS GOLD" data-type="bons/hetss">BLENDS GOLD</option>
+                                <option value="BLENDS BLUE" data-type="bons/hets">BLENDS BLUE</option>
+                                <option value="BLENDS CORAL" data-type="bons/hets">BLENDS CORAL</option>
                             </optgroup>
-                        </optgroup>
-                        <optgroup label="MENTOL CON SABOR">
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; PREMIUM">
-                                <option value="MLB FUSION/FRUTOS ROJOS">&nbsp;&nbsp;&nbsp;&nbsp; MLB FUSION/FRUTOS ROJOS</option>
-                                <option value="MLB SUMMER/SANDIA">&nbsp;&nbsp;&nbsp;&nbsp; MLB SUMMER/SANDIA</option>
-                                <option value="MLB EXOTIC/TUTIFRUTI">&nbsp;&nbsp;&nbsp;&nbsp; MLB EXOTIC/TUTIFRUTI</option>
+                            <optgroup label="COMPETENCIA" class='text-center'></optgroup>
+                            <optgroup label="LUCKY STRIKE">
+                                <option value="LUCKY STRIKE DAIQUIRI">LUCKY STRIKE DAIQUIRI</option>
+                                <option value="LUCKY STRIKE MOJITO">LUCKY STRIKE MOJITO</option>
+                                <option value="LUCKY STRIKE GIN">LUCKY STRIKE GIN</option>
+                                <option value="LUCKY STRIKE FEST">LUCKY STRIKE FEST</option>
                             </optgroup>
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; MEDIUM">                            
-                                <option value="CHESTERFIELD PURPLE/FRUTOS ROJOS">&nbsp;&nbsp;&nbsp;&nbsp; CHESTERFIELD PURPLE/FRUTOS ROJOS</option>
+                            <optgroup label="ROTHMANS">
+                                <option value="ROTHMANS AZUL">ROTHMANS AZUL</option>
+                                <option value="ROTHMANS ROJO">ROTHMANS ROJO</option>
+                                <option value="ROTHMANS VERDE">ROTHMANS VERDE</option>
+                                <option value="ROTHMANS BLANCO">ROTHMANS BLANCO</option>
+                                <option value="ROTHMANS MORAZUL">ROTHMANS MORAZUL</option>
+                                <option value="ROTHMANS TROPIC">ROTHMANS TROPIC</option>
+                                <option value="ROTHMANS SILVER">ROTHMANS SILVER</option>
                             </optgroup>
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; LOW">
-                                <option value="L&M PURPLE/FRUTOS ROJOS">&nbsp;&nbsp;&nbsp;&nbsp; L&M PURPLE/FRUTOS ROJOS</option>
-                                <option value="L&M WARREGO/SANDIA">&nbsp;&nbsp;&nbsp;&nbsp; L&M WARREGO/SANDIA</option>
+                            <optgroup label="CAMEL">
+                                <option value="CAMEL AZUL">CAMEL AZUL</option>
+                                <option value="CAMEL SILVER">CAMEL SILVER</option>
+                                <option value="CAMEL MENTOL">CAMEL MENTOL</option>
                             </optgroup>
-                        </optgroup>                
-                        <optgroup label="IQOS">
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; IQOS ORIGINALS DUO">
-                                <option value="IQOS GRÁFITO">&nbsp;&nbsp;&nbsp;&nbsp; GRÁFITO</option>
-                                <option value="IQOS PLATA">&nbsp;&nbsp;&nbsp;&nbsp; PLATA</option>
-                                <option value="IQOS TURQUESA">&nbsp;&nbsp;&nbsp;&nbsp; TURQUESA</option>
-                                <option value="IQOS ESCARLATA"> &nbsp;&nbsp;&nbsp;&nbsp; ESCARLATA</option>
-                            </optgroup>
-                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp; IQOS TOGETHER">
-                                <option value="IQOS GRÁFITO">&nbsp;&nbsp;&nbsp;&nbsp; GRÁFITO</option>
-                                <option value="IQOS PLATA">&nbsp;&nbsp;&nbsp;&nbsp; PLATA</option>
-                                <option value="IQOS TURQUESA">&nbsp;&nbsp;&nbsp;&nbsp; TURQUESA</option>
-                                <option value="IQOS ESCARLATA"> &nbsp;&nbsp;&nbsp;&nbsp; ESCARLATA</option>                           
-                            </optgroup>
-                        </optgroup>
-                        <optgroup label="HEETS IQOS">
-                            <option value="HEETS AMBER" data-type="bons/hets">AMBER</option>
-                            <option value="HEETS BRONZE" data-type="bons/hets">BRONZE</option>
-                            <option value="HEETS TURQUOISE" data-type="bons/hets">TURQUOISE</option>
-                            <option value="HEETS BLUE" data-type="bons/hets">BLUE</option>
-                            <option value="HEETS PURPLE" data-type="bons/hets">PURPLE</option>
-                        </optgroup>
-                        <optgroup label="BONDS">
-                            <option value="BONDS VERDE">VERDE</option>
-                            <option value="BONDS ROJO">ROJO</option>
-                            <option value="BONDS GRIS OSCURO">GRIS OSCURO</option>
-                            <option value="BONDS AZUL">AZUL</option>
-                        </optgroup>
-                        <optgroup label="BLENDS BONDS">
-                            <option value="BLENDS COPPER" data-type="bons/hets">BLENDS COPPER</option>
-                            <option value="BLENDS GOLD" data-type="bons/hetss">BLENDS GOLD</option>
-                            <option value="BLENDS BLUE" data-type="bons/hets">BLENDS BLUE</option>
-                            <option value="BLENDS CORAL" data-type="bons/hets">BLENDS CORAL</option>
-                        </optgroup>
-                        <optgroup label="COMPETENCIA">
-                            <option value="BLENDS COPPER" data-type="bons/hets">BLENDS COPPER</option>
-                            <option value="BLENDS GOLD" data-type="bons/hetss">BLENDS GOLD</option>
-                            <option value="BLENDS BLUE" data-type="bons/hets">BLENDS BLUE</option>
-                            <option value="BLENDS CORAL" data-type="bons/hets">BLENDS CORAL</option>
-                        </optgroup>`;
-
-export const productosComp = [
-    'ROTHMANS',
-    'ROTHMANS SILVER',
-    'LUCKY STRIKE DAIQUIRI',
-    'LUCKY STRIKE MOJITO',
-    'LUCKY STRIKE GIN',
-    'LUCKY STRIKE FEST',
-    'ROTHMANS ROJO',
-    'PRESIDENT',
-    'ROTHMANS AZUL',
-    'CAMEL SILVER',
-    'CAMEL AZUL',
-    'STARLITE',
-    'ROTHMANS GREEN',
-    'ROTHMANS MORAZUL',
-    'ROTHMANS TROPIC',
-    'CAMEL MENTOL',
-    'WINSTON ROJO',
-    'CAMEL',
-    'ROTHMANS BLANCO',
-    'WINSTON BLANCO',
-    'ROTHMANS VERDE',
-    'WINSTON YELLOW',
-    'WINSTON PURPLE'
-];                        
+                            <option value="PRESIDENT">PRESIDENT</option>
+                            <option value="STARLITE">STARLITE</option>
+                            <optgroup label="WINSTON">
+                                <option value="WINSTON ROJO">WINSTON ROJO</option>
+                                <option value="WINSTON BLANCO">WINSTON BLANCO</option>
+                                <option value="WINSTON YELLOW">WINSTON YELLOW</option>
+                                <option value="WINSTON YELLOW">WINSTON PURPLE</option>
+                            </optgroup>`;                      
 
 export const gifus = `<optgroup label="HEETS IQOS">
                         <option value="HEETS AMBER">AMBER</option>
@@ -658,86 +623,6 @@ export const visibilidades = [
     'Cenefa',
     'Bandeja'
 ];
-                        
-/* Modulos */
-let producto = document.getElementById('producto');
-let productoComp = document.getElementById('productoComp');
-let interesInicial = document.getElementById('interes');
-
-let presentacion = document.getElementById('presentacion');
-let presentacionComp = document.getElementById('presentacionComp');
-
-let gifu = document.getElementById('gifu');
-let sabor = document.getElementById('sabor');
-let genero_gifu = document.getElementById('genero_gifu');
-let genero = document.getElementById('genero');
-let tipo_visibilidad = document.getElementById('tipo_visibilidad');
-let tipo_visibilidad_competencia = document.getElementById('tipo_visibilidad_competencia');
-
-if (productoComp){
-    productosComp.forEach((item) => {
-        productoComp.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-if (interesInicial){    
-    productosComp.forEach((item) => {
-        interesInicial.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-if (presentacion){
-    presentaciones.forEach((item) => {
-        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-if (presentacionComp){
-    presentacionesComp.forEach((item) => {
-        presentacionComp.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-if (genero){
-    generos.forEach(item => {
-        genero.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-if (gifu){
-    gifu.innerHTML += gifus;
-}
-
-if (sabor){
-    sabores.forEach(item => {
-        sabor.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-if (genero_gifu){
-    generos.forEach(item => {
-        genero_gifu.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-if (tipo_visibilidad){
-    visibilidades.forEach((item) => {
-        tipo_visibilidad.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-if (tipo_visibilidad){
-    visibilidades.forEach((item) => {
-        tipo_visibilidad_competencia.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-// let presentacion = document.getElementById('presentacion');
-// presentaciones.forEach((item) => {
-//     presentacion.innerHTML += `<option value="${item}">${item}</option>`;
-// });
-
-/* ** */
 
 function generateHexCode(){
     const hexDigits = "0123456789ABCDGF";
@@ -746,7 +631,7 @@ function generateHexCode(){
     return hexDigit;
 }
 
-export function generateToken(){
+export function generateToken(){ 
     let hexCode = "";
     for (let i = 0; i < 10; i++) {
         hexCode += generateHexCode();
