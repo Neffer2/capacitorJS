@@ -23,7 +23,7 @@ let photos = [selfiePDV];
 let sync = document.getElementById('sync-action');
 let btnReset = document.getElementById('reset');
 
-async function mount(){     
+async function mount(){
     loadOn();
 
     if (validation()){
