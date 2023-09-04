@@ -56,8 +56,9 @@
                     <div class="form-group">
                         <label for="visibilidad_competencia">¿El punto de venta tiene visibiliad de la competencia? </label>
                         <select name="visibilidad_competencia" id="visibilidad_competencia" class="form-control" required>
+                            <option value="">Seleccionar</option>
                             <option value="Si">Si</option>
-                            <option value="No">No</option>
+                            <option value="No">No</option> 
                         </select>
                     </div>
                 </div>
@@ -81,13 +82,20 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="col-md-12">
+                    <div class="col-md-12"> 
                         <img id="foto_visibilidad_competencia" class="card-img-top" style="display: none;">
                     </div>
                     <div id="foto_visibilidad_competenciaBox" class="col-md-12">
                         <div class="upload-box">
                             <span>Foto visibilidad de la competencia:</span>
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-12 my-2">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switch-oxxo" aria-describedby="oxxoHelp">
+                        <label class="form-check-label" for="switch-oxxo">¿Tu punto es un OXXO?</label>
+                        <div id="oxxoHelp" class="form-text" style="font-size: 10px !important;">Marca esta casilla &uacute;nicamente si tu punto es un OXXO.</div>
                     </div>
                 </div>
                 
