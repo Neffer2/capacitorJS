@@ -34,12 +34,12 @@ async function store (){
     let dataModulo = []; 
     if (switchOxxo.checked){
         dataModulo = [{
-            visibilidad: null,
-            tipo_visibilidad: null,
-            visibilidad_competencia: null,
-            tipo_visibilidad_competencia: null,
-            foto_visibilidad_marca: null,
-            foto_visibilidad_competencia: null,
+            visibilidad: "No aplica",
+            tipo_visibilidad: "No aplica",
+            visibilidad_competencia: "No aplica",
+            tipo_visibilidad_competencia: "No aplica",
+            foto_visibilidad_marca: "No aplica",
+            foto_visibilidad_competencia: "No aplica"
         }];                     
     }else {
         if (validation()){
