@@ -5,6 +5,8 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 // Elems
 let ciudad = document.getElementById('ciudad');
+let busquedaCiudad = document.getElementById('busqueda-ciudad');
+
 let pdv = document.getElementById('pdv');
 let fechaVisita = document.getElementById('fechaVisita');
 let semana = document.getElementById('semana');
@@ -27,6 +29,15 @@ let btnVovler = document.getElementById('volver');
 
 let elems = [fechaVisita, semana, estrato, barrio];
 let photos = [selfiePDV, fotoFachada]; 
+
+function mount(){
+    ciudad.value = getCiudad();  
+    fillPdv();  
+}
+
+function getCiudad(){
+    return localStorage.getItem('ciudad');
+}
 
 async function store (){
     if (validation()){
@@ -104,17 +115,28 @@ const fachadaPicture = async () => {
 };
 
 function fillPdv(){
-    pdv.innerHTML = "<option value=''>Seleccionar</option>";
+    // pdv.innerHTML = "<option value=''>Seleccionar</option>";
     switch(ciudad.value){
-        case 'Bogota': 
-            CONSTANTS.puntosBogota.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
-            });
+        case 'Bogota':         
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosBogota.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosBogota.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
         case 'Barranquilla': 
             CONSTANTS.puntosBarranquilla.forEach((item) => {
                 pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
-            });
+            }); 
         break;
         case 'Medellin': 
             CONSTANTS.puntosMedellin.forEach((item) => {
@@ -214,7 +236,7 @@ function validation (){
 
     return validator;
 }
-
+ 
 async function vibrate(){ 
     await Haptics.vibrate();
 }
@@ -235,5 +257,10 @@ btnVovler.addEventListener('click', volver);
 selfiePDVBox.addEventListener('click', pdvPicture);
 fotoFachadaBox.addEventListener('click', fachadaPicture);
 
-ciudad.addEventListener('change', fillPdv);
+// ciudad.addEventListener('change', fillPdv);
 pdv.addEventListener('change', customPdv);
+busquedaCiudad.addEventListener('input', fillPdv);
+
+window.addEventListener("DOMContentLoaded", function() {
+    mount();
+});

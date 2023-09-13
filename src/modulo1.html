@@ -39,7 +39,7 @@
                         <label for="pdv">Punto de venta: </label>
                         <div class="row"> 
                             <div class="col-4">
-                                <select id="ciudad" class="form-control mb-1">
+                                <select id="ciudad" class="form-control mb-1" disabled>
                                     <option value="">Ciudad</option>
                                     <option value="Bogota">Bogot&aacute;</option>
                                     <option value="Barranquilla">Barranquilla</option>
@@ -56,7 +56,10 @@
                                 </select>
                             </div>
                             <div class="col-8">
-                                <select id="pdv" class="form-control" required></select>
+                                <input id="busqueda-ciudad" type="text" class="form-control" placeholder="Buscar">
+                            </div>
+                            <div class="col-12 mt-2">
+                                <select id="pdv" class="form-control" style="font-size: 12px;" size="10" required></select>
                                 <div id="custom-pdv-container">
                                     <div class="form-group mb-1">
                                         <input id="pdvNom" class="form-control" placeholder="Nombre punto de venta">

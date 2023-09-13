@@ -9,10 +9,10 @@ export const QUALITY = 25;
 
 // export const API_LINK = "https://desarrolloiglu.com/api/"
 // export const API_AUTH = "https://desarrolloiglu.com/api/login";
-// export const API_LINK = "http://localhost:8000/api/"
-// export const API_AUTH = "http://localhost:8000/api/login";
-export const API_LINK = "https://pmi-memories.com/api/"
-export const API_AUTH = "https://pmi-memories.com/api/login";
+export const API_LINK = "http://localhost:8000/api/"
+export const API_AUTH = "http://localhost:8000/api/login";
+// export const API_LINK = "https://pmi-memories.com/api/"
+// export const API_AUTH = "https://pmi-memories.com/api/login";
 
 export const puntosBogota = [ 
     { cod: "1055025", nom: "MOVIL AZUL" },
