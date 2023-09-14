@@ -44,7 +44,7 @@ async function store (){
         let auxPdv = pdv.value;
 
         if (auxPdv === ''){   
-            auxPdv = `Nombre: ${pdvNom.value} Dirección: ${pdvDire.value}`;
+            auxPdv = `Codigo: ${pdvNom.value} Nombre y Dirección: ${pdvDire.value}`;
         }
 
         let dataModulo = [{
@@ -115,7 +115,8 @@ const fachadaPicture = async () => {
 };
 
 function fillPdv(){
-    // pdv.innerHTML = "<option value=''>Seleccionar</option>";
+    pdv.innerHTML = '';
+
     switch(ciudad.value){
         case 'Bogota':         
             if (busquedaCiudad.value){
@@ -133,60 +134,181 @@ function fillPdv(){
                 });
             }
         break;
-        case 'Barranquilla': 
-            CONSTANTS.puntosBarranquilla.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
-            }); 
+        case 'Barranquilla':
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosBarranquilla.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosBarranquilla.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
         case 'Medellin': 
-            CONSTANTS.puntosMedellin.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
-            });
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosMedellin.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosMedellin.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
         case 'Cali': 
-            CONSTANTS.puntosCali.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom}- ${item.cod}</option>`;
-            });
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosCali.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosCali.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
         case 'Santa Marta': 
-            CONSTANTS.puntosSantaMarta.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom}- ${item.cod}</option>`;
-            });
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosSantaMarta.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosSantaMarta.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
         case 'Manizales': 
-            CONSTANTS.puntosManizales.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
-            });
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosManizales.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosManizales.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
         case 'Ibague':
-            CONSTANTS.puntosIbague.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom}- ${item.cod}</option>`;
-            });
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosIbague.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosIbague.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
         case 'Caldas': 
-            CONSTANTS.puntosCaldas.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom}- ${item.cod}</option>`;
-            });
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosCaldas.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosCaldas.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
         case 'Pereira': 
-            CONSTANTS.puntosPereira.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom}- ${item.cod}</option>`;
-            });
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosPereira.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosPereira.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
-        case 'Cuba': 
-            CONSTANTS.puntosCuba.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom}- ${item.cod}</option>`;
-            });
+        case 'Cuba':
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosCuba.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosCuba.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
-        case 'SanJoaquin': 
-            CONSTANTS.puntosSanJoaquin.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom}- ${item.cod}</option>`;
-            });
+        case 'SanJoaquin':
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosSanJoaquin.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosSanJoaquin.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
-        case 'VillaMaria': 
-            CONSTANTS.puntosVillaMaria.forEach((item) => {
-                pdv.innerHTML += `<option value="${item.cod}">${item.nom}- ${item.cod}</option>`;
-            });
+        case 'VillaMaria':
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosVillaMaria.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosVillaMaria.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
         break;
     }
 
