@@ -34,7 +34,9 @@ function showSelectCiudades(){
 }
 
 btnAction.addEventListener('click', () => {
-    setCiudad(ciudad.value);
+    if (ciudad.value){
+        setCiudad(ciudad.value);
+    }
 });
 
 window.addEventListener("DOMContentLoaded", function() {

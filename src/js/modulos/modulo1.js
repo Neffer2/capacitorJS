@@ -5,7 +5,8 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 // Elems
 let ciudad = document.getElementById('ciudad');
-let busquedaCiudad = document.getElementById('busqueda-ciudad');
+// let busquedaCiudad = document.getElementById('busqueda-ciudad');
+let busquedaCiudad = {value: null};
 
 let pdv = document.getElementById('pdv');
 let fechaVisita = document.getElementById('fechaVisita');
@@ -381,7 +382,7 @@ fotoFachadaBox.addEventListener('click', fachadaPicture);
 
 // ciudad.addEventListener('change', fillPdv);
 pdv.addEventListener('change', customPdv);
-busquedaCiudad.addEventListener('input', fillPdv);
+// busquedaCiudad.addEventListener('input', fillPdv);
 
 window.addEventListener("DOMContentLoaded", function() {
     mount();
