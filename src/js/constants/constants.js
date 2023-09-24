@@ -746,7 +746,9 @@ export const productos = `<optgroup label="MARLBORO">
                             </optgroup>
                             <optgroup label="L&M">
                                 <option value="L&M AZUL">L&M AZUL</option>
+                                <option value="L&M SELECCION AZUL">L&M SELECCION AZUL</option>
                                 <option value="L&M ROJO">L&M ROJO</option>
+                                <option value="L&M SELECCION ROJO">L&M SELECCION ROJO</option>
                                 <option value="L&M SILVER">L&M SILVER</option>
                                 <option value="L&M PURPLE/FRUTOS ROJOS">L&M PURPLE/FRUTOS ROJOS</option>
                                 <option value="L&M WARREGO/SANDIA">L&M WARREGO/SANDIA</option>
