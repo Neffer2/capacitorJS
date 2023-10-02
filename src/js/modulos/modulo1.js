@@ -33,6 +33,7 @@ let photos = [selfiePDV, fotoFachada];
 
 function mount(){
     ciudad.value = getCiudad();  
+    console.log(ciudad.value);
     fillPdv();  
 }
 
@@ -163,6 +164,22 @@ function fillPdv(){
                 });
             }else {
                 CONSTANTS.puntosMedellin.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }
+        break;
+        case 'Cartagena': 
+            if (busquedaCiudad.value){
+                let resultados = CONSTANTS.puntosCartagena.filter((elem) => {
+                    return elem.cod.startsWith(busquedaCiudad.value); 
+                });        
+
+                pdv.innerHTML = '';
+                resultados.forEach((item) => {
+                    pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
+                });
+            }else {
+                CONSTANTS.puntosCartagena.forEach((item) => {
                     pdv.innerHTML += `<option value="${item.cod}">${item.nom} - ${item.cod}</option>`;
                 });
             }

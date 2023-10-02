@@ -5,11 +5,11 @@ let ciudad = document.getElementById('ciudad');
 let btnAction = document.getElementById('btn-ok');
 
 function mount(){
-    let ciudad = getCiudad();
+    let ciudad = getCiudad(); 
 
     if (ciudad){
-        showMain();
-    }else {
+        showMain(); 
+    }else { 
         showSelectCiudades();
     }
 }
