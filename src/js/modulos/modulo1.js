@@ -33,7 +33,6 @@ let photos = [selfiePDV, fotoFachada];
 
 function mount(){
     ciudad.value = getCiudad();  
-    console.log(ciudad.value);
     fillPdv();  
 }
 
