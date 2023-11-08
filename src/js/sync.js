@@ -212,8 +212,16 @@ async function syncM3 (id){
             
             const response = await CapacitorHttp.post(options);
             if (response.status == 200){
-                syncM4(id);
+                // syncM4(id);
                 // alert("Módulo Visivilidad de producto sincronizado con éxito.");    
+                await deleteData(CONSTANTS.STORAGE_PATHM1);
+                await deleteData(CONSTANTS.STORAGE_PATHM2);
+                await deleteData(CONSTANTS.STORAGE_PATHM3);
+                await deleteData(CONSTANTS.STORAGE_VENTAS);
+                await deleteData(CONSTANTS.STORAGE_ABORDADOS);
+                await deleteData(CONSTANTS.STORAGE_GIFUS);
+                alert("Sincronización éxitosa.");    
+                reset();
             }else {
                 loadOff();
                 alert("Opps! hubo un problema en el Módulo Visivilidad");
@@ -228,57 +236,57 @@ async function syncM3 (id){
     }
 }
 
-async function syncM4(id){
-    try {
-        const { data } = await Filesystem.readFile({
-            path: CONSTANTS.STORAGE_PATHM4,
-            directory: Directory.Documents,
-            encoding: Encoding.UTF8, 
-        });
+// async function syncM4(id){
+//     try {
+//         const { data } = await Filesystem.readFile({
+//             path: CONSTANTS.STORAGE_PATHM4,
+//             directory: Directory.Documents,
+//             encoding: Encoding.UTF8, 
+//         });
 
-        let dataModulo = JSON.parse(data);
+//         let dataModulo = JSON.parse(data);
 
-        dataModulo.forEach((item) => {
-            item.id = id,
-            item.pdv = pdv,
-            item.token = token
-        }); 
+//         dataModulo.forEach((item) => {
+//             item.id = id,
+//             item.pdv = pdv,
+//             item.token = token
+//         }); 
          
-        if (dataModulo.length){
-            const options = {
-                url: `${CONSTANTS.API_LINK}insertM4`,
-                headers: { 
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json'
-                 },
-                data: dataModulo,
-            };
+//         if (dataModulo.length){
+//             const options = {
+//                 url: `${CONSTANTS.API_LINK}insertM4`,
+//                 headers: { 
+//                   'Accept': 'application/json',
+//                   'Content-Type': 'application/json'
+//                  },
+//                 data: dataModulo,
+//             };
             
-            const response = await CapacitorHttp.post(options);
-            if (response.status == 200){
-                // alert("Módulo Disponibilidad de producto sincronizado con éxito.");    
-                await deleteData(CONSTANTS.STORAGE_PATHM1);
-                await deleteData(CONSTANTS.STORAGE_PATHM2);
-                await deleteData(CONSTANTS.STORAGE_PATHM3);
-                await deleteData(CONSTANTS.STORAGE_PATHM4);
-                await deleteData(CONSTANTS.STORAGE_VENTAS);
-                await deleteData(CONSTANTS.STORAGE_ABORDADOS);
-                await deleteData(CONSTANTS.STORAGE_GIFUS);
-                alert("Sincronización éxitosa.");    
-                reset();
-            }else {
-                loadOff();
-                alert("Opps! hubo un problema en el Módulo Disponibilidad de producto");
-            }
-        }else {
-            loadOff();
-            alert("Nada que sincronizar en el módulo Disponibilidad de producto.");    
-        }
-    }catch(error){
-        loadOff();
-        alert("No existe el módulo Disponibilidad de producto");
-    }
-} 
+//             const response = await CapacitorHttp.post(options);
+//             if (response.status == 200){
+//                 // alert("Módulo Disponibilidad de producto sincronizado con éxito.");    
+//                 await deleteData(CONSTANTS.STORAGE_PATHM1);
+//                 await deleteData(CONSTANTS.STORAGE_PATHM2);
+//                 await deleteData(CONSTANTS.STORAGE_PATHM3);
+//                 await deleteData(CONSTANTS.STORAGE_PATHM4);
+//                 await deleteData(CONSTANTS.STORAGE_VENTAS);
+//                 await deleteData(CONSTANTS.STORAGE_ABORDADOS);
+//                 await deleteData(CONSTANTS.STORAGE_GIFUS);
+//                 alert("Sincronización éxitosa.");    
+//                 reset();
+//             }else {
+//                 loadOff();
+//                 alert("Opps! hubo un problema en el Módulo Disponibilidad de producto");
+//             }
+//         }else {
+//             loadOff();
+//             alert("Nada que sincronizar en el módulo Disponibilidad de producto.");    
+//         }
+//     }catch(error){
+//         loadOff();
+//         alert("No existe el módulo Disponibilidad de producto");
+//     }
+// } 
 
 async function deleteData(src){
     try {

@@ -9,10 +9,10 @@ export const QUALITY = 25;
  
 // export const API_LINK = "https://desarrolloiglu.com/api/"
 // export const API_AUTH = "https://desarrolloiglu.com/api/login";
-// export const API_LINK = "http://localhost:8000/api/"
-// export const API_AUTH = "http://localhost:8000/api/login";
-export const API_LINK = "https://pmi-memories.com/api/"
-export const API_AUTH = "https://pmi-memories.com/api/login";
+export const API_LINK = "http://localhost:8000/api/"
+export const API_AUTH = "http://localhost:8000/api/login";
+// export const API_LINK = "https://pmi-memories.com/api/"
+// export const API_AUTH = "https://pmi-memories.com/api/login";
 
 export const puntosBogota = [ 
     { cod: '1105560', nom: "CIGARRERIA LOS LEONES" },
@@ -637,7 +637,7 @@ export const productos = `<optgroup label="MARLBORO">
                                 <option value="WINSTON ROJO">WINSTON ROJO</option>
                                 <option value="WINSTON BLANCO">WINSTON BLANCO</option>
                                 <option value="WINSTON YELLOW">WINSTON YELLOW</option>
-                                <option value="WINSTON YELLOW">WINSTON PURPLE</option>
+                                <option value="WINSTON PURPLE">WINSTON PURPLE</option>
                             </optgroup>`;                      
 
 export const gifus = `<optgroup label="HEETS IQOS">

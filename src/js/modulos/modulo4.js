@@ -1,45 +1,54 @@
 import * as CONSTANTS from'../constants/constants';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
-// Elems
-let producto = document.getElementById('producto');
-let presentacion = document.getElementById('presentacion');
-let precio = document.getElementById('precio');
-let stock = document.getElementById('stock');
-let disponibilidadList = document.getElementById('disponibilidad-list');
+// Elems 
+let visibilidad = document.getElementById('visibilidad');
+let foto_visibilidad = document.getElementById('foto_visibilidad');
+let foto_visibilidad_img = document.getElementById('foto_visibilidad_img');
+let foto_visibilidad_box = document.getElementById('foto_visibilidad_box');
 
-let productoComp = document.getElementById('productoComp');
-let presentacionComp = document.getElementById('presentacionComp');
-let precioComp = document.getElementById('precioComp');
-let stockComp = document.getElementById('stockComp');
-let disponibilidadCompList = document.getElementById('disponibilidadComp-list');
+let iniciativa = document.getElementById('iniciativa');
 
-// BUTTONS 
-let btnStore = document.getElementById('store'); 
-let btnVolver = document.getElementById('volver');
-let btnStoreDispo = document.getElementById('storeDispo');
-let btnStoreDispoComp = document.getElementById('storeDispoComp');
+let visibilidad_promocion = document.getElementById('visibilidad_promocion');
+let foto_visibilidad_promocion = document.getElementById('foto_visibilidad_promocion');
+let foto_visibilidad_promocion_img = document.getElementById('foto_visibilidad_promocion_img');
+let foto_visibilidad_promocion_box = document.getElementById('foto_visibilidad_promocion_box');
 
-let disponibilidades = [];
-let disponibilidadesComp = [];
-let elems = [];
+let venta_dispositivos = document.getElementById('venta_dispositivos');
+let remiciones = document.getElementById('remiciones');
+// Useful vars
+
+// BUTTONS
+let btnStore = document.getElementById('store');
+let btnReset = document.getElementById('reset');
+let btnVolver = document.getElementById('volver'); 
+ 
+let elems = [visibilidad, iniciativa, visibilidad_promocion, venta_dispositivos, remiciones];
+let photos = [foto_visibilidad_img, foto_visibilidad_promocion_img];
 
 function mount(){
-    fillFields();
+    
 }
 
-async function store (){
+async function store (){ 
+    let dataModulo = []; 
     if (validation()){
-        let dataModulo = [{
-            disponibilidades: disponibilidades,
-            disponibilidadesComp: disponibilidadesComp
-        }];
+        dataModulo = [{
+            visibilidad: visibilidad.value,
+            tipo_visibilidad: tipo_visibilidad.value,
+            visibilidad_competencia: visibilidad_competencia.value,
+            tipo_visibilidad_competencia: tipo_visibilidad_competencia.value,
+            foto_visibilidad_marca: foto_visibilidad_marca.src,
+            foto_visibilidad_competencia: foto_visibilidad_competencia.src,
 
-        appendData(CONSTANTS.STORAGE_PATHM4, dataModulo);
+        }];
     }else {
-        alert("Debes rellenar todos los campos");
+        alert("Debes rellenar todos los campos"); 
     }
+
+    appendData(CONSTANTS.STORAGE_PATHM4, dataModulo);
 }
 
 async function appendData(src, data){
@@ -52,80 +61,53 @@ async function appendData(src, data){
         });    
 
         alert("Datos almacenados con éxito.");
-        reset();
+
+        volver();
         vibrate();
     }catch(error){
         alert("Opps! tenemos un problema.");
     }
 }
 
-function storeDispo(){
-    if (producto.value && presentacion.value && stock.value){
-        disponibilidades.push({
-            producto: producto.value,
-            presentacion: presentacion.value,
-            precio: precio.value,
-            stock: stock.value
-        });
-        showDisponibilidades();
+const visibilidadPicture = async () => {
+    const image = await Camera.getPhoto({
+        quality: CONSTANTS.QUALITY,
+        allowEditing: false,
+        source: CameraSource.Camera,
+        resultType: CameraResultType.Base64
+    }); 
+
+    var image64 = image.base64String;
+
+    foto_visibilidad_img.src = `data:image/png;base64,${image64}`;
+    foto_visibilidad_img.style.display = "block";
+    foto_visibilidad_box.style.display = "none";
+};
+
+const visibilidadPromocionPicture = async () => {
+    const image = await Camera.getPhoto({
+        quality: CONSTANTS.QUALITY,
+        allowEditing: false,
+        source: CameraSource.Camera,
+        resultType: CameraResultType.Base64
+    }); 
+
+    var image64 = image.base64String;
+
+    foto_visibilidad_promocion_img.src = `data:image/png;base64,${image64}`;
+    foto_visibilidad_promocion_img.style.display = "block";
+    foto_visibilidad_promocion_box.style.display = "none";
+};
+
+function showElem(show, elem){
+    if (show === 'Si'){
+        elem.style.display = 'block';
+    }else {
+        elem.style.display = 'none';
     }
 }
 
-function storeDispoComp(){
-    if (productoComp.value && presentacionComp.value && stockComp.value){
-        disponibilidadesComp.push({
-            producto: productoComp.value,
-            presentacion: presentacionComp.value,
-            precio: precioComp.value,
-            stock: stockComp.value
-        });
-        showDisponibilidadesComp();
-    }
-}
-
-const deleteDisponibilidad = (key) =>{
-    disponibilidades.splice(key, 1);
-    showDisponibilidades();
-} 
-
-const deleteDisponibilidadComp = (key) => {
-    disponibilidadesComp.splice(key, 1);
-    showDisponibilidadesComp();
-}
-
-function showDisponibilidades(){
-    disponibilidadList.innerHTML = "";
-    disponibilidades.forEach((item, key) => {
-        disponibilidadList.innerHTML += 
-        `<tr class="text-center">
-            <td>${item.producto}</td>
-            <td>${item.presentacion}</td>
-            <td>${item.precio}</td>
-            <td>${item.stock}</td>
-            <td><button onclick="deleteDisponibilidad(${key})" class="btn btn-danger">x</button></td>
-        </tr>`;
-    });
-} 
-
-function showDisponibilidadesComp(){
-    disponibilidadCompList.innerHTML = "";
-    disponibilidadesComp.forEach((item, key) => {
-        disponibilidadCompList.innerHTML += 
-        `<tr class="text-center">
-            <td>${item.producto}</td>
-            <td>${item.presentacion}</td>
-            <td>${item.precio}</td>
-            <td>${item.stock}</td>
-            <td><button onclick="deleteDisponibilidadComp(${key})" class="btn btn-danger">x</button></td>
-        </tr>`;
-    });
-}
-
-async function vibrate(){
-    await Haptics.vibrate();
-}
-
-function validation (){ 
+function validation (){
     let validator = true;
 
     elems.forEach((elem) => {
@@ -134,77 +116,55 @@ function validation (){
         }
     });
 
+    photos.forEach((elem) => {
+        if (elem.src === ""){
+            validator = false;
+        } 
+    });
+
     return validator;
 }
+ 
+async function vibrate(){
+    await Haptics.vibrate();
+}
 
-function reset(){
+function reset(){ 
     elems.forEach((elem) => {
         elem.value = "";
     });
 
-    window.location.href = "index.html";
-}
-
-// Dynamic selects
-function fillFields(){
-    producto.innerHTML += CONSTANTS.productos;
-    productoComp.innerHTML += CONSTANTS.productos;
-    
-    CONSTANTS.presentaciones.forEach((item) => {
-        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
-        presentacionComp.innerHTML += `<option value="${item}">${item}</option>`;
+    photos.forEach((elem) => {
+        elem.removeAttribute('src'); 
     });
-}
 
-producto.addEventListener('change', () => {
-    if (producto.selectedIndex !== -1){
-        const selectedOptionElement = producto.options[producto.selectedIndex];   
-        if (selectedOptionElement.dataset.type == 'bons/hets'){
-            setPresentacionesElectricos();
-        }else if(selectedOptionElement.dataset.type == 'PIEL_ROJA'){ 
-            setPresentacionesPielRoja();
-        }else{ 
-            setPresentacionesCombustubles();
-        }
-    }    
-});
+    foto_visibilidad_box.style.display = "block";
+    foto_visibilidad_promocion_box.style.display = "block";
 
-function setPresentacionesElectricos(){
-    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
-    CONSTANTS.presentacionesElectricos.forEach((item) => {
-        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
-    });
+    showElem('No', foto_visibilidad);
+    showElem('No', foto_visibilidad_promocion);
 }
-
-function setPresentacionesCombustubles(){
-    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
-    CONSTANTS.presentaciones.forEach((item) => {
-        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-
-function setPresentacionesPielRoja(){
-    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
-    CONSTANTS.presentacionPielRoja.forEach((item) => {
-        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
-/* ** */  
 
 function volver(){
     window.location.href = "index.html";
-} 
+}
 
 window.addEventListener("DOMContentLoaded", function() {
-    mount()
+    mount();
 });
 
 // Events
 btnStore.addEventListener('click', store);
+btnReset.addEventListener('click', reset);
 btnVolver.addEventListener('click', volver);
-btnStoreDispo.addEventListener('click', storeDispo);
-btnStoreDispoComp.addEventListener('click', storeDispoComp);
 
-// Attached functions
-window.deleteDisponibilidad = deleteDisponibilidad;
-window.deleteDisponibilidadComp = deleteDisponibilidadComp;
+visibilidad.addEventListener('change', function(){
+    showElem(visibilidad.value, foto_visibilidad);
+});
+
+visibilidad_promocion.addEventListener('change', function(){
+    showElem(visibilidad_promocion.value, foto_visibilidad_promocion);
+});
+
+foto_visibilidad_box.addEventListener('click', visibilidadPicture);
+foto_visibilidad_promocion_box.addEventListener('click', visibilidadPromocionPicture);

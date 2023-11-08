@@ -19,7 +19,7 @@ function mount() {
     checkModulo1();
     checkModulo2();
     checkModulo3();
-    checkModulo4();
+    // checkModulo4(); 
 }
 
 async function checkModulo1(){
@@ -73,25 +73,26 @@ async function checkModulo3(){
     }
 }
 
-async function checkModulo4(){
-    try {
-        const { data } = await Filesystem.readFile({
-            path: CONSTANTS.STORAGE_PATHM4,
-            directory: Directory.Documents,
-            encoding: Encoding.UTF8,
-        });
+// async function checkModulo4(){
+//     try {
+//         const { data } = await Filesystem.readFile({
+//             path: CONSTANTS.STORAGE_PATHM4,
+//             directory: Directory.Documents,
+//             encoding: Encoding.UTF8,
+//         });
         
-        let dataModulo = JSON.parse(data);
-        if (dataModulo.length){
-            disableModulo(modulo4, checkboxM4);
-        }
-    }catch(error){
-        return true;
-    }
-}
+//         let dataModulo = JSON.parse(data);
+//         if (dataModulo.length){
+//             disableModulo(modulo4, checkboxM4);
+//         }
+//     }catch(error){
+//         return true;
+//     }
+// }
 
 function enableSync(){
-    if (checkboxM1.checked && checkboxM2.checked && checkboxM3.checked && checkboxM4.checked){
+    //  && checkboxM4.checked
+    if (checkboxM1.checked && checkboxM2.checked && checkboxM3.checked){
         sync.href = "sync.html";
     }else {
         sync.href = "#";

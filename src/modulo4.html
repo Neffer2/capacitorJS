@@ -25,132 +25,92 @@
             <span class="sr-only"></span>
         </div>
     </div> 
-
+ 
     <div id="main-content">
         <custom-navbar>
-            <slot>Disponibilidad de producto</slot>
+            <slot>PUNTOS AP</slot>
         </custom-navbar>  
         <div class="container my-2">
             <div class="row gy-2">
-                <!-- boton disponibilidad x srtock -->
-                <div class="col-md-12 my-3">
-                    <div class="text-center">
-                        <h6><b>DISPONIBILIDAD DE PRODUCTO</b></h6>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="visibilidad">¿El punto de venta tiene material de visibilidad? </label>
+                        <select name="visibilidad" id="visibilidad" class="form-control" required>
+                            <option value="">Seleccionar</option>
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
                     </div>
-                    <div class="row" style="font-size: 10px;">
-                        <div class="col-3 text-center">
-                            <b>PRODUCTO</b>
-                        </div> 
-                        <div class="col-3 text-center">
-                            <b>PRESENTACION</b>
-                        </div>
-                        <div class="col-3 text-center">
-                            <b>PRECIO</b>
-                        </div>
-                        <div class="col-3 text-center">
-                            <b>STOCK</b>
-                        </div>
+                </div>
+                <div class="col-md-12" id="foto_visibilidad" style="display: none;">
+                    <div class="col-md-12">
+                        <img id="foto_visibilidad_img" class="card-img-top" style="display: none;">
                     </div>
-                    <div class="row gy-2">
-                        <div class="col-3"> 
-                            <select id="producto" class="form-control">
-                                <option value="" class="text-center">🔽</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <select id="presentacion" class="form-control">
-                                <option value="" class="text-center">🔽</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <input id="precio" class="form-control" type="number">
-                        </div>
-                        <div class="col-3">
-                            <input id="stock" type="number" class="form-control" placeholder="">
-                        </div>
-                        <div class="col-12">
-                            <button id="storeDispo" class="btn btn-primary">Añadir disponibilidad</button>
+                    <div id="foto_visibilidad_box" class="col-md-12">
+                        <div class="upload-box">
+                            <span>Foto visibilidad de material</span>
                         </div>
                     </div>
-                    <div class="row my-2">
-                        <div class="col-12 table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <td class="text-center">Producto</td>
-                                        <td class="text-center">Presentaci&oacute;n</td>
-                                        <td class="text-center">Precio</td>
-                                        <td class="text-center">Stock</td>
-                                        <td class="text-center">Acciones</td>
-                                    </tr>
-                                </thead>
-                                <tbody id="disponibilidad-list">
-                                </tbody>
-                            </table>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group"> 
+                        <label for="iniciativa">¿Conoce la iniciativa/promoci&oacute;n de bonos adicionales por venta de dispositivos? </label>
+                        <select name="iniciativa" id="iniciativa" class="form-control" required>
+                            <option value="">Seleccionar</option>
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="visibilidad_promocion">¿Tiene la promoción visible en el PDV?</label>
+                        <select name="visibilidad_promocion" id="visibilidad_promocion" class="form-control" required>
+                            <option value="">Seleccionar</option>
+                            <option value="Si">Si</option>
+                            <option value="No">No</option> 
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12" id="foto_visibilidad_promocion" style="display: none;">
+                    <div class="col-md-12">
+                        <img id="foto_visibilidad_promocion_img" class="card-img-top" style="display: none;">
+                    </div>
+                    <div id="foto_visibilidad_promocion_box" class="col-md-12">
+                        <div class="upload-box">
+                            <span>Foto promoci&oacute;n visible</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="venta_dispositivos">¿Ha vendido algún dispositivo con esta promo?</label>
+                        <select name="venta_dispositivos" id="venta_dispositivos" class="form-control" required>
+                            <option value="">Seleccionar</option>
+                            <option value="Si">Si</option>
+                            <option value="No">No</option> 
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="remiciones">¿Qu&eacute; productos han redimido los clientes con este bono?</label>
+                        <textarea name="remiciones" id="remiciones" class="form-control" maxlength="500" required></textarea>
                     </div>
                 </div>
                 
-                <div class="col-md-12 my-3">
-                    <div class="row" style="font-size: 10px;">
-                        <div class="text-center">
-                            <h6><b>DISPONIBILIDAD DE PRODUCTO COMPETENCIA</b></h6>
-                        </div>
-                        <div class="col-3 text-center">
-                            <b>PRODUCTO</b>
-                        </div> 
-                        <div class="col-3 text-center">
-                            <b>PRESENTACION</b>
-                        </div>
-                        <div class="col-3 text-center">
-                            <b>PRECIO</b>
-                        </div>
-                        <div class="col-3 text-center">
-                            <b>STOCK</b>
-                        </div>
-                    </div>
-                    <div class="row gy-2">
-                        <div class="col-3">
-                            <select id="productoComp" class="form-control">
-                                <option value="" class="text-center">🔽</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <select id="presentacionComp" class="form-control">
-                                <option value="" class="text-center">🔽</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <input id="precioComp" class="form-control" type="number">
-                        </div>
-                        <div class="col-3">
-                            <input id="stockComp" type="number" class="form-control" placeholder="">
-                        </div>
-                        <div class="col-12">
-                            <button id="storeDispoComp" class="btn btn-primary">Añadir disponibilidad</button>
-                        </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col-12 table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <td class="text-center">Producto</td>
-                                        <td class="text-center">Presentaci&oacute;n</td>
-                                        <td class="text-center">Precio</td>
-                                        <td class="text-center">Stock</td>
-                                        <td class="text-center">Acciones</td>
-                                    </tr>
-                                </thead>
-                                <tbody id="disponibilidadComp-list">
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
                 <div class="d-grid gap-2">
                     <button id="store" class="btn btn-primary">
                         <b>ENVIAR</b>
+                    </button>
+                </div>
+                <div class="d-grid gap-2">
+                    <button id="reset" class="btn btn-secondary">
+                        <b>RESET</b>
                     </button>
                 </div>
                 <div class="d-grid gap-2">
