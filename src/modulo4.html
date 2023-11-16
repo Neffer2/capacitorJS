@@ -9,7 +9,7 @@
     />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-
+ 
     <script type="module" src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js" ></script>
     <script nomodule src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"></script>
 
@@ -28,80 +28,131 @@
  
     <div id="main-content">
         <custom-navbar>
-            <slot>PUNTOS AP</slot>
+            <slot>FORMULARIO SQUAD</slot>
         </custom-navbar>  
         <div class="container my-2">
             <div class="row gy-2">
-                <div class="col-md-12">
+                <div class="col-6">
                     <div class="form-group">
-                        <label for="visibilidad">¿El punto de venta tiene material de visibilidad? </label>
-                        <select name="visibilidad" id="visibilidad" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="Si">Si</option>
-                            <option value="No">No</option>
+                        <label for="genero">G&eacute;nero: </label>
+                        <select id="genero" class="form-control" required>
+                            <option value="" class="text-center">🔽</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-md-12" id="foto_visibilidad" style="display: none;">
-                    <div class="col-md-12">
-                        <img id="foto_visibilidad_img" class="card-img-top" style="display: none;">
-                    </div>
-                    <div id="foto_visibilidad_box" class="col-md-12">
-                        <div class="upload-box">
-                            <span>Foto visibilidad de material</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group"> 
-                        <label for="iniciativa">¿Conoce la iniciativa/promoci&oacute;n de bonos adicionales por venta de dispositivos? </label>
-                        <select name="iniciativa" id="iniciativa" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="Si">Si</option>
-                            <option value="No">No</option>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="edad">Edad: </label>
+                        <select id="edad" class="form-control" required>
+                            <option value="" class="text-center">🔽</option>
+                            <option value="18-22">18-22</option>
+                            <option value="23-27">23-27</option>
+                            <option value="28-32">28-32</option>
+                            <option value="33-37">33-37</option>
+                            <option value="38-42">38-42</option>
+                            <option value="43-47">43-47</option>
+                            <option value="48-52">48-52</option>
+                            <option value="53">Mas de 52</option>
                         </select>
                     </div>
                 </div>
-
-                <div class="col-md-12">
+                <div class="col-6">
                     <div class="form-group">
-                        <label for="visibilidad_promocion">¿Tiene la promoción visible en el PDV?</label>
-                        <select name="visibilidad_promocion" id="visibilidad_promocion" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="Si">Si</option>
-                            <option value="No">No</option> 
+                        <label for="interesInicial">Inter&eacute;s inicial: </label>
+                        <select id="interesInicial" class="form-control">
+                            <option value="" class="text-center">🔽</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-md-12" id="foto_visibilidad_promocion" style="display: none;">
-                    <div class="col-md-12">
-                        <img id="foto_visibilidad_promocion_img" class="card-img-top" style="display: none;">
-                    </div>
-                    <div id="foto_visibilidad_promocion_box" class="col-md-12">
-                        <div class="upload-box">
-                            <span>Foto promoci&oacute;n visible</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
+                <div class="col-6">
                     <div class="form-group">
-                        <label for="venta_dispositivos">¿Ha vendido algún dispositivo con esta promo?</label>
-                        <select name="venta_dispositivos" id="venta_dispositivos" class="form-control" required>
-                            <option value="">Seleccionar</option>
-                            <option value="Si">Si</option>
-                            <option value="No">No</option> 
+                        <label for="interesFinal">Inter&eacute;s final: </label>
+                        <select id="interesFinal" class="form-control">
+                            <option value="" class="text-center">🔽</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="col-md-12">
+                </div>   
+                
+                <div id="preferencia-container" class="col-12">
                     <div class="form-group">
-                        <label for="remiciones">¿Qu&eacute; productos han redimido los clientes con este bono?</label>
-                        <textarea name="remiciones" id="remiciones" class="form-control" maxlength="500" required></textarea>
+                        <label for="preferencia">¿Por qu&eacute; le gusta esta marca?</label>
+                        <select id="preferencia" class="form-control">
+                            <option value="">Seleccionar</option>
+                            <option value="Sabor">Sabor</option>
+                            <option value="Precio">Precio</option>
+                            <option value="Disponibilidad">Disponibilidad</option>
+                            <option value="Costumbre">Costumbre</option>
+                            <option value="Otro">Otro</option>
+                        </select>
                     </div>
-                </div>
+                </div>  
+                <div id="preferencia-competencia-container" class="col-12">
+                    <div class="form-group">
+                        <label for="preferencia-competencia">¿Por qu&eacute; prefiere esta marca por encima de las nuestras?</label>
+                        <select id="preferencia-competencia" class="form-control">
+                            <option value="">Seleccionar</option>
+                            <option value="Sabor">Sabor</option>
+                            <option value="Precio">Precio</option>
+                            <option value="Disponibilidad">Disponibilidad</option>
+                            <option value="Costumbre">Costumbre</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                </div>  
+                
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="mensaje-marca-SFP">¿Se entreg&oacute; mensaje de marca de SFP?</label>
+                        <select id="mensaje-marca-SFP" class="form-control">
+                            <option value="" >Seleccionar</option>
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div> 
+                <div id="SFP-marca-container" class="col-12">
+                    <div class="form-group">
+                        <label for="SFP-marca">De que marca:</label>
+                        <select id="SFP-marca" class="form-control">
+                            <option value="">Seleccionar</option>
+                            <option value="IQOS">IQOS</option>
+                            <option value="BONDS">BONDS</option>
+                        </select>
+                    </div>
+                </div> 
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="mensaje-marca-CCs">¿Se entreg&oacute; mensaje de la marca foco CCs?</label>
+                        <select id="mensaje-marca-CCs" class="form-control">
+                            <option value="">Seleccionar</option>
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div> 
+                <div id="CCs-marca-container" class="col-12">
+                    <div class="form-group">
+                        <label for="SFP-marca">De que marca:</label>
+                        <select id="SFP-marca" class="form-control">
+                            <option value="">Seleccionar</option>
+                            <option value="IQOS">IQOS</option>
+                            <option value="BONDS">BONDS</option>
+                        </select>
+                    </div>
+                </div> 
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="Ccs-agotado">¿Estaba agotada la marca foco CCs?</label>
+                        <select id="Ccs-agotado" class="form-control">
+                            <option value="">Seleccionar</option>
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div> 
+
                 
                 <div class="d-grid gap-2">
                     <button id="store" class="btn btn-primary">

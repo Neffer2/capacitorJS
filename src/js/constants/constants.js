@@ -554,90 +554,92 @@ export const presentacionesElectricos = [
     'CAJETILLA X20',
     'CARTON X200'
 ];
-
+ 
 export const presentacionPielRoja = [
     '1 Stick',
     '18s',
 ];
 
 export const productos = `<optgroup label="MARLBORO">
-                                <option value="MLB ROJO">MLB ROJO</option>
-                                <option value="MLB RED SELECTION">MLB RED SELECTION</option>
-                                <option value="MLB GOLD">MLB GOLD</option>
-                                <option value="MLB FUSION/FRUTOS ROJOS">MLB FUSION/FRUTOS ROJOS</option>
-                                <option value="MLB SUMMER/SANDIA">MLB SUMMER/SANDIA</option>
-                                <option value="MLB EXOTIC/TUTIFRUTI">MLB EXOTIC/TUTIFRUTI</option>
+                                <option value="MLB ROJO" data-pmi="1">MLB ROJO</option>
+                                <option value="MLB RED SELECTION" data-pmi="1">MLB RED SELECTION</option>
+                                <option value="MLB GOLD" data-pmi="1">MLB GOLD</option>
+                                <option value="MLB FUSION/FRUTOS ROJOS" data-pmi="1">MLB FUSION/FRUTOS ROJOS</option>
+                                <option value="MLB SUMMER/SANDIA" data-pmi="1">MLB SUMMER/SANDIA</option>
+                                <option value="MLB EXOTIC/TUTIFRUTI" data-pmi="1">MLB EXOTIC/TUTIFRUTI</option>
                             </optgroup>
                             <optgroup label="CHESTERFIELD">
-                                <option value="CHESTERFIELD AZUL">CHESTERFIELD AZUL</option>
-                                <option value="CHESTERFIELD BLANCO">CHESTERFIELD BLANCO</option>
-                                <option value="CHESTERFIELD GREEN">CHESTERFIELD GREEN</option>
-                                <option value="CHESTERFIELD PURPLE/FRUTOS ROJOS">CHESTERFIELD PURPLE/FRUTOS ROJOS</option>
+                                <option value="CHESTERFIELD AZUL" data-pmi="1">CHESTERFIELD AZUL</option>
+                                <option value="CHESTERFIELD BLANCO" data-pmi="1">CHESTERFIELD BLANCO</option>
+                                <option value="CHESTERFIELD GREEN" data-pmi="1">CHESTERFIELD GREEN</option>
+                                <option value="CHESTERFIELD PURPLE/FRUTOS ROJOS" data-pmi="1">CHESTERFIELD PURPLE/FRUTOS ROJOS</option>
                             </optgroup>
                             <optgroup label="L&M">
-                                <option value="L&M AZUL">L&M AZUL</option>
-                                <option value="L&M SELECCION AZUL">L&M SELECCION AZUL</option>
-                                <option value="L&M ROJO">L&M ROJO</option>
-                                <option value="L&M SELECCION ROJO">L&M SELECCION ROJO</option>
-                                <option value="L&M SILVER">L&M SILVER</option>
-                                <option value="L&M PURPLE/FRUTOS ROJOS">L&M PURPLE/FRUTOS ROJOS</option>
-                                <option value="L&M WARREGO/SANDIA">L&M WARREGO/SANDIA</option>
+                                <option value="L&M AZUL" data-pmi="1">L&M AZUL</option>
+                                <option value="L&M SELECCION AZUL" data-pmi="1">L&M SELECCION AZUL</option>
+                                <option value="L&M ROJO" data-pmi="1">L&M ROJO</option>
+                                <option value="L&M SELECCION ROJO" data-pmi="1">L&M SELECCION ROJO</option>
+                                <option value="L&M SILVER" data-pmi="1">L&M SILVER</option>
+                                <option value="L&M PURPLE/FRUTOS ROJOS" data-pmi="1">L&M PURPLE/FRUTOS ROJOS</option>
+                                <option value="L&M WARREGO/SANDIA" data-pmi="1">L&M WARREGO/SANDIA</option>
                             </optgroup>
                             <option value="CARIBE">CARIBE</option>
-                            <option value="PIEL ROJA" data-type="PIEL_ROJA">PIEL ROJA</option>
+                            <option value="PIEL ROJA" data-type="PIEL_ROJA" data-pmi="1">PIEL ROJA</option>
                             <optgroup label="IQOS">
-                                <option value="IQOS GRÁFITO">GRÁFITO</option>
-                                <option value="IQOS PLATA">PLATA</option>
-                                <option value="IQOS TURQUESA">TURQUESA</option>
-                                <option value="IQOS ESCARLATA">ESCARLATA</option>
+                                <option value="IQOS GRAFÍTO" data-pmi="1">GRAFÍTO</option>
+                                <option value="IQOS PLATA" data-pmi="1">PLATA</option>
+                                <option value="IQOS TURQUESA" data-pmi="1">TURQUESA</option>
+                                <option value="IQOS ESCARLATA" data-pmi="1">ESCARLATA</option>
                             </optgroup>
                             <optgroup label="HEETS IQOS">
-                                <option value="HEETS AMBER" data-type="bons/hets">AMBER</option>
-                                <option value="HEETS BRONZE" data-type="bons/hets">BRONZE</option>
-                                <option value="HEETS TURQUOISE" data-type="bons/hets">TURQUOISE</option>
-                                <option value="HEETS BLUE" data-type="bons/hets">BLUE</option>
-                                <option value="HEETS PURPLE" data-type="bons/hets">PURPLE</option>
+                                <option value="HEETS AMBER" data-type="bons/hets" data-pmi="1">AMBER</option>
+                                <option value="HEETS BRONZE" data-type="bons/hets" data-pmi="1">BRONZE</option>
+                                <option value="HEETS TURQUOISE" data-type="bons/hets" data-pmi="1">TURQUOISE</option>
+                                <option value="HEETS BLUE" data-type="bons/hets" data-pmi="1">BLUE</option>
+                                <option value="HEETS PURPLE" data-type="bons/hets" data-pmi="1">PURPLE</option>
                             </optgroup>
                             <optgroup label="BONDS">
-                                <option value="BONDS VERDE">VERDE</option>
-                                <option value="BONDS ROJO">ROJO</option>
-                                <option value="BONDS GRIS OSCURO">GRIS OSCURO</option>
-                                <option value="BONDS AZUL">AZUL</option>
+                                <option value="BONDS VERDE" data-pmi="1">VERDE</option>
+                                <option value="BONDS ROJO" data-pmi="1">ROJO</option>
+                                <option value="BONDS GRIS OSCURO" data-pmi="1">GRIS OSCURO</option>
+                                <option value="BONDS AZUL" data-pmi="1">AZUL</option>
                             </optgroup>
                             <optgroup label="BLENDS BONDS">
-                                <option value="BLENDS COPPER" data-type="bons/hets">BLENDS COPPER</option>
-                                <option value="BLENDS GOLD" data-type="bons/hetss">BLENDS GOLD</option>
-                                <option value="BLENDS BLUE" data-type="bons/hets">BLENDS BLUE</option>
-                                <option value="BLENDS CORAL" data-type="bons/hets">BLENDS CORAL</option>
+                                <option value="BLENDS COPPER" data-type="bons/hets" data-pmi="1">BLENDS COPPER</option>
+                                <option value="BLENDS GOLD" data-type="bons/hetss" data-pmi="1">BLENDS GOLD</option>
+                                <option value="BLENDS BLUE" data-type="bons/hets" data-pmi="1">BLENDS BLUE</option>
+                                <option value="BLENDS CORAL" data-type="bons/hets" data-pmi="1">BLENDS CORAL</option>
                             </optgroup>
+
                             <optgroup label="COMPETENCIA" class='text-center'></optgroup>
+                            
                             <optgroup label="LUCKY STRIKE">
-                                <option value="LUCKY STRIKE DAIQUIRI">LUCKY STRIKE DAIQUIRI</option>
-                                <option value="LUCKY STRIKE MOJITO">LUCKY STRIKE MOJITO</option>
-                                <option value="LUCKY STRIKE GIN">LUCKY STRIKE GIN</option>
-                                <option value="LUCKY STRIKE FEST">LUCKY STRIKE FEST</option>
+                                <option value="LUCKY STRIKE DAIQUIRI" data-pmi="0">LUCKY STRIKE DAIQUIRI</option>
+                                <option value="LUCKY STRIKE MOJITO" data-pmi="0">LUCKY STRIKE MOJITO</option>
+                                <option value="LUCKY STRIKE GIN" data-pmi="0">LUCKY STRIKE GIN</option>
+                                <option value="LUCKY STRIKE FEST" data-pmi="0">LUCKY STRIKE FEST</option>
                             </optgroup>
                             <optgroup label="ROTHMANS">
-                                <option value="ROTHMANS AZUL">ROTHMANS AZUL</option>
-                                <option value="ROTHMANS ROJO">ROTHMANS ROJO</option>
-                                <option value="ROTHMANS VERDE">ROTHMANS VERDE</option>
-                                <option value="ROTHMANS BLANCO">ROTHMANS BLANCO</option>
-                                <option value="ROTHMANS MORAZUL">ROTHMANS MORAZUL</option>
-                                <option value="ROTHMANS TROPIC">ROTHMANS TROPIC</option>
-                                <option value="ROTHMANS SILVER">ROTHMANS SILVER</option>
+                                <option value="ROTHMANS AZUL" data-pmi="0">ROTHMANS AZUL</option>
+                                <option value="ROTHMANS ROJO" data-pmi="0">ROTHMANS ROJO</option>
+                                <option value="ROTHMANS VERDE" data-pmi="0">ROTHMANS VERDE</option>
+                                <option value="ROTHMANS BLANCO" data-pmi="0">ROTHMANS BLANCO</option>
+                                <option value="ROTHMANS MORAZUL" data-pmi="0">ROTHMANS MORAZUL</option>
+                                <option value="ROTHMANS TROPIC" data-pmi="0">ROTHMANS TROPIC</option>
+                                <option value="ROTHMANS SILVER" data-pmi="0">ROTHMANS SILVER</option>
                             </optgroup>
                             <optgroup label="CAMEL">
-                                <option value="CAMEL AZUL">CAMEL AZUL</option>
-                                <option value="CAMEL SILVER">CAMEL SILVER</option>
-                                <option value="CAMEL MENTOL">CAMEL MENTOL</option>
+                                <option value="CAMEL AZUL" data-pmi="0">CAMEL AZUL</option>
+                                <option value="CAMEL SILVER" data-pmi="0">CAMEL SILVER</option>
+                                <option value="CAMEL MENTOL" data-pmi="0">CAMEL MENTOL</option>
                             </optgroup>
-                            <option value="PRESIDENT">PRESIDENT</option>
-                            <option value="STARLITE">STARLITE</option>
+                            <option value="PRESIDENT" data-pmi="0">PRESIDENT</option>
+                            <option value="STARLITE" data-pmi="0">STARLITE</option>
                             <optgroup label="WINSTON">
-                                <option value="WINSTON ROJO">WINSTON ROJO</option>
-                                <option value="WINSTON BLANCO">WINSTON BLANCO</option>
-                                <option value="WINSTON YELLOW">WINSTON YELLOW</option>
-                                <option value="WINSTON PURPLE">WINSTON PURPLE</option>
+                                <option value="WINSTON ROJO" data-pmi="0">WINSTON ROJO</option>
+                                <option value="WINSTON BLANCO" data-pmi="0">WINSTON BLANCO</option>
+                                <option value="WINSTON YELLOW" data-pmi="0">WINSTON YELLOW</option>
+                                <option value="WINSTON PURPLE" data-pmi="0">WINSTON PURPLE</option>
                             </optgroup>`;                      
 
 export const gifus = `<optgroup label="HEETS IQOS">

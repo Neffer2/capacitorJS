@@ -269,7 +269,7 @@ function reset(){
 function volver(){
     window.location.href = "index.html";
 } 
-// Events 
+// Events  
 btnStoreGifu.addEventListener('click', storeGifu);
 btnStoreVenta.addEventListener('click', storeVenta);
 btnStoreAbordado.addEventListener('click', storeAbordado);
@@ -297,7 +297,7 @@ function fillFileds() {
 
 producto.addEventListener('change', () => {
     if (producto.selectedIndex !== -1){
-        const selectedOptionElement = producto.options[producto.selectedIndex];   
+        const selectedOptionElement = producto.options[producto.selectedIndex];
         if (selectedOptionElement.dataset.type == 'bons/hets'){
             setPresentacionesElectricos();
         }else if(selectedOptionElement.dataset.type == 'PIEL_ROJA'){ 

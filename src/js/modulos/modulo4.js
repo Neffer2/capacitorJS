@@ -3,109 +3,90 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
-// Elems 
-let visibilidad = document.getElementById('visibilidad');
-let foto_visibilidad = document.getElementById('foto_visibilidad');
-let foto_visibilidad_img = document.getElementById('foto_visibilidad_img');
-let foto_visibilidad_box = document.getElementById('foto_visibilidad_box');
+// Elems
+let genero = document.getElementById('genero');
+let interesInicial = document.getElementById('interesInicial');
+let interesFinal = document.getElementById('interesFinal');
+let PreferenciaMarca = document.getElementById('preferencia');
+let PreferenciaCompetencia = document.getElementById('preferencia-competencia');
 
-let iniciativa = document.getElementById('iniciativa');
+let mensajeMarcaSfp = document.getElementById('mensaje-marca-SFP');
+let sfpMarca = document.getElementById('SFP-marca');
 
-let visibilidad_promocion = document.getElementById('visibilidad_promocion');
-let foto_visibilidad_promocion = document.getElementById('foto_visibilidad_promocion');
-let foto_visibilidad_promocion_img = document.getElementById('foto_visibilidad_promocion_img');
-let foto_visibilidad_promocion_box = document.getElementById('foto_visibilidad_promocion_box');
+let mensajeMarcaCcs = document.getElementById('mensaje-marca-CCs');
+let ccsMarca = document.getElementById('SFP-marca');
 
-let venta_dispositivos = document.getElementById('venta_dispositivos');
-let remiciones = document.getElementById('remiciones');
+let ccsAgotado = document.getElementById('Ccs-agotado');
+
 // Useful vars
+let PreferenciaContainer = document.getElementById('preferencia-container');
+let PreferenciaCompetenciaContainer = document.getElementById('preferencia-competencia-container');
+let sfpMarcaContainer = document.getElementById('SFP-marca-container');
+let ccsMarcaContainer = document.getElementById('CCs-marca-container');
+
 
 // BUTTONS
 let btnStore = document.getElementById('store');
 let btnReset = document.getElementById('reset');
 let btnVolver = document.getElementById('volver'); 
  
-let elems = [visibilidad, iniciativa, visibilidad_promocion, venta_dispositivos, remiciones];
-let photos = [foto_visibilidad_img, foto_visibilidad_promocion_img];
+let elems = [];
+let photos = [];
 
 function mount(){
-    
+    fillFileds();
+
+    PreferenciaContainer.style.display = "none";
+    PreferenciaCompetenciaContainer.style.display = "none";
+    sfpMarcaContainer.style.display = "none";
+    ccsMarcaContainer.style.display = "none";
 }
 
-async function store (){ 
-    let dataModulo = []; 
-    if (validation()){
-        dataModulo = [{
-            visibilidad: visibilidad.value,
-            tipo_visibilidad: tipo_visibilidad.value,
-            visibilidad_competencia: visibilidad_competencia.value,
-            tipo_visibilidad_competencia: tipo_visibilidad_competencia.value,
-            foto_visibilidad_marca: foto_visibilidad_marca.src,
-            foto_visibilidad_competencia: foto_visibilidad_competencia.src,
+function fillFileds() {
+    interesInicial.innerHTML += CONSTANTS.productos;
+    interesFinal.innerHTML += CONSTANTS.productos;
 
-        }];
-    }else {
-        alert("Debes rellenar todos los campos"); 
-    }
-
-    appendData(CONSTANTS.STORAGE_PATHM4, dataModulo);
+    CONSTANTS.generos.forEach(item => {
+        genero.innerHTML += `<option value="${item}">${item}</option>`;
+    });   
 }
 
-async function appendData(src, data){
-    try {
-        await Filesystem.writeFile({
-            path: src,
-            data: JSON.stringify(data),
-            directory: Directory.Documents,
-            encoding: Encoding.UTF8,
-        });    
+// async function store (){ 
+//     let dataModulo = []; 
+//     if (validation()){
+//         dataModulo = [{
+//             visibilidad: visibilidad.value,
+//             tipo_visibilidad: tipo_visibilidad.value,
+//             visibilidad_competencia: visibilidad_competencia.value,
+//             tipo_visibilidad_competencia: tipo_visibilidad_competencia.value,
+//             foto_visibilidad_marca: foto_visibilidad_marca.src,
+//             foto_visibilidad_competencia: foto_visibilidad_competencia.src,
 
-        alert("Datos almacenados con éxito.");
+//         }];
+//     }else {
+//         alert("Debes rellenar todos los campos"); 
+//     }
 
-        volver();
-        vibrate();
-    }catch(error){
-        alert("Opps! tenemos un problema.");
-    }
-}
+//     appendData(CONSTANTS.STORAGE_PATHM4, dataModulo);
+// }
 
-const visibilidadPicture = async () => {
-    const image = await Camera.getPhoto({
-        quality: CONSTANTS.QUALITY,
-        allowEditing: false,
-        source: CameraSource.Camera,
-        resultType: CameraResultType.Base64
-    }); 
+// async function appendData(src, data){
+//     try {
+//         await Filesystem.writeFile({
+//             path: src,
+//             data: JSON.stringify(data),
+//             directory: Directory.Documents,
+//             encoding: Encoding.UTF8,
+//         });    
 
-    var image64 = image.base64String;
+//         alert("Datos almacenados con éxito."); 
 
-    foto_visibilidad_img.src = `data:image/png;base64,${image64}`;
-    foto_visibilidad_img.style.display = "block";
-    foto_visibilidad_box.style.display = "none";
-};
-
-const visibilidadPromocionPicture = async () => {
-    const image = await Camera.getPhoto({
-        quality: CONSTANTS.QUALITY,
-        allowEditing: false,
-        source: CameraSource.Camera,
-        resultType: CameraResultType.Base64
-    }); 
-
-    var image64 = image.base64String;
-
-    foto_visibilidad_promocion_img.src = `data:image/png;base64,${image64}`;
-    foto_visibilidad_promocion_img.style.display = "block";
-    foto_visibilidad_promocion_box.style.display = "none";
-};
-
-function showElem(show, elem){
-    if (show === 'Si'){
-        elem.style.display = 'block';
-    }else {
-        elem.style.display = 'none';
-    }
-}
+//         volver();
+//         vibrate();
+//     }catch(error){
+//         alert("Opps! tenemos un problema."); 
+//     }
+// }
 
 function validation (){
     let validator = true;
@@ -129,6 +110,32 @@ async function vibrate(){
     await Haptics.vibrate();
 }
 
+function showPreferencia(show){
+    if (show){
+        PreferenciaContainer.style.display = "block";
+        PreferenciaCompetenciaContainer.style.display = "none";
+    }else {
+        PreferenciaContainer.style.display = "none";
+        PreferenciaCompetenciaContainer.style.display = "block";
+    }
+}
+
+function showSfp(show){
+    if (show){
+        sfpMarcaContainer.style.display = "block";
+    }else {        
+        sfpMarcaContainer.style.display = "none";
+    }
+}
+
+function showCcs(show){
+    if (show){
+        ccsMarcaContainer.style.display = "block";
+    }else {        
+        ccsMarcaContainer.style.display = "none";
+    }
+}
+
 function reset(){ 
     elems.forEach((elem) => {
         elem.value = "";
@@ -140,9 +147,6 @@ function reset(){
 
     foto_visibilidad_box.style.display = "block";
     foto_visibilidad_promocion_box.style.display = "block";
-
-    showElem('No', foto_visibilidad);
-    showElem('No', foto_visibilidad_promocion);
 }
 
 function volver(){
@@ -158,13 +162,27 @@ btnStore.addEventListener('click', store);
 btnReset.addEventListener('click', reset);
 btnVolver.addEventListener('click', volver);
 
-visibilidad.addEventListener('change', function(){
-    showElem(visibilidad.value, foto_visibilidad);
+interesFinal.addEventListener('change', () => {
+    let selectedOptionElement = interesFinal.options[interesFinal.selectedIndex];
+    if (selectedOptionElement.dataset.pmi == 1){
+        showPreferencia(true);
+    }else{
+        showPreferencia(false);
+    }
 });
 
-visibilidad_promocion.addEventListener('change', function(){
-    showElem(visibilidad_promocion.value, foto_visibilidad_promocion);
+mensajeMarcaSfp.addEventListener('change', () => {
+    if (mensajeMarcaSfp.value == 1){
+        showSfp(true);
+    }else{
+        showSfp(false);
+    }
 });
 
-foto_visibilidad_box.addEventListener('click', visibilidadPicture);
-foto_visibilidad_promocion_box.addEventListener('click', visibilidadPromocionPicture);
+mensajeMarcaCcs.addEventListener('change', () => {
+    if (mensajeMarcaCcs.value == 1){
+        showCcs(true);
+    }else{
+        showCcs(false);
+    }
+});
