@@ -28,7 +28,7 @@
 
     <div id="main-content">
         <custom-navbar>
-            <slot>Ventas abordaje</slot> 
+            <slot>Ventas abordaje</slot>  
         </custom-navbar> 
         <div class="container my-2">
             <div class="row gy-2">
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                     
-                    <div class="row gy-2">
+                    <div class="row gy-2"> 
                         <div class="col-4">
                             <select id="genero" class="form-control" required>
                                  <option value="" class="text-center">🔽</option>
@@ -126,10 +126,117 @@
                         <div class="col-4">
                             <input id="cantidad" type="number" class="form-control" placeholder="">
                         </div>
+
+                        <!-- -->
+                        <div id="preferencia-container" class="col-12 font-table" hidden>
+                            <div class="form-group">
+                                <label for="preferencia"><b>¿POR QU&Eacute; LE GUSTA ESTA MARCA?</b></label>
+                                <div id="preferencia-otro" class="">
+                                    <select id="preferencia" class="form-control">
+                                        <option value="">Seleccionar</option>
+                                        <option value="Sabor">Sabor</option>
+                                        <option value="Precio">Precio</option>
+                                        <option value="Disponibilidad">Disponibilidad</option>
+                                        <option value="Costumbre">Costumbre</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                    <textarea id="preferencia-otro-text" rows="1" class="form-control" placeholder="¿Por qu&eacute; motivo?" hidden></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="preferencia-competencia-container" class="col-12 font-table" hidden>
+                            <label for="preferencia-competencia"><b>¿POR QU&Eacute; PREFIERE ESTA MARCA POR ENCIMA DE LAS NUESTRAS?</b></label>
+                            <div id="preferencia-comp-otro" class="">
+                                <select id="preferencia-competencia" class="form-control">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Sabor">Sabor</option>
+                                    <option value="Precio">Precio</option>
+                                    <option value="Disponibilidad">Disponibilidad</option>
+                                    <option value="Costumbre">Costumbre</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                                <textarea id="preferencia-comp-otro-text" rows="1" class="form-control" placeholder="¿Por qu&eacute; motivo?" hidden></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-12 font-table">
+                            <div class="form-group">
+                                <label for="mensaje-marca-SFP">
+                                    <b>¿SE ENTREG&Oacute; MENSAJE DE MARCA DE SFP?</b>
+                                </label>
+                                <select id="mensaje-marca-SFP" class="form-control">
+                                    <option value="" >Seleccionar</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div> 
+                        <div id="SFP-marca-container" class="col-12 font-table" hidden>
+                            <div class="form-group">
+                                <label for="SFP-marca">
+                                    <b>¿DE QUE MARCA?</b>
+                                </label>
+                                <select id="SFP-marca" class="form-control">
+                                    <option value="">Seleccionar</option>
+                                    <option value="IQOS">IQOS</option>
+                                    <option value="BONDS">BONDS</option>
+                                    <option value="AMBAS">AMBAS</option>
+                                </select>
+                            </div>
+                        </div> 
+
+                        <div class="col-12 font-table">
+                            <div class="form-group">
+                                <label for="mensaje-marca-CCs"><b>¿SE ENTREG&Oacute; MENSAJE DE LA MARCA FOCO CCS?</b></label>
+                                <select id="mensaje-marca-CCs" class="form-control">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="CCs-marca-container" class="col-12 font-table" hidden>
+                            <div class="form-group">
+                                <label for="CCs-marca"><b>¿DE QUE MARCA?</b></label>
+                                <select id="CCs-marca" class="form-control">
+                                    <option value="">Seleccionar</option>
+                                    <option value="MLB">MARLBORO</option>
+                                    <option value="L&M">L&M</option>
+                                    <option value="CH">CHESTERFIELD</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 font-table">
+                            <div class="form-group">
+                                <label for="">
+                                    <b>ANTES DE MI INTERVENCI&Oacute;N, ¿EL CONSUMIDOR CONOC&Iacute;A ACERCA DE ALTERNATIVAS LIBRES DE HUMO?</b>
+                                </label>
+                                <select id="intervencion1" class="form-control">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 font-table">
+                            <div class="form-group">
+                                <label for="">
+                                    <b>ANTES DE MI INTERVENCI&Oacute;N, ¿EL CONSUMIDOR SAB&Iacute;A LA DIFERENCIA ENTRE FUMAR Y USAR DISPOSITIVOS DE CALENTAMIENTO DE TABACO?</b>
+                                </label>
+                                <select id="intervencion2" class="form-control">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- -->
                         <div class="col-12">
                             <button id="storeVenta" class="btn btn-primary">Añadir venta</button>
                         </div>
                     </div>
+
                     <div class="row my-2">
                         <div class="col-12 table-responsive">
                             <table class="table table-striped">

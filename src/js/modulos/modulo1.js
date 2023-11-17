@@ -13,6 +13,7 @@ let fechaVisita = document.getElementById('fechaVisita');
 let semana = document.getElementById('semana');
 let estrato = document.getElementById('estrato');
 let barrio = document.getElementById('barrio');
+let focoAgotado = document.getElementById('foco-agotado');
 let selfiePDV = document.getElementById('selfiePDV');
 let fotoFachada = document.getElementById('fotoFachada');
 
@@ -23,12 +24,12 @@ let pdvDire = document.getElementById('pdvDire');
 let selfiePDVBox = document.getElementById('selfiePDVBox');
 let fotoFachadaBox = document.getElementById('fotoFachadaBox');
 
-// BUTTONS
+// BUTTONS 
 let btnStore = document.getElementById('store');
 let btnReset = document.getElementById('reset');
 let btnVovler = document.getElementById('volver');
 
-let elems = [fechaVisita, semana, estrato, barrio];
+let elems = [fechaVisita, semana, estrato, barrio, focoAgotado];
 let photos = [selfiePDV, fotoFachada]; 
 
 function mount(){
@@ -55,6 +56,7 @@ async function store (){
             semana: semana.value,
             estrato: estrato.value,
             barrio: barrio.value.toUpperCase(),
+            focoAgotado: focoAgotado.value,
             selfiePDV: selfiePDV.src,
             fotoFachada: fotoFachada.src,
             novedades: null

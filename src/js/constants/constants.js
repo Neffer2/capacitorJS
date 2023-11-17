@@ -9,10 +9,10 @@ export const QUALITY = 25;
  
 // export const API_LINK = "https://desarrolloiglu.com/api/"
 // export const API_AUTH = "https://desarrolloiglu.com/api/login";
-// export const API_LINK = "http://localhost:8000/api/"
-// export const API_AUTH = "http://localhost:8000/api/login";
-export const API_LINK = "https://pmi-memories.com/api/"
-export const API_AUTH = "https://pmi-memories.com/api/login";
+export const API_LINK = "http://localhost:8000/api/"
+export const API_AUTH = "http://localhost:8000/api/login";
+// export const API_LINK = "https://pmi-memories.com/api/"
+// export const API_AUTH = "https://pmi-memories.com/api/login";
 
 export const puntosBogota = [ 
     { cod: '1105560', nom: "CIGARRERIA LOS LEONES" },
@@ -201,7 +201,7 @@ export const puntosCali = [
     {cod: '676630', nom: 'ALEJANDRO RAMIREZ'},
     {cod: '927505', nom: 'MIGUEL MOSQUERA CUESTA'},
     {cod: '702824', nom: 'ARBOLEDA MOISES'}
-];
+]; 
 
 export const puntosSantaMarta = [
     { cod: '1055334', nom: 'TIENDA Y ESTADERITO LA 19' },

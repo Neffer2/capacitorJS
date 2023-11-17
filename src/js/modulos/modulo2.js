@@ -13,12 +13,37 @@ let cantidad = document.getElementById('cantidad');
 let interesInicial = document.getElementById('interes'); 
 let ventasList = document.getElementById('ventas-list'); 
 
+let preferenciaMarca = document.getElementById('preferencia');
+let preferenciaOtroText = document.getElementById('preferencia-otro-text');
+
+let preferenciaCompetencia = document.getElementById('preferencia-competencia');
+let preferenciaCompOtroText = document.getElementById('preferencia-comp-otro-text');
+
+let mensajeMarcaSfp = document.getElementById('mensaje-marca-SFP');
+let sfpMarca = document.getElementById('SFP-marca');
+
+let mensajeMarcaCcs = document.getElementById('mensaje-marca-CCs');
+let ccsMarca = document.getElementById('CCs-marca');
+
+let intervencion1 = document.getElementById('intervencion1');
+let intervencion2 = document.getElementById('intervencion2');
+
 let gifu = document.getElementById('gifu');
 let genero_gifu = document.getElementById('genero_gifu');
 let edad_gifu = document.getElementById('edad_gifu');
 let gifusList = document.getElementById('gifus-list');
 
-// BUTTONS
+// Useful vars
+let preferenciaContainer = document.getElementById('preferencia-container');
+let preferenciaOtro = document.getElementById('preferencia-otro');
+
+let preferenciaCompetenciaContainer = document.getElementById('preferencia-competencia-container');
+let preferenciaCompOtro = document.getElementById('preferencia-comp-otro');
+
+let sfpMarcaContainer = document.getElementById('SFP-marca-container');
+let ccsMarcaContainer = document.getElementById('CCs-marca-container');
+
+// BUTTONS 
 let btnStore = document.getElementById('store');
 let btnStoreVenta = document.getElementById('storeVenta');
 let btnStoreGifu = document.getElementById('storeGifu');
@@ -63,16 +88,69 @@ async function storeAbordado(){
 }
 
 async function storeVenta(){
-    if (producto.value && presentacion.value && genero.value && edad.value && cantidad.value){
+    let validation = true;
+
+    if (mensajeMarcaSfp.value == 0){sfpMarca.value = "";}
+    if (mensajeMarcaCcs.value == 0){ ccsMarca.value = "";}
+
+    /* VALIDATION */
+    if (preferenciaMarca.value == "" && preferenciaCompetencia.value == ""){
+        validation = false;
+    }
+        
+    if (preferenciaMarca.value == "Otro" && preferenciaOtroText.value == ""){
+        validation = false;
+    }
+
+    if(preferenciaCompetencia.value == "Otro" && preferenciaCompOtroText.value == ""){
+        validation = false;
+    }    
+
+    if (mensajeMarcaSfp.value == ""){
+        validation = false;
+    }
+
+    if (mensajeMarcaCcs.value == ""){
+        validation = false;
+    }
+
+    if (mensajeMarcaSfp.value == 1 && sfpMarca.value == ""){
+        validation = false;
+    }
+
+    if (mensajeMarcaCcs.value == 1 && ccsMarca.value == ""){
+        validation = false;
+    }
+    /* ** */
+
+    if (producto.value && presentacion.value && genero.value && edad.value && cantidad.value && intervencion1.value && intervencion2.value && validation){
         await appendVenta({
             producto: producto.value,
             presentacion: presentacion.value,
             genero: genero.value,
             edad: edad.value,
             cantidad:cantidad.value,
-            interesInicial: interesInicial.value
+            interesInicial: interesInicial.value,
+
+            preferenciaMarca: preferenciaMarca.value,
+            preferenciaOtroText: preferenciaOtroText.value,
+
+            preferenciaCompetencia: preferenciaCompetencia.value,
+            preferenciaCompOtroText: preferenciaCompOtroText.value,
+
+            mensajeMarcaSfp: mensajeMarcaSfp.value,
+            sfpMarca: sfpMarca.value,
+
+            mensajeMarcaCcs: mensajeMarcaCcs.value,
+            ccsMarca: ccsMarca.value,
+
+            intervencion1: intervencion1.value,
+            intervencion2: intervencion2.value,
         });
         showVentas();
+        resetVentaForm();
+    }else { 
+        alert("Debes llenar todos los campos");
     }
 }
 
@@ -84,6 +162,7 @@ async function storeGifu(){
             edad_gifu: edad_gifu.value,
         });
         showGifus();
+        resetGifusForm();
     }
 }
 
@@ -173,6 +252,32 @@ async function showGifus(){
         });
     }
 }
+
+function showPreferencia(show){
+    if (show){
+        preferenciaContainer.hidden = false;
+        preferenciaCompetenciaContainer.hidden = true;
+    }else {
+        preferenciaContainer.hidden = true;
+        preferenciaCompetenciaContainer.hidden = false;
+    }
+}
+
+function showSfp(show){
+    if (show){
+        sfpMarcaContainer.hidden = false;
+    }else {        
+        sfpMarcaContainer.hidden = true;
+    }
+}
+
+function showCcs(show){
+    if (show){
+        ccsMarcaContainer.hidden = false;
+    }else {        
+        ccsMarcaContainer.hidden = true;
+    }
+}
 /* *** */
 
 /* Appends */
@@ -258,17 +363,79 @@ function validation (){
     return validator;
 }
 
-function reset(){
-    elems.forEach((elem) => {
-        elem.value = "";
-    });
+function resetFileds(){
+    preferenciaMarca.value = "";
+    preferenciaOtroText.value = "";
+    preferenciaOtroText.hidden = true;
 
-    window.location.href = "index.html";
+    preferenciaCompetencia.value = "";
+    preferenciaCompOtroText.value = "";
+    preferenciaCompOtroText.hidden = true;
+}
+
+function resetVentaForm(){
+    producto.value = "";
+    presentacion.value = "";
+    genero.value = "";
+    edad.value = "";
+    cantidad.value = "";
+    interesInicial.value = "";
+
+    preferenciaMarca.value = "";
+    preferenciaOtroText.value = "";
+
+    preferenciaCompetencia.value = "";
+    preferenciaCompOtroText.value = "";
+
+    mensajeMarcaSfp.value = "";
+    sfpMarca.value = "";
+
+    mensajeMarcaCcs.value = "";
+    ccsMarca.value = "";
+
+    intervencion1.value = "";
+    intervencion2.value = "";
+    preferenciaOtroText.hidden = true;
+    preferenciaCompOtroText.hidden = true;
+}
+
+function resetGifusForm(){
+    gifu.value = "";
+    genero_gifu.value = "";
+    edad_gifu.value = "";
 }
 
 function volver(){
     window.location.href = "index.html";
 } 
+
+/* Setters */
+function setPresentacionesElectricos(){
+    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
+    CONSTANTS.presentacionesElectricos.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
+function setPresentacionesCombustubles(){
+    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
+    CONSTANTS.presentaciones.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
+function setPresentacionesPielRoja(){
+    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
+    CONSTANTS.presentacionPielRoja.forEach((item) => {
+        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
+function reset(){
+    window.location.href = "index.html";
+}
+/* *** */
+
 // Events  
 btnStoreGifu.addEventListener('click', storeGifu);
 btnStoreVenta.addEventListener('click', storeVenta);
@@ -293,7 +460,7 @@ function fillFileds() {
         genero_gifu.innerHTML += `<option value="${item}">${item}</option>`;
     });    
 }
-/* ** */
+/* ** */ 
 
 producto.addEventListener('change', () => {
     if (producto.selectedIndex !== -1){
@@ -308,26 +475,53 @@ producto.addEventListener('change', () => {
     }    
 });
 
-function setPresentacionesElectricos(){
-    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
-    CONSTANTS.presentacionesElectricos.forEach((item) => {
-        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
+interesInicial.addEventListener('change', () => {
+    resetFileds();
+    let selectedOptionElement = interesInicial.options[interesInicial.selectedIndex];
+    if (selectedOptionElement.dataset.pmi == 1){
+        showPreferencia(true);
+    }else{
+        showPreferencia(false);
+    }
+});
 
-function setPresentacionesCombustubles(){
-    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
-    CONSTANTS.presentaciones.forEach((item) => {
-        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
+preferenciaMarca.addEventListener('change', () => {
+    if(preferenciaMarca.value === "Otro"){
+        preferenciaOtro.className = "d-flex gap-0 column-gap-3";
+        preferenciaOtroText.hidden = false;
+    }else {
+        preferenciaOtro.className = "";
+        preferenciaOtroText.hidden = true;
+        preferenciaOtroText.value = "";
+    }
+});
 
-function setPresentacionesPielRoja(){
-    presentacion.innerHTML = "<option value='' class='text-center'>🔽</option>";
-    CONSTANTS.presentacionPielRoja.forEach((item) => {
-        presentacion.innerHTML += `<option value="${item}">${item}</option>`;
-    });
-}
+preferenciaCompetencia.addEventListener('change', () => {
+    if(preferenciaCompetencia.value === "Otro"){
+        preferenciaCompOtro.className = "d-flex gap-0 column-gap-3";
+        preferenciaCompOtroText.hidden = false;
+    }else {
+        preferenciaCompOtro.className = "";
+        preferenciaCompOtroText.hidden = true;
+        preferenciaCompOtroText.value = "";
+    }
+});
+
+mensajeMarcaSfp.addEventListener('change', () => {
+    if (mensajeMarcaSfp.value == 1){
+        showSfp(true);
+    }else{
+        showSfp(false);
+    }
+});
+
+mensajeMarcaCcs.addEventListener('change', () => {
+    if (mensajeMarcaCcs.value == 1){
+        showCcs(true);
+    }else{
+        showCcs(false);
+    }
+});
 
 window.addEventListener("DOMContentLoaded", function() {
     mount()

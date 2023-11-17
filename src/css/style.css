@@ -6,6 +6,10 @@ body {
   font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif !important;
 }
 
+.font-table {
+  font-size: 10px;
+}
+
 #loading-container {
   height: 100%;
   display: flex;

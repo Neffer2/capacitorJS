@@ -73,22 +73,22 @@ async function checkModulo3(){
     }
 }
 
-async function checkModulo4(){
-    try {
-        const { data } = await Filesystem.readFile({
-            path: CONSTANTS.STORAGE_PATHM4,
-            directory: Directory.Documents,
-            encoding: Encoding.UTF8,
-        });
+// async function checkModulo4(){
+//     try {
+//         const { data } = await Filesystem.readFile({
+//             path: CONSTANTS.STORAGE_PATHM4,
+//             directory: Directory.Documents,
+//             encoding: Encoding.UTF8,
+//         });
         
-        let dataModulo = JSON.parse(data);
-        if (dataModulo.length){
-            disableModulo(modulo4, checkboxM4);
-        }
-    }catch(error){
-        return true;
-    }
-}
+//         let dataModulo = JSON.parse(data);
+//         if (dataModulo.length){
+//             disableModulo(modulo4, checkboxM4);
+//         }
+//     }catch(error){
+//         return true;
+//     }
+// }
 
 function enableSync(){
     //  && checkboxM4.checked
