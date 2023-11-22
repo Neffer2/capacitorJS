@@ -91,7 +91,7 @@ async function storeVenta(){
     let validation = true;
 
     if (mensajeMarcaSfp.value == 0){sfpMarca.value = "";}
-    if (mensajeMarcaCcs.value == 0){ ccsMarca.value = "";}
+    if (mensajeMarcaCcs.value == 0){ccsMarca.value = "";}
 
     /* VALIDATION */
     if (preferenciaMarca.value == "" && preferenciaCompetencia.value == ""){
