@@ -1,6 +1,6 @@
 import * as CONSTANTS from'../constants/constants';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { Haptics } from '@capacitor/haptics';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 // Elems
@@ -10,7 +10,6 @@ let busquedaCiudad = {value: null};
 
 let pdv = document.getElementById('pdv');
 let fechaVisita = document.getElementById('fechaVisita');
-let semana = document.getElementById('semana');
 let estrato = document.getElementById('estrato');
 let barrio = document.getElementById('barrio');
 let focoAgotado = document.getElementById('foco-agotado');
@@ -29,14 +28,14 @@ let btnStore = document.getElementById('store');
 let btnReset = document.getElementById('reset');
 let btnVovler = document.getElementById('volver');
 
-let elems = [fechaVisita, semana, estrato, barrio, focoAgotado];
+let elems = [fechaVisita, estrato, barrio, focoAgotado];
 let photos = [selfiePDV, fotoFachada]; 
 
 function mount(){
     ciudad.value = getCiudad();  
     fillPdv();  
 }
-
+ 
 function getCiudad(){
     return localStorage.getItem('ciudad');
 }
@@ -53,7 +52,6 @@ async function store (){
             token: CONSTANTS.generateToken(),
             pdv: auxPdv,
             fechaVisita: fechaVisita.value,
-            semana: semana.value,
             estrato: estrato.value,
             barrio: barrio.value.toUpperCase(),
             focoAgotado: focoAgotado.value,

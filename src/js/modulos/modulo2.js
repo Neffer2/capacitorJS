@@ -65,7 +65,7 @@ async function store (){
     let ventasStored = await readData(CONSTANTS.STORAGE_VENTAS);
     let gifusStored = await readData(CONSTANTS.STORAGE_GIFUS);
 
-    if (validation()){
+    if (validation() && ventasStored.length){
         let dataModulo = [{
             num_abordadas: abordadosStored.length -1,
             ventas: ventasStored,
